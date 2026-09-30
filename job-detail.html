@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مهندس برمجيات واجهات (Frontend / React) | شركة فالكون - صنارة مصر 🇪🇬</title>
+  <meta name="description" content="تفاصيل وظيفة مهندس برمجيات واجهات في التجمع الخامس بالقاهرة براتب مجزٍ. قدّم دلوقتي بضغطة زرار واحدة عبر صنارة.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="navbar" id="main-header">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html" class="brand-link">
+          <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img">
+        </a>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="jobs.html" class="nav-link active">وظائف</a>
+        <a href="employer-login.html" class="nav-link">أصحاب العمل</a>
+        <a href="profile.html" class="nav-link">بروفايلي المهني</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn-primary" id="openRegisterBtn">اعمل حساب جديد</button>
+      </div>
+
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="section-container">
+      <nav class="breadcrumbs" style="margin-bottom: 24px;">
+        <a href="index.html">الرئيسية</a>
+        <span>/</span>
+        <a href="jobs.html">وظائف مصر</a>
+        <span>/</span>
+        <span>مهندس برمجيات واجهات (Frontend)</span>
+      </nav>
+
+      <!-- Main Job Card Header -->
+      <div class="job-detail-header-card">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+          <div style="display: flex; align-items: center; gap: 20px;">
+            <div class="job-company-icon" style="width: 72px; height: 72px; border-radius: 20px;">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+                <h1 style="font-size: 1.8rem; font-weight: 900; color: var(--text-headline);">مهندس برمجيات واجهات وتطبيقات (Frontend / React)</h1>
+                <span class="badge-verified">شركة معتمدة في مصر 🇪🇬</span>
+              </div>
+              <p style="font-size: 1.05rem; font-weight: 600; color: var(--text-muted);">شركة فالكون للحلول الرقمية • التجمع الخامس، القاهرة • مسؤول التعيين: م. مينا سمير وم. سامح موريس</p>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <button type="button" class="btn-outline" id="saveJobBtn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              <span>احفظ الوظيفة</span>
+            </button>
+            <button type="button" class="btn-primary btn-lg" id="directApplyBtn">
+              <span>قدّم على الوظيفة في ثواني</span>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="job-card-chips" style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle); margin-bottom: 0;">
+          <span class="chip-item">📍 القاهرة • التجمع الخامس (Fifth Settlement)</span>
+          <span class="chip-item">⏰ دوام كامل (Hybrid يومين ريموت)</span>
+          <span class="chip-item chip-salary">💰 ٢٥,٠٠٠ - ٣٨,٠٠٠ ج.م شهرياً</span>
+          <span class="chip-item">🎓 بكالوريوس هندسة / حاسبات ومعلومات</span>
+          <span class="chip-item">📅 نازلة النهاردة</span>
+        </div>
+      </div>
+
+      <!-- Job Content & Sidebar Grid -->
+      <div class="job-detail-grid">
+        <!-- Main Description -->
+        <div class="job-detail-content">
+          <div class="job-content-section">
+            <h3>تفاصيل الوظيفة ونبذة عن الدور</h3>
+            <p style="line-height: 1.8; color: var(--text-body);">
+              شركة فالكون لحلول التكنولوجيا في التجمع الخامس بتدور على Senior Frontend Engineer شاطر ومحترف ينضم للتيم التقني. هتشتغل على منصات فنتك وبوابات دفع إلكتروني بيستخدمها مئات الآلاف في مصر، وهتطبق أحدث التكنولوجيز في بناء الواجهات السريعة والمتجاوبة مع كل الشاشات مع تيم مهندسين شاطرين بقيادة م. مينا سمير وم. سامح موريس.
+            </p>
+          </div>
+
+          <div class="job-content-section">
+            <h3>المهام والمسؤوليات الأساسية</h3>
+            <ul>
+              <li>بناء وتطوير واجهات المستخدم التفاعلية باستخدام React و Next.js و TypeScript بأعلى معايير الكود النظيف.</li>
+              <li>التعاون مع تيم الـ UI/UX لتحويل تصميمات Figma لواجهات حقيقية سريعة بكسل بيرفكت.</li>
+              <li>تسريع أداء الموقع وتحسين تجربة التصفح على الموبايل وسرعة التحميل (Core Web Vitals).</li>
+              <li>الربط السلس مع واجهات الـ REST APIs وخدمات الـ Backend السحابية.</li>
+              <li>مراجعة الأكواد البرمجية (Code Review) ومساعدة المهندسين الجونيور في التيم.</li>
+            </ul>
+          </div>
+
+          <div class="job-content-section">
+            <h3>الشروط والمؤهلات المطلوبة</h3>
+            <ul>
+              <li>خبرة عملية لا تقل عن ٣ سنين في تطوير الواجهات باستخدام React أو Next.js.</li>
+              <li>إتقان كامل لـ JavaScript الحديثة (ES6+)، TypeScript، و CSS المتقدم.</li>
+              <li>خبرة كويسة في التعامل مع Git و GitHub والعمل بمنهجية Agile / Scrum.</li>
+              <li>خريج هندسة حاسبات أو كليات الحاسبات والمعلومات أو ما يعادلها.</li>
+              <li>شخصية متعاونة وشغوفة بالتعلم وحل المشاكل التقنية المعقدة.</li>
+            </ul>
+          </div>
+
+          <div class="job-content-section">
+            <h3>المزايا والبدلات اللي هتاخدها</h3>
+            <ul>
+              <li>راتب شهري مجزٍ جداً بالجنيه المصري (٢٥,٠٠٠ - ٣٨,٠٠٠ ج.م) حسب الخبرة ومستوى الشطارة.</li>
+              <li>تأمين طبي خاص شامل للموظف والأسرة (Family Medical Insurance).</li>
+              <li>نظام عمل مرن Hybrid (يومين عمل من البيت ريموت).</li>
+              <li>بونص سنوي على الأداء وبدل مواصلات للتجمع الخامس.</li>
+              <li>بيئة عمل مريحة تدعم التطور المهني وحضور المؤتمرات والكورسات التقنية.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Sidebar Info -->
+        <aside class="job-sidebar-card">
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-headline);">معلومات صاحب الشغل والشركة</h3>
+          <div style="display: flex; flex-direction: column; gap: 14px; font-size: 0.92rem;">
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;">اسم الشركة</span>
+              <strong style="color: var(--text-headline);">شركة فالكون للحلول الرقمية</strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;">مسؤول التعيين والـ HR</span>
+              <strong style="color: var(--brand-blue);">م. مينا سمير (HR Lead)</strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;">المقر في مصر</span>
+              <strong style="color: var(--text-headline);">القاهرة الجديدة، التجمع الخامس</strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;">الموقع الإلكتروني</span>
+              <strong style="color: var(--brand-blue);">www.falcontech.eg</strong>
+            </div>
+          </div>
+
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+            <button type="button" class="btn-primary btn-block" id="sidebarApplyBtn">قدّم دلوقتي في ثواني</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="section-container footer-bottom-inner" style="border: none; flex-direction: column; gap: 12px; text-align: center;">
+      <a href="index.html" class="brand-link" style="margin-bottom: 4px;">
+        <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img-footer" style="margin: 0 auto;">
+      </a>
+      <p>© 2026 منصة صنارة (SANARA مصر 🇪🇬). جميع الحقوق محفوظة.</p>
+      <a href="jobs.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">← ارجع تصفح باقي الوظائف في مصر</a>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('directApplyBtn')?.addEventListener('click', () => {
+      const btn = document.getElementById('directApplyBtn');
+      btn.textContent = 'تم إرسال طلبك بنجاح ✓';
+      btn.style.backgroundColor = '#10B981';
+      btn.disabled = true;
+      if (typeof showToast === 'function') {
+        showToast('عاش يا بطل! طلبك وصل للمهندس مينا سمير وهيتم التواصل معاك في أقرب وقت 🚀', 'success');
+      } else {
+        alert('تم إرسال طلبك بنجاح!');
+      }
+    });
+
+    document.getElementById('sidebarApplyBtn')?.addEventListener('click', () => {
+      document.getElementById('directApplyBtn')?.click();
+    });
+
+    document.getElementById('saveJobBtn')?.addEventListener('click', function() {
+      this.classList.toggle('bookmarked');
+      if (typeof showToast === 'function') {
+        showToast('اتحفظت الوظيفة في المفضلة عندك عشان ترجعلها وقت ما تحب!', 'info');
+      } else {
+        alert('تم حفظ الوظيفة!');
+      }
+    });
+  </script>
+</body>
+</html>

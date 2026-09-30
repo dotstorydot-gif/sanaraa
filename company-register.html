@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل شركة جديدة واعتماد الأوراق القانونية ونشر وظيفة | صنارة مصر 🇪🇬</title>
+  <meta name="description" content="تسجيل واعتماد أصحاب الشركات في مصر مع رفع السجل التجاري والبطاقة الضريبية ونشر إعلانات الوظائف فوراً.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="navbar" id="main-header">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html" class="brand-link">
+          <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img">
+        </a>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="jobs.html" class="nav-link">وظائف</a>
+        <a href="employer-login.html" class="nav-link active">أصحاب العمل</a>
+        <a href="profile.html" class="nav-link">بروفايلي المهني</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="employer-login.html" class="btn-outline">تسجيل دخول الشركات</a>
+      </div>
+
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="mobile-nav-link">الرئيسية</a>
+      <a href="jobs.html" class="mobile-nav-link">وظائف</a>
+      <a href="employer-login.html" class="mobile-nav-link">أصحاب العمل</a>
+      <a href="profile.html" class="mobile-nav-link">بروفايلي المهني</a>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="section-container" style="max-width: 950px;">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumbs" style="margin-bottom: 24px;">
+        <a href="index.html">الرئيسية</a>
+        <span>/</span>
+        <a href="employer-dashboard.html">أصحاب العمل</a>
+        <span>/</span>
+        <span>تسجيل واعتماد الشركة ونشر وظيفة</span>
+      </nav>
+
+      <!-- Page Header -->
+      <div style="margin-bottom: 36px; text-align: center;">
+        <div class="pill-badge" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="badge-dot"></span>
+          اعتماد الشركات القانونية الموثوقة في مصر 🇪🇬
+        </div>
+        <h1 style="font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 900; color: var(--text-headline); margin-bottom: 12px; line-height: 1.2;">
+          تسجيل الشركة، اعتماد الأوراق الرسمية، ونشر أول وظيفة 🏢
+        </h1>
+        <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 720px; margin: 0 auto; line-height: 1.6;">
+          خطوات بسيطة وسريعة لتوثيق شركتك بالسجل التجاري والبطاقة الضريبية لبدء استقبال طلبات أفضل وأشطر الكفاءات في مصر بأمان ومصداقية كاملة.
+        </p>
+      </div>
+
+      <!-- Trust & Verification Banner -->
+      <div style="background: linear-gradient(135deg, rgba(0, 71, 255, 0.06) 0%, rgba(0, 128, 128, 0.06) 100%); border: 1.5px solid rgba(0, 71, 255, 0.18); border-radius: var(--radius-lg); padding: 20px 24px; margin-bottom: 30px; display: flex; align-items: center; gap: 16px;">
+        <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--brand-blue); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.5rem;">
+          🛡️
+        </div>
+        <div>
+          <strong style="display: block; font-size: 1.05rem; color: var(--text-headline); margin-bottom: 4px;">ضمان الشفافية ومكافحة الإعلانات الوهمية</strong>
+          <span style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; display: block;">
+            فحص واعتماد الأوراق بيمنح شركتك علامة «شركة معتمدة رسمياً ✓» مما يضاعف عدد المتقدمين المحترفين لفرص العمل بنسبة تفوق ٣٠٠٪.
+          </span>
+        </div>
+      </div>
+
+      <form id="companyRegistrationForm" onsubmit="event.preventDefault();">
+        
+        <!-- STEP 1: Company Profile Info -->
+        <div class="job-card-interactive" style="padding: 32px; margin-bottom: 26px; border: 1.5px solid var(--border-card);">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 22px;">
+            <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--brand-blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.95rem;">١</span>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-headline); margin: 0;">بيانات المنشأة والشركة في مصر</h2>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px;">
+            <div class="form-group">
+              <label class="form-label">الاسم التجاري للشركة</label>
+              <input type="text" class="form-input" id="companyName" placeholder="مثال: شركة النيل للحلول البرمجية الذكية" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">الشكل القانوني للشركة</label>
+              <select class="form-input" id="companyLegalForm">
+                <option selected>شركة مساهمة مصرية (ش.م.م)</option>
+                <option>شركة ذات مسؤولية محدودة (ش.ذ.م.م)</option>
+                <option>شركة الشخص الواحد</option>
+                <option>شركة تضامن / توصية بسيطة</option>
+                <option>مؤسسة فردية مرخصة</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">مجال ونشاط الشركة في مصر</label>
+              <select class="form-input" id="companyField">
+                <option selected>تكنولوجيا المعلومات والبرمجيات</option>
+                <option>الهندسة والمقاولات والإنشاءات</option>
+                <option>الرعاية الصحية والمستشفيات</option>
+                <option>المدفوعات الإلكترونية والفنتك (Fintech)</option>
+                <option>التسويق والدعاية والإعلام</option>
+                <option>التصنيع وسلاسل الإمداد</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">مقر الشركة الرئيسي في مصر</label>
+              <select class="form-input" id="companyLocation">
+                <option selected>القرية الذكية (Smart Village - الجيزة)</option>
+                <option>القاهرة الجديدة (التجمع الخامس)</option>
+                <option>الشيخ زايد ومدينة ٦ أكتوبر</option>
+                <option>المعادي (المنطقة التكنولوجية)</option>
+                <option>مصر الجديدة ومدينة نصر</option>
+                <option>الإسكندرية (سموحة / وسط البلد)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">الموقع الإلكتروني الرسمي</label>
+              <input type="url" class="form-input" id="companyWebsite" placeholder="https://www.example.com.eg">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">حجم الشركة وعدد الموظفين</label>
+              <select class="form-input" id="companySize">
+                <option>شركة ناشئة (أقل من ١٥ موظفاً)</option>
+                <option selected>متوسطة (١٥ - ٥٠ موظفاً)</option>
+                <option>كبيرة (٥٠ - ٢٠٠ موظفاً)</option>
+                <option>مؤسسة ضخمة (أكثر من ٢٠٠ موظف)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Legal Paper Verification Uploads -->
+        <div class="job-card-interactive" style="padding: 32px; margin-bottom: 26px; border: 1.5px solid var(--border-card);">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+            <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--brand-orange); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.95rem;">٢</span>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-headline); margin: 0;">الأوراق والمستندات القانونية الرسمية</h2>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 24px; margin-right: 44px;">
+            يرجى رفع صور واضحة أو نسخ PDF للمستندات السارية لتأكيد هوية المنشأة. البيانات تعامل بسرية تامة ومحمية قانونياً.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 24px;">
+            
+            <!-- Document 1: Commercial Register -->
+            <div style="border: 1.5px dashed var(--brand-blue); border-radius: var(--radius-md); padding: 24px; text-align: center; background: rgba(0, 71, 255, 0.02);">
+              <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(0, 71, 255, 0.08); color: var(--brand-blue); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              </div>
+              <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-headline); margin-bottom: 6px;">مستخرج السجل التجاري الحديث</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px;">سجل تجاري مصري ساري (PDF أو صورة واضحة)</p>
+              
+              <input type="file" id="commercialRegFile" accept=".pdf,.png,.jpg,.jpeg" style="display: none;" onchange="handleLegalDocUpload(this, 'regPreviewName')">
+              <button type="button" class="btn-outline btn-sm" onclick="document.getElementById('commercialRegFile').click();">
+                اختر ملف السجل التجاري
+              </button>
+              
+              <div id="regPreviewName" style="margin-top: 10px; font-size: 0.82rem; font-weight: 700; color: var(--brand-teal); display: none;">
+                ✓ تم اختيار الملف
+              </div>
+            </div>
+
+            <!-- Document 2: Tax Card -->
+            <div style="border: 1.5px dashed var(--brand-teal); border-radius: var(--radius-md); padding: 24px; text-align: center; background: rgba(0, 128, 128, 0.02);">
+              <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(0, 128, 128, 0.08); color: var(--brand-teal); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="7" y1="8" x2="17" y2="8"></line><line x1="7" y1="12" x2="17" y2="12"></line><line x1="7" y1="16" x2="13" y2="16"></line></svg>
+              </div>
+              <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-headline); margin-bottom: 6px;">البطاقة الضريبية السارية</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px;">صادرة من مصلحة الضرائب المصرية (وجهين)</p>
+              
+              <input type="file" id="taxCardFile" accept=".pdf,.png,.jpg,.jpeg" style="display: none;" onchange="handleLegalDocUpload(this, 'taxPreviewName')">
+              <button type="button" class="btn-outline btn-sm" onclick="document.getElementById('taxCardFile').click();">
+                اختر ملف البطاقة الضريبية
+              </button>
+              
+              <div id="taxPreviewName" style="margin-top: 10px; font-size: 0.82rem; font-weight: 700; color: var(--brand-teal); display: none;">
+                ✓ تم اختيار الملف
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Legal Numbers & Representative Fields -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+            <div class="form-group">
+              <label class="form-label">رقم السجل التجاري</label>
+              <input type="text" class="form-input" id="regNumber" placeholder="مثال: 184592" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">رقم التسجيل الضريبي (٩ أرقام)</label>
+              <input type="text" class="form-input" id="taxNumber" placeholder="مثال: 542-891-304" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">اسم المفوض / مسؤول التوظيف والـ HR</label>
+              <input type="text" class="form-input" id="hrRepresentative" placeholder="مثال: م. مينا سمير (HR Lead)" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">رقم تليفون مسؤول التعيين في مصر</label>
+              <input type="tel" class="form-input" id="hrPhone" placeholder="010XXXXXXXX" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: Post the Company's First Job -->
+        <div class="job-card-interactive" style="padding: 32px; margin-bottom: 26px; border: 1.5px solid var(--border-card);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--brand-teal); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.95rem;">٣</span>
+              <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-headline); margin: 0;">نشر أول إعلان وظيفة للشركة 🚀</h2>
+            </div>
+            <span class="badge-verified">سيتم نشرها فورياً وتفعيل إشعارات المرشحين</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px;">
+            <div class="form-group">
+              <label class="form-label">المسمى الوظيفي المطلوب</label>
+              <input type="text" class="form-input" id="jobTitleInput" placeholder="مثال: Senior React Developer أو مهندس ميكانيكا موقع" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">نوع الدوام</label>
+              <select class="form-input" id="jobTypeSelect">
+                <option selected>دوام كامل (Full-time)</option>
+                <option>شغل ريموت كامل من البيت (Remote)</option>
+                <option>هيبرد (Hybrid)</option>
+                <option>دوام جزئي (Part-time)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">الراتب الشهري المتوقع (بالجنيه المصري)</label>
+              <input type="text" class="form-input" id="jobSalaryInput" placeholder="مثال: ٢٥,٠٠٠ - ٣٥,٠٠٠ ج.م" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">موقع العمل في مصر</label>
+              <select class="form-input" id="jobAreaSelect">
+                <option selected>القاهرة (التجمع الخامس)</option>
+                <option>الجيزة (الشيخ زايد)</option>
+                <option>القرية الذكية (Smart Village)</option>
+                <option>المعادي</option>
+                <option>الإسكندرية</option>
+                <option>ريموت من أي محافظة في مصر</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top: 14px;">
+            <label class="form-label">المهارات والمتطلبات الأساسية</label>
+            <input type="text" class="form-input" id="jobSkillsInput" placeholder="مثال: خبرة ٤ سنين، كود نظيف، مهارات تواصل ممتازة، إتقان التكنولوجيز المطلوبة">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">نبذة ومسؤوليات الوظيفة</label>
+            <textarea class="form-input" id="jobDescInput" rows="3" placeholder="اكتب نبذة مختصرة عن دور الموظف وما سيعمل عليه داخل التيم..."></textarea>
+          </div>
+        </div>
+
+        <!-- Submit & Legal Declaration -->
+        <div class="job-card-interactive" style="padding: 24px 32px; margin-bottom: 24px; background: #FAFBFD;">
+          <label style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer;">
+            <input type="checkbox" id="legalDeclaration" required style="margin-top: 5px; width: 18px; height: 18px; accent-color: var(--primary);">
+            <span style="font-size: 0.92rem; color: var(--text-body); line-height: 1.6;">
+              أقر بصفتي ممثل مفوض عن المنشأة بصحة المستندات والبيانات القانونية المرفوعة، وبمطابقتها لقوانين العمل والاستثمار في جمهورية مصر العربية 🇪🇬، وأوافق على شروط النشر المعتمد عبر منصة صنارة.
+            </span>
+          </label>
+        </div>
+
+        <!-- Action Button -->
+        <div style="display: flex; align-items: center; justify-content: flex-end; gap: 14px; flex-wrap: wrap;">
+          <a href="employer-dashboard.html" class="btn-ghost">إلغاء والرجوع</a>
+          <button type="submit" class="btn-primary btn-lg" id="submitCompanyBtn" style="min-width: 320px; font-size: 1.1rem; padding: 14px 28px;">
+            <span>اعتماد الأوراق ونشر الوظيفة فوراً ✓</span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="section-container footer-bottom-inner" style="border: none; flex-direction: column; gap: 12px; text-align: center;">
+      <a href="index.html" class="brand-link" style="margin-bottom: 4px;">
+        <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img-footer" style="margin: 0 auto;">
+      </a>
+      <p>© 2026 منصة صنارة للتوظيف (SANARA مصر 🇪🇬). جميع الحقوق محفوظة.</p>
+      <a href="employer-dashboard.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">الرجوع للوحة تحكم أصحاب العمل</a>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+  <script>
+    function handleLegalDocUpload(input, previewId) {
+      if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const previewEl = document.getElementById(previewId);
+        previewEl.style.display = 'block';
+        previewEl.textContent = `✓ تم اختيار: ${file.name} (${(file.size / 1024).toFixed(0)} ك.ب)`;
+        if (typeof showToast === 'function') {
+          showToast(`تم فحص المستند (${file.name}) بنجاح ✓`, 'success');
+        }
+      }
+    }
+
+    // Form Submission
+    document.getElementById('companyRegistrationForm').addEventListener('submit', () => {
+      const company = document.getElementById('companyName').value.trim() || 'شركتكم الموقرة';
+      const job = document.getElementById('jobTitleInput').value.trim() || 'وظيفة جديدة';
+      const btn = document.getElementById('submitCompanyBtn');
+
+      btn.innerHTML = 'جاري التحقق من السجل التجاري والبطاقة الضريبية... ⏳';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        if (typeof showToast === 'function') {
+          showToast(`ألف مبروك! تم اعتماد شركة (${company}) ونشر وظيفة (${job}) في مصر بنجاح 🚀`, 'success');
+        }
+        setTimeout(() => {
+          window.location.href = 'employer-dashboard.html?registered=true';
+        }, 1500);
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة وتسجيل دخول أصحاب العمل والشركات في مصر 🇪🇬 | صنارة</title>
+  <meta name="description" content="بوابة دخول أصحاب الأعمال، الشركات، ومسؤولي التوظيف والـ HR في مصر عبر منصة صنارة. تسجيل الدخول، اعتماد الأوراق، ونشر الوظائف.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="navbar" id="main-header">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html" class="brand-link">
+          <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img">
+        </a>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="jobs.html" class="nav-link">وظائف</a>
+        <a href="employer-login.html" class="nav-link active">أصحاب العمل</a>
+        <a href="profile.html" class="nav-link">بروفايلي المهني</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="company-register.html" class="btn-primary">تسجيل شركة جديدة</a>
+      </div>
+
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="mobile-nav-link">الرئيسية</a>
+      <a href="jobs.html" class="mobile-nav-link">وظائف</a>
+      <a href="employer-login.html" class="mobile-nav-link">أصحاب العمل</a>
+      <a href="profile.html" class="mobile-nav-link">بروفايلي المهني</a>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="section-container" style="max-width: 1100px;">
+      
+      <!-- Top Breadcrumb -->
+      <nav class="breadcrumbs" style="margin-bottom: 24px;">
+        <a href="index.html">الرئيسية</a>
+        <span>/</span>
+        <span>بوابة أصحاب العمل والشركات في مصر</span>
+      </nav>
+
+      <!-- Main Split Layout: Business Login & Business Portal Hub -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 36px; align-items: start;">
+        
+        <!-- RIGHT COLUMN: Employer Login Form Card -->
+        <div class="job-card-interactive" style="padding: 36px 32px; border: 1.5px solid var(--border-card); box-shadow: var(--shadow-md);">
+          
+          <div style="margin-bottom: 24px;">
+            <div class="pill-badge" style="margin-bottom: 12px; display: inline-flex;">
+              <span class="badge-dot"></span>
+              بوابة الشركات المعتمدة في مصر 🇪🇬
+            </div>
+            <h1 style="font-size: 1.85rem; font-weight: 900; color: var(--text-headline); margin-bottom: 6px;">
+              تسجيل دخول أصحاب العمل
+            </h1>
+            <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+              أهلاً بكم مجدداً. سجّل دخولك لإدارة إعلانات الوظائف، متابعة السير الذاتية للمرشحين، والتواصل الفوري مع الكفاءات.
+            </p>
+          </div>
+
+          <!-- Quick Demo Business Account Switcher -->
+          <div style="background: rgba(0, 71, 255, 0.04); border: 1px solid rgba(0, 71, 255, 0.15); border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 20px;">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--brand-blue); display: block; margin-bottom: 6px;">
+              ⚡ دخول تجريبي سريع بحساب مسؤول التوظيف المعتمد:
+            </span>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button type="button" class="btn-outline btn-sm" onclick="fillDemoEmployer('mina.samir@falcontech.eg', 'م. مينا سمير (HR Lead)')" style="font-size: 0.8rem; padding: 4px 10px;">
+                م. مينا سمير (فالكون تيك)
+              </button>
+              <button type="button" class="btn-outline btn-sm" onclick="fillDemoEmployer('sameh.morris@orascotech.eg', 'م. سامح موريس (مدير التوظيف)')" style="font-size: 0.8rem; padding: 4px 10px;">
+                م. سامح موريس (أوراسكوم)
+              </button>
+            </div>
+          </div>
+
+          <form id="employerLoginForm" onsubmit="event.preventDefault();">
+            <div class="form-group">
+              <label class="form-label" for="empEmail">البريد الإلكتروني للعمل / الشركة</label>
+              <input type="email" class="form-input" id="empEmail" value="mina.samir@falcontech.eg" placeholder="name@company.com.eg" required>
+            </div>
+
+            <div class="form-group">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label class="form-label" for="empPassword" style="margin-bottom: 0;">كلمة المرور</label>
+                <a href="#" style="font-size: 0.82rem; color: var(--primary); text-decoration: none; font-weight: 700;">نسيت كلمة المرور؟</a>
+              </div>
+              <input type="password" class="form-input" id="empPassword" value="••••••••" required>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-muted); cursor: pointer;">
+                <input type="checkbox" checked style="accent-color: var(--primary); width: 16px; height: 16px;">
+                <span>تذكر بيانات الدخول على هذا الجهاز</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn-primary btn-block btn-lg" id="btnSubmitEmpLogin" style="font-size: 1.05rem; padding: 14px;">
+              <span>دخول لوحة أصحاب العمل 🚀</span>
+            </button>
+          </form>
+
+          <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle); text-align: center;">
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 12px;">
+              لسه شركتكم جديدة على منصة صنارة؟
+            </p>
+            <a href="company-register.html" class="btn-outline btn-block" style="padding: 12px; font-weight: 800;">
+              سجل شركتك واعتمد الأوراق القانونية الرسمية 📄
+            </a>
+          </div>
+        </div>
+
+        <!-- LEFT COLUMN: All Business-Related Portals & Services Hub -->
+        <div>
+          <div style="margin-bottom: 22px;">
+            <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-headline); margin-bottom: 6px;">
+              منظومة وخدمات أصحاب الأعمال في مصر
+            </h2>
+            <p style="font-size: 0.92rem; color: var(--text-muted);">
+              كل ما تحتاجه شركتك لإدارة التوظيف والكوادر في جمهورية مصر العربية 🇪🇬
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            
+            <!-- Service 1: Legal Verification & Registration -->
+            <a href="company-register.html" style="text-decoration: none; color: inherit;">
+              <div class="job-card-interactive" style="padding: 20px; display: flex; align-items: center; gap: 18px; border: 1px solid var(--border-card);">
+                <div style="width: 52px; height: 52px; border-radius: var(--radius-md); background: rgba(0, 71, 255, 0.08); color: var(--brand-blue); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0;">
+                  📄
+                </div>
+                <div style="flex-grow: 1;">
+                  <strong style="font-size: 1.05rem; color: var(--text-headline); display: block; margin-bottom: 4px;">
+                    تسجيل واعتماد أوراق الشركة (السجل والبطاقة الضريبية)
+                  </strong>
+                  <span style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; display: block;">
+                    توثيق رسمي يمنحك شارة الشركة المعتمدة لدى آلاف الكوادر والباحثين عن عمل في مصر.
+                  </span>
+                </div>
+                <span style="color: var(--primary); font-weight: 800; font-size: 1.1rem;">←</span>
+              </div>
+            </a>
+
+            <!-- Service 2: Post a Job Directly -->
+            <a href="company-register.html#step-job" style="text-decoration: none; color: inherit;">
+              <div class="job-card-interactive" style="padding: 20px; display: flex; align-items: center; gap: 18px; border: 1px solid var(--border-card);">
+                <div style="width: 52px; height: 52px; border-radius: var(--radius-md); background: rgba(255, 107, 0, 0.08); color: var(--brand-orange); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0;">
+                  📢
+                </div>
+                <div style="flex-grow: 1;">
+                  <strong style="font-size: 1.05rem; color: var(--text-headline); display: block; margin-bottom: 4px;">
+                    نشر إعلان وظيفة جديدة فوراً
+                  </strong>
+                  <span style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; display: block;">
+                    انشر الشاغر براتب محدد بالجنيه المصري ووصل لأشطر الكفاءات في القاهرة، الجيزة، والإسكندرية.
+                  </span>
+                </div>
+                <span style="color: var(--brand-orange); font-weight: 800; font-size: 1.1rem;">←</span>
+              </div>
+            </a>
+
+            <!-- Service 3: Candidate Dashboard -->
+            <a href="employer-dashboard.html" style="text-decoration: none; color: inherit;">
+              <div class="job-card-interactive" style="padding: 20px; display: flex; align-items: center; gap: 18px; border: 1px solid var(--border-card);">
+                <div style="width: 52px; height: 52px; border-radius: var(--radius-md); background: rgba(0, 128, 128, 0.08); color: var(--brand-teal); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0;">
+                  👥
+                </div>
+                <div style="flex-grow: 1;">
+                  <strong style="font-size: 1.05rem; color: var(--text-headline); display: block; margin-bottom: 4px;">
+                    لوحة تحكم المرشحين ومتابعة السير الذاتية
+                  </strong>
+                  <span style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; display: block;">
+                    فحص وتقييم طلبات المتقدمين (سامح، مينا، رامي، مارك، جرجس) وإرسال دعوات المقابلات.
+                  </span>
+                </div>
+                <span style="color: var(--brand-teal); font-weight: 800; font-size: 1.1rem;">←</span>
+              </div>
+            </a>
+
+            <!-- Service 4: Business Support -->
+            <div style="padding: 18px 22px; background: #ffffff; border: 1px solid var(--border-card); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: space-between; gap: 14px;">
+              <div>
+                <strong style="font-size: 0.95rem; color: var(--text-headline); display: block; margin-bottom: 2px;">فريق دعم أصحاب العمل في مصر</strong>
+                <span style="font-size: 0.82rem; color: var(--text-muted);">متاحون يومياً لمساعدتكم في صياغة الإعلانات واعتماد المنشآت</span>
+              </div>
+              <a href="https://wa.me/201023456789" target="_blank" class="btn-outline btn-sm" style="flex-shrink: 0;">
+                تواصل واتساب 💬
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="section-container footer-bottom-inner" style="border: none; flex-direction: column; gap: 12px; text-align: center;">
+      <a href="index.html" class="brand-link" style="margin-bottom: 4px;">
+        <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img-footer" style="margin: 0 auto;">
+      </a>
+      <p>© 2026 منصة صنارة للتوظيف (SANARA مصر 🇪🇬). جميع الحقوق محفوظة.</p>
+      <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">الرجوع للرئيسية</a>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+  <script>
+    function fillDemoEmployer(email, label) {
+      document.getElementById('empEmail').value = email;
+      if (typeof showToast === 'function') {
+        showToast(`تم اختيار حساب: ${label}`, 'info');
+      }
+    }
+
+    document.getElementById('employerLoginForm')?.addEventListener('submit', () => {
+      const email = document.getElementById('empEmail').value;
+      const btn = document.getElementById('btnSubmitEmpLogin');
+      btn.innerHTML = 'جاري التحقق والدخول... ⏳';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        if (typeof showToast === 'function') {
+          showToast(`أهلاً بك! تم تسجيل الدخول بنجاح بحساب صاحب العمل (${email}) ✨`, 'success');
+        }
+        setTimeout(() => {
+          window.location.href = 'employer-dashboard.html';
+        }, 1000);
+      }, 600);
+    });
+  </script>
+</body>
+</html>

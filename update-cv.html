@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحديث السيرة الذاتية (CV) | سامح موريس - صنارة 🇪🇬</title>
+  <meta name="description" content="صفحة تحديث السيرة الذاتية والبيانات المهنية للكوادر المصرية عبر منصة صنارة الذكية.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="navbar" id="main-header">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html" class="brand-link">
+          <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img">
+        </a>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="jobs.html" class="nav-link">وظائف</a>
+        <a href="employer-login.html" class="nav-link">أصحاب العمل</a>
+        <a href="profile.html" class="nav-link active">بروفايلي المهني</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="profile.html" class="btn-outline">الرجوع للملف الشخصي</a>
+      </div>
+
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="mobile-nav-link">الرئيسية</a>
+      <a href="jobs.html" class="mobile-nav-link">وظائف</a>
+      <a href="employer-login.html" class="mobile-nav-link">أصحاب العمل</a>
+      <a href="profile.html" class="mobile-nav-link">بروفايلي المهني</a>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="section-container" style="max-width: 900px;">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumbs" style="margin-bottom: 24px;">
+        <a href="index.html">الرئيسية</a>
+        <span>/</span>
+        <a href="profile.html">البروفايل المهني (سامح موريس)</a>
+        <span>/</span>
+        <span>تحديث السيرة الذاتية (CV)</span>
+      </nav>
+
+      <!-- Page Header -->
+      <div style="margin-bottom: 32px;">
+        <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 900; color: var(--text-headline); margin-bottom: 8px;">
+          تحديث السيرة الذاتية والبيانات المهنية 📄
+        </h1>
+        <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.6;">
+          ارفع أحدث نسخة من الـ CV بتاعك وعدّل مهاراتك وخبراتك عشان خوارزمية صنارة ترشح بروفايلك لأقوى الشركات في مصر.
+        </p>
+      </div>
+
+      <form id="updateCvForm" onsubmit="event.preventDefault();">
+        <!-- 1. Upload CV Section (Drag & Drop) -->
+        <div class="job-card-interactive" style="padding: 30px; margin-bottom: 24px; border: 1.5px solid var(--border-card);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-blue); margin-bottom: 4px;">
+                ملف السيرة الذاتية (CV / Resume)
+              </h2>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">
+                الملفات المدعومة: PDF أو Word (DOCX). الحد الأقصى للحجم: ١٠ ميجابايت.
+              </p>
+            </div>
+            <span class="badge-verified">متوافق مع أنظمة الفرز الذكي (ATS Friendly) ✓</span>
+          </div>
+
+          <!-- Upload Drop Zone -->
+          <div id="cvDropZone" style="border: 2px dashed var(--primary); border-radius: var(--radius-lg); padding: 36px 20px; text-align: center; background: rgba(0, 71, 255, 0.02); cursor: pointer; transition: all 0.2s ease;">
+            <input type="file" id="cvFileInput" accept=".pdf,.doc,.docx" style="display: none;">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(0, 71, 255, 0.08); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--primary);">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-headline); margin-bottom: 6px;">
+              اسحب وأفلت ملف الـ CV هنا أو اضغط للاختيار من جهازك
+            </h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
+              نظام صنارة بيقرأ مهاراتك وخبراتك تلقائياً ويعبي الخانات دي بالذكاء الاصطناعي
+            </p>
+            <button type="button" class="btn-outline btn-sm" onclick="document.getElementById('cvFileInput').click();">
+              تصفح الملفات من جهازك
+            </button>
+          </div>
+
+          <!-- Current Uploaded File Preview Card -->
+          <div id="filePreviewCard" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: #ffffff; border: 1px solid var(--border-card); border-radius: var(--radius-md); margin-top: 18px; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background: #EFF6FF; color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem;">
+                PDF
+              </div>
+              <div>
+                <strong id="previewFileName" style="display: block; font-size: 0.95rem; color: var(--text-headline);">Sameh_Morris_Resume_2026.pdf</strong>
+                <span id="previewFileSize" style="font-size: 0.8rem; color: var(--text-muted);">حجم الملف: ١.٤ ميجابايت • تم التحقق والفحص ✓</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button type="button" class="btn-ghost btn-sm" onclick="document.getElementById('cvFileInput').click();">استبدال الملف</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Personal Information -->
+        <div class="job-card-interactive" style="padding: 30px; margin-bottom: 24px; border: 1.5px solid var(--border-card);">
+          <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-blue); margin-bottom: 20px;">
+            البيانات الشخصية ومعلومات الاتصال
+          </h2>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+            <div class="form-group">
+              <label class="form-label">الاسم الكامل (ثلاثي أو رباعي)</label>
+              <input type="text" class="form-input" id="cvFullName" value="سامح موريس جرجس" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">المسمى المهني الحالي</label>
+              <input type="text" class="form-input" id="cvJobTitle" value="Senior Frontend Engineer" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">البريد الإلكتروني</label>
+              <input type="email" class="form-input" id="cvEmail" value="sameh.morris@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">رقم الموبايل في مصر</label>
+              <input type="tel" class="form-input" id="cvPhone" value="01023456789" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">المحافظة والمنطقة</label>
+              <select class="form-input" id="cvCity">
+                <option selected>القاهرة (التجمع الخامس)</option>
+                <option>القاهرة (المعادي)</option>
+                <option>القاهرة (مصر الجديدة ومدينة نصر)</option>
+                <option>الجيزة (الشيخ زايد وأكتوبر)</option>
+                <option>القرية الذكية (Smart Village)</option>
+                <option>الإسكندرية</option>
+                <option>محافظة أخرى في مصر</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">سنوات الخبرة العملية</label>
+              <select class="form-input" id="cvExp">
+                <option>حديث تخرج (أقل من سنة)</option>
+                <option>من سنة إلى ٣ سنين</option>
+                <option selected>من ٤ إلى ٦ سنين</option>
+                <option>أكثر من ٧ سنين (خبير / Lead)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Professional Preferences & Salary in Egypt -->
+        <div class="job-card-interactive" style="padding: 30px; margin-bottom: 24px; border: 1.5px solid var(--border-card);">
+          <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-blue); margin-bottom: 20px;">
+            تفضيلات العمل والراتب المتوقع في مصر 🇪🇬
+          </h2>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+            <div class="form-group">
+              <label class="form-label">الراتب الشهري المطلوب (بالجنيه المصري)</label>
+              <input type="text" class="form-input" id="cvExpectedSalary" value="٣٥,٠٠٠ - ٤٥,٠٠٠ ج.م" placeholder="مثال: ٣٠,٠٠٠ - ٤٠,٠٠٠ ج.م">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">نظام العمل المفضل</label>
+              <select class="form-input" id="cvWorkType">
+                <option selected>هيبرد (Hybrid - يومين من البيت)</option>
+                <option>شغل ريموت كامل من البيت (Remote)</option>
+                <option>دوام كامل من المقر (On-site)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">جاهزية البدء (Notice Period)</label>
+              <select class="form-input" id="cvNotice">
+                <option selected>جاهز للبدء فوراً (Immediately)</option>
+                <option>خلال أسبوعين</option>
+                <option>خلال شهر من توقيع العرض</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">رابط معرض الأعمال أو GitHub</label>
+              <input type="url" class="form-input" id="cvPortfolio" value="https://github.com/sameh-morris" placeholder="https://...">
+            </div>
+          </div>
+
+          <!-- Skills tags editing -->
+          <div style="margin-top: 16px;">
+            <label class="form-label">المهارات التقنية والعملية (اكتب المهارة واضغط إضافة)</label>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+              <input type="text" class="form-input" id="newSkillInput" placeholder="مثال: Next.js, Redux, Docker..." style="max-width: 320px;">
+              <button type="button" class="btn-outline" id="addSkillBtn">+ إضافة مهارة</button>
+            </div>
+            <div class="job-card-skills" id="skillsContainer" style="margin-bottom: 0;">
+              <span class="skill-tag skill-tag-blue">React <button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:inherit;margin-right:4px;">✕</button></span>
+              <span class="skill-tag skill-tag-blue">TypeScript <button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:inherit;margin-right:4px;">✕</button></span>
+              <span class="skill-tag">Next.js <button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:inherit;margin-right:4px;">✕</button></span>
+              <span class="skill-tag">JavaScript ES6+ <button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:inherit;margin-right:4px;">✕</button></span>
+              <span class="skill-tag">Node.js <button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:inherit;margin-right:4px;">✕</button></span>
+              <span class="skill-tag skill-tag-orange">Git & GitHub <button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:inherit;margin-right:4px;">✕</button></span>
+              <span class="skill-tag">TailwindCSS <button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:inherit;margin-right:4px;">✕</button></span>
+              <span class="skill-tag">REST & GraphQL <button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:inherit;margin-right:4px;">✕</button></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Action Buttons -->
+        <div style="display: flex; align-items: center; justify-content: flex-end; gap: 14px; margin-top: 30px; flex-wrap: wrap;">
+          <a href="profile.html" class="btn-ghost">إلغاء والرجوع</a>
+          <button type="submit" class="btn-primary btn-lg" id="saveCvBtn" style="min-width: 240px;">
+            <span>حفظ وتحديث السيرة الذاتية ✓</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="section-container footer-bottom-inner" style="border: none; flex-direction: column; gap: 12px; text-align: center;">
+      <a href="index.html" class="brand-link" style="margin-bottom: 4px;">
+        <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img-footer" style="margin: 0 auto;">
+      </a>
+      <p>© 2026 منصة صنارة للتوظيف (SANARA مصر 🇪🇬). جميع الحقوق محفوظة.</p>
+      <a href="profile.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">الرجوع للبروفايل المهني</a>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+  <script>
+    // Drag & Drop CV upload interaction
+    const dropZone = document.getElementById('cvDropZone');
+    const fileInput = document.getElementById('cvFileInput');
+    const fileNameEl = document.getElementById('previewFileName');
+    const fileSizeEl = document.getElementById('previewFileSize');
+
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = '#FF6B00';
+        dropZone.style.backgroundColor = 'rgba(255, 107, 0, 0.05)';
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = 'var(--primary)';
+        dropZone.style.backgroundColor = 'rgba(0, 71, 255, 0.02)';
+      });
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        handleFile(files[0]);
+      }
+    });
+
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length > 0) {
+        handleFile(e.target.files[0]);
+      }
+    });
+
+    function handleFile(file) {
+      fileNameEl.textContent = file.name;
+      const sizeMB = (file.size / (1024 * 1024)).toFixed(1);
+      fileSizeEl.textContent = `حجم الملف: ${sizeMB} ميجابايت • تم الرفع والفحص بنجاح ✓`;
+      if (typeof showToast === 'function') {
+        showToast(`تم رفع ملف (${file.name}) بنجاح وفحصه بأنظمة الـ ATS 🚀`, 'success');
+      }
+    }
+
+    // Add Skill Tag interaction
+    const skillInput = document.getElementById('newSkillInput');
+    const addSkillBtn = document.getElementById('addSkillBtn');
+    const skillsContainer = document.getElementById('skillsContainer');
+
+    function addSkill() {
+      const val = skillInput.value.trim();
+      if (!val) return;
+      const tag = document.createElement('span');
+      tag.className = 'skill-tag skill-tag-blue';
+      tag.innerHTML = `${val} <button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:inherit;margin-right:4px;">✕</button>`;
+      skillsContainer.appendChild(tag);
+      skillInput.value = '';
+    }
+
+    addSkillBtn.addEventListener('click', addSkill);
+    skillInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        addSkill();
+      }
+    });
+
+    // Form Submit
+    document.getElementById('updateCvForm').addEventListener('submit', () => {
+      const btn = document.getElementById('saveCvBtn');
+      btn.innerHTML = 'جاري الحفظ والتحليل الذكي... ⏳';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        if (typeof showToast === 'function') {
+          showToast('عاش يا سامح! تم تحديث الـ CV بنجاح وتمت مراجعته بخوارزمية صنارة الذكية 🚀', 'success');
+        }
+        setTimeout(() => {
+          window.location.href = 'profile.html';
+        }, 1200);
+      }, 700);
+    });
+  </script>
+</body>
+</html>

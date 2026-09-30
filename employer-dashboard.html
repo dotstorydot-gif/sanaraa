@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة أصحاب الشركات والـ HR في مصر | لوحة التحكم - صنارة SANARA 🇪🇬</title>
+  <meta name="description" content="إدارة إعلانات التوظيف، فحص المرشحين، وجدولة المقابلات السريعة مع أشطر كفاءات مصر عبر منصة صنارة.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="navbar" id="main-header">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html" class="brand-link">
+          <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img">
+        </a>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="jobs.html" class="nav-link">وظائف</a>
+        <a href="employer-dashboard.html" class="nav-link active">أصحاب العمل</a>
+        <a href="profile.html" class="nav-link">بروفايلي المهني</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn-primary" id="openNewJobModalBtn">+ انشر وظيفة جديدة</button>
+      </div>
+
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="section-container">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <h1 style="font-size: 2rem; font-weight: 900; color: var(--text-headline);">لوحة تحكم أصحاب العمل والتوظيف في مصر 🇪🇬</h1>
+          <p style="font-size: 1rem; color: var(--text-muted);">منوّر يا م. سامح موريس (مدير التوظيف) • ده ملخص أداء إعلاناتك وطلبات المرشحين النهاردة</p>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="company-register.html" class="btn-primary btn-lg">
+            <span>تسجيل شركة واعتماد أوراق قانونية 📄</span>
+          </a>
+          <button type="button" class="btn-secondary btn-lg" id="postJobHeroBtn">
+            <span>+ انشر إعلان وظيفة</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Overview Grid -->
+      <div class="stats-overview-grid">
+        <div class="dash-stat-card">
+          <div class="dash-stat-info">
+            <div class="title">الوظائف النشطة في مصر</div>
+            <div class="value">١٤</div>
+          </div>
+          <div class="dash-stat-icon icon-blue">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </div>
+        </div>
+
+        <div class="dash-stat-card">
+          <div class="dash-stat-info">
+            <div class="title">إجمالي المتقدمين (السير الذاتية)</div>
+            <div class="value">٤٢٠</div>
+          </div>
+          <div class="dash-stat-icon icon-teal">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+        </div>
+
+        <div class="dash-stat-card">
+          <div class="dash-stat-info">
+            <div class="title">إنترفيوهات متحددة الأسبوع ده</div>
+            <div class="value">٢٦</div>
+          </div>
+          <div class="dash-stat-icon icon-orange">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </div>
+        </div>
+
+        <div class="dash-stat-card">
+          <div class="dash-stat-info">
+            <div class="title">سرعة تسكين الوظيفة</div>
+            <div class="value">٣.٥ يوم</div>
+          </div>
+          <div class="dash-stat-icon icon-cyan">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Candidates Application Table with Christian Names (Mena, Sameh, Ramy, Marc, Gerges) -->
+      <div class="data-table-card">
+        <div class="table-header-flex">
+          <div>
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-headline);">أحدث السيفيهات والمرشحين للوظائف</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">راجع كفاءات مصر واختار أشطر ناس لفريقك</p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" placeholder="دوّر بالاسم أو المهارة..." class="form-input" style="padding: 6px 12px; width: 220px; font-size: 0.88rem;">
+            <button class="btn-outline btn-sm">تنزيل Excel</button>
+          </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>اسم المرشح</th>
+                <th>الوظيفة المتقدم ليها</th>
+                <th>نسبة التطابق</th>
+                <th>الخبرة والمهارات</th>
+                <th>حالة الطلب</th>
+                <th>الإجراء السريع</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 1. مينا (Mena) -->
+              <tr>
+                <td>
+                  <strong style="display: block; color: var(--text-headline);">مينا سمير يوسف</strong>
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">mena.samir@example.com • القاهرة</span>
+                </td>
+                <td>مهندس برمجيات Frontend رئيسي</td>
+                <td><span style="color: var(--brand-teal); font-weight: 800;">٩٨٪ تطابق تام</span></td>
+                <td>٥ سنين (React, TypeScript, Next.js)</td>
+                <td><span class="badge-verified" style="background-color: var(--brand-blue-light); color: var(--brand-blue);">تمت المراجعة</span></td>
+                <td>
+                  <button class="btn-primary btn-sm candidate-action-btn">ابعث ميعاد إنترفيو</button>
+                </td>
+              </tr>
+
+              <!-- 2. سامح (Sameh) -->
+              <tr>
+                <td>
+                  <strong style="display: block; color: var(--text-headline);">سامح موريس غالي</strong>
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">sameh.morris@example.com • الجيزة</span>
+                </td>
+                <td>مهندس موقع وإنشاءات معمارية</td>
+                <td><span style="color: var(--brand-teal); font-weight: 800;">٩٦٪ تطابق</span></td>
+                <td>٦ سنين (AutoCAD, Revit, إدارة مشاريع)</td>
+                <td><span class="badge-verified" style="background-color: #FEF3C7; color: #D97706;">جديد اليوم</span></td>
+                <td>
+                  <button class="btn-primary btn-sm candidate-action-btn">ابعث ميعاد إنترفيو</button>
+                </td>
+              </tr>
+
+              <!-- 3. رامي (Ramy) -->
+              <tr>
+                <td>
+                  <strong style="display: block; color: var(--text-headline);">رامي إسكندر جاد</strong>
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">ramy.eskander@example.com • المعادي</span>
+                </td>
+                <td>مدير تطوير أعمال ومبيعات B2B</td>
+                <td><span style="color: var(--brand-teal); font-weight: 800;">٩٥٪ تطابق</span></td>
+                <td>٤ سنين (B2B Sales, Key Accounts)</td>
+                <td><span class="badge-verified">إنترفيو متحدد</span></td>
+                <td>
+                  <button class="btn-outline btn-sm">شوف تقييم الإنترفيو</button>
+                </td>
+              </tr>
+
+              <!-- 4. مارك (Marc) -->
+              <tr>
+                <td>
+                  <strong style="display: block; color: var(--text-headline);">مارك أشرف لبيب</strong>
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">marc.ashraf@example.com • مصر الجديدة</span>
+                </td>
+                <td>مطور تطبيقات موبايل Flutter</td>
+                <td><span style="color: var(--brand-teal); font-weight: 800;">٩٤٪ تطابق</span></td>
+                <td>٣ سنين (Flutter, Dart, State Management)</td>
+                <td><span class="badge-verified" style="background-color: var(--brand-blue-light); color: var(--brand-blue);">تم فحص السيرة</span></td>
+                <td>
+                  <button class="btn-primary btn-sm candidate-action-btn">ابعث ميعاد إنترفيو</button>
+                </td>
+              </tr>
+
+              <!-- 5. جرجس (Gerges) -->
+              <tr>
+                <td>
+                  <strong style="display: block; color: var(--text-headline);">د. جرجس حنا فهيم</strong>
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">gerges.hanna@example.com • الإسكندرية</span>
+                </td>
+                <td>أخصائي تخدير وعناية مركزة</td>
+                <td><span style="color: var(--brand-teal); font-weight: 800;">٩٩٪ تطابق</span></td>
+                <td>٧ سنين (ترخيص نقابة الأطباء، زمالة)</td>
+                <td><span class="badge-verified">مقبول مبدئياً</span></td>
+                <td>
+                  <button class="btn-outline btn-sm">إرسال عرض العمل (Job Offer)</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Post a Job Modal for Egypt -->
+  <div class="modal-backdrop" id="newJobModal" aria-hidden="true">
+    <div class="modal-dialog-container" style="max-width: 600px;">
+      <div class="auth-modal-card">
+        <button type="button" class="modal-close-btn" id="closeJobModalBtn">✕</button>
+        <div style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.5rem; font-weight: 900; color: var(--brand-blue);">انشر إعلان وظيفة جديدة في مصر 🇪🇬</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">اكتب متطلبات الوظيفة وخوارزمية صنارة هترشحلك أشطر الكفاءات فوراً.</p>
+        </div>
+
+        <form id="createJobForm" class="auth-form" onsubmit="event.preventDefault();">
+          <div class="form-group">
+            <label class="form-label">المسمى الوظيفي المطلوب</label>
+            <input type="text" class="form-input" placeholder="مثال: Senior React Developer أو مهندس موقع" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label class="form-label">مجال الوظيفة</label>
+              <select class="form-input">
+                <option>تكنولوجيا والبرمجة</option>
+                <option>الهندسة والإنشاءات</option>
+                <option>الرعاية الصحية والطب</option>
+                <option>المبيعات والتسويق</option>
+                <option>المالية والمحاسبة</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">المحافظة / المنطقة في مصر</label>
+              <select class="form-input">
+                <option>القاهرة (التجمع والمعادي)</option>
+                <option>الجيزة (الشيخ زايد وأكتوبر)</option>
+                <option>القرية الذكية (Smart Village)</option>
+                <option>الإسكندرية</option>
+                <option>شغل ريموت من البيت (Remote)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">الراتب المتوقع (بالجنيه المصري شهرياً)</label>
+            <input type="text" class="form-input" placeholder="مثال: ٢٥,٠٠٠ - ٣٥,٠٠٠ ج.م">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">المهارات الأساسية (مفصولة بفواصل)</label>
+            <input type="text" class="form-input" placeholder="مثال: React, TypeScript, Redux, Git">
+          </div>
+
+          <button type="submit" class="btn-primary btn-block btn-lg" style="margin-top: 10px;">
+            <span>انشر الوظيفة دلوقتي في مصر</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="section-container footer-bottom-inner" style="border: none; flex-direction: column; gap: 12px; text-align: center;">
+      <a href="index.html" class="brand-link" style="margin-bottom: 4px;">
+        <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img-footer" style="margin: 0 auto;">
+      </a>
+      <p>© 2026 منصة صنارة للتوظيف (SANARA مصر 🇪🇬). جميع الحقوق محفوظة.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; font-size: 0.92rem;">
+        <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">الرجوع للرئيسية</a>
+        <span style="color: var(--text-muted);">•</span>
+        <a href="employer-login.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">بوابة دخول أصحاب العمل</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+  <script>
+    const jobModal = document.getElementById('newJobModal');
+    const openBtn1 = document.getElementById('openNewJobModalBtn');
+    const openBtn2 = document.getElementById('postJobHeroBtn');
+    const closeBtn = document.getElementById('closeJobModalBtn');
+
+    function openJobModal() { jobModal.classList.add('open'); }
+    function closeJobModal() { jobModal.classList.remove('open'); }
+
+    openBtn1?.addEventListener('click', openJobModal);
+    openBtn2?.addEventListener('click', openJobModal);
+    closeBtn?.addEventListener('click', closeJobModal);
+    jobModal?.addEventListener('click', (e) => { if (e.target === jobModal) closeJobModal(); });
+
+    document.getElementById('createJobForm')?.addEventListener('submit', () => {
+      closeJobModal();
+      if (typeof showToast === 'function') {
+        showToast('عاش يا فنان! تم نشر الوظيفة وهيتم ترشيح أشطر الكفاءات فوراً 🚀', 'success');
+      } else {
+        alert('تم نشر الوظيفة بنجاح!');
+      }
+    });
+
+    document.querySelectorAll('.candidate-action-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.textContent = 'تم إرسال الدعوة ✓';
+        this.style.backgroundColor = '#10B981';
+        this.disabled = true;
+        if (typeof showToast === 'function') {
+          showToast('اتبعثت دعوة الإنترفيو للمرشح على إيميله ورقمه بنجاح ✨', 'success');
+        }
+      });
+    });
+
+    if (new URLSearchParams(window.location.search).get('registered') === 'true') {
+      setTimeout(() => {
+        if (typeof showToast === 'function') {
+          showToast('أهلاً بشركتكم في صنارة! تم اعتماد الأوراق القانونية ونشر أول وظيفة بنجاح 🎉', 'success');
+        }
+      }, 400);
+    }
+  </script>
+</body>
+</html>
