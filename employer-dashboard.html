@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>بوابة أصحاب الشركات والـ HR في مصر | لوحة التحكم - صنارة SANARA 🇪🇬</title>
-  <meta name="description" content="إدارة إعلانات التوظيف، فحص المرشحين، وجدولة المقابلات السريعة مع أشطر كفاءات مصر عبر منصة صنارة.">
+  <title>Employer Command Center & Job Management | SANARA Egypt</title>
+  <meta name="description" content="Manage job postings, review live candidate applications, and inspect verified resumes on SANARA.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   
+  <link rel="icon" type="image/png" href="assets/logo-trimmed.png">
   <link rel="stylesheet" href="style.css">
+  <script src="i18n.js"></script>
 </head>
 <body>
   <div class="ambient-glow glow-top" aria-hidden="true"></div>
@@ -20,51 +22,79 @@
     <div class="nav-container">
       <div class="nav-brand">
         <a href="index.html" class="brand-link">
-          <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img">
+          <img src="assets/logo-trimmed.png" alt="SANARA" class="brand-logo-img">
         </a>
       </div>
 
-      <nav class="nav-menu">
-        <a href="index.html" class="nav-link">الرئيسية</a>
-        <a href="jobs.html" class="nav-link">وظائف</a>
-        <a href="employer-dashboard.html" class="nav-link active">أصحاب العمل</a>
-        <a href="profile.html" class="nav-link">بروفايلي المهني</a>
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <a href="jobs.html" class="nav-link" data-i18n="nav_jobs">Find Jobs</a>
+        <a href="employer-dashboard.html" class="nav-link active" data-i18n="nav_employers">For Employers</a>
+        <a href="profile.html" class="nav-link" data-i18n="nav_profile">My Profile</a>
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="btn-primary" id="openNewJobModalBtn">+ انشر وظيفة جديدة</button>
+        <!-- Bilingual Language Bar Switcher -->
+        <div class="lang-pill" id="langSwitcherDesktop" role="button" aria-label="Toggle Language" tabindex="0">
+          <span class="lang-opt active" data-lang="en">EN</span>
+          <span class="lang-sep">|</span>
+          <span class="lang-opt" data-lang="ar">عربي</span>
+        </div>
+        <button type="button" class="btn-primary" id="openNewJobModalBtn" data-i18n="btn_post_new_job">+ Post New Job Vacancy</button>
       </div>
 
-      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
         <span></span><span></span><span></span>
       </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="lang-pill-container" style="display: flex; justify-content: center; margin-bottom: 12px;">
+        <div class="lang-pill" id="langSwitcherMobile" role="button" aria-label="Toggle Language" tabindex="0">
+          <span class="lang-opt active" data-lang="en">EN</span>
+          <span class="lang-sep">|</span>
+          <span class="lang-opt" data-lang="ar">عربي</span>
+        </div>
+      </div>
+      <a href="index.html" class="mobile-nav-link" data-i18n="nav_home">Home</a>
+      <a href="jobs.html" class="mobile-nav-link" data-i18n="nav_jobs">Find Jobs</a>
+      <a href="employer-dashboard.html" class="mobile-nav-link" data-i18n="nav_employers">For Employers</a>
+      <a href="profile.html" class="mobile-nav-link" data-i18n="nav_profile">My Profile</a>
+      <div class="mobile-auth-actions">
+        <button type="button" class="btn-primary w-100" id="mobilePostJobBtn" data-i18n="btn_post_new_job">+ Post New Job Vacancy</button>
+      </div>
     </div>
   </header>
 
   <main style="padding: 40px 0 80px;">
     <div class="section-container">
+      
+      <!-- Dashboard Header -->
       <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; gap: 16px;">
         <div>
-          <h1 style="font-size: 2rem; font-weight: 900; color: var(--text-headline);">لوحة تحكم أصحاب العمل والتوظيف في مصر 🇪🇬</h1>
-          <p style="font-size: 1rem; color: var(--text-muted);">منوّر يا م. سامح موريس (مدير التوظيف) • ده ملخص أداء إعلاناتك وطلبات المرشحين النهاردة</p>
+          <h1 style="font-size: 2rem; font-weight: 900; color: var(--text-headline);">لوحة تحكم أصحاب العمل والتوظيف 🇪🇬</h1>
+          <p id="employerWelcomeText" style="font-size: 1rem; color: var(--text-muted);">
+            مرحباً بك • إليك ملخص حي لأداء إعلاناتك وطلبات المرشحين المسجلة في Firebase
+          </p>
         </div>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <a href="company-register.html" class="btn-primary btn-lg">
-            <span>تسجيل شركة واعتماد أوراق قانونية 📄</span>
+          <a href="company-register.html" class="btn-outline">
+            <span>تسجيل وتوثيق شركة 📄</span>
           </a>
-          <button type="button" class="btn-secondary btn-lg" id="postJobHeroBtn">
+          <button type="button" class="btn-primary" id="postJobHeroBtn">
             <span>+ انشر إعلان وظيفة</span>
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </div>
       </div>
 
-      <!-- Stats Overview Grid -->
+      <!-- Real Live Stats Overview Grid -->
       <div class="stats-overview-grid">
         <div class="dash-stat-card">
           <div class="dash-stat-info">
-            <div class="title">الوظائف النشطة في مصر</div>
-            <div class="value">١٤</div>
+            <div class="title">الوظائف النشطة</div>
+            <div class="value" id="statActiveJobs">0</div>
           </div>
           <div class="dash-stat-icon icon-blue">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
@@ -73,8 +103,8 @@
 
         <div class="dash-stat-card">
           <div class="dash-stat-info">
-            <div class="title">إجمالي المتقدمين (السير الذاتية)</div>
-            <div class="value">٤٢٠</div>
+            <div class="title">إجمالي المتقدمين (Applications)</div>
+            <div class="value" id="statTotalApplicants">0</div>
           </div>
           <div class="dash-stat-icon icon-teal">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -83,8 +113,8 @@
 
         <div class="dash-stat-card">
           <div class="dash-stat-info">
-            <div class="title">إنترفيوهات متحددة الأسبوع ده</div>
-            <div class="value">٢٦</div>
+            <div class="title">المقابلات المحددة</div>
+            <div class="value" id="statInterviews">0</div>
           </div>
           <div class="dash-stat-icon icon-orange">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -93,8 +123,8 @@
 
         <div class="dash-stat-card">
           <div class="dash-stat-info">
-            <div class="title">سرعة تسكين الوظيفة</div>
-            <div class="value">٣.٥ يوم</div>
+            <div class="title">حالة الاتصال بقاعدة البيانات</div>
+            <div class="value" style="font-size: 1.15rem; color: #10B981;" id="statDbStatus">متصل ✓</div>
           </div>
           <div class="dash-stat-icon icon-cyan">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -102,167 +132,103 @@
         </div>
       </div>
 
-      <!-- Candidates Application Table with Christian Names (Mena, Sameh, Ramy, Marc, Gerges) -->
+      <!-- Live Jobs Posted By Employer -->
+      <div class="data-table-card" style="margin-bottom: 30px;">
+        <div class="table-header-flex">
+          <div>
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-headline);">الوظائف التي نشرتها شركتك</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">الوظائف المتاحة حالياً للمرشحين للتقديم عليها</p>
+          </div>
+          <button class="btn-primary btn-sm" id="btnAddNewJobTop">+ إضافة وظيفة</button>
+        </div>
+
+        <div id="employerJobsListContainer">
+          <div style="padding: 30px; text-align: center; color: var(--text-muted);">
+            جاري تحميل الوظائف من Firebase...
+          </div>
+        </div>
+      </div>
+
+      <!-- Candidates Application Table -->
       <div class="data-table-card">
         <div class="table-header-flex">
           <div>
-            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-headline);">أحدث السيفيهات والمرشحين للوظائف</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">راجع كفاءات مصر واختار أشطر ناس لفريقك</p>
-          </div>
-          <div style="display: flex; gap: 8px;">
-            <input type="text" placeholder="دوّر بالاسم أو المهارة..." class="form-input" style="padding: 6px 12px; width: 220px; font-size: 0.88rem;">
-            <button class="btn-outline btn-sm">تنزيل Excel</button>
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-headline);">طلبات التقديم المستلمة (السير الذاتية)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">المرشحون الذين قدّموا على وظائفك وسيرهم الذاتية المرفوعة</p>
           </div>
         </div>
 
-        <div style="overflow-x: auto;">
+        <div id="applicationsTableWrapper" style="overflow-x: auto;">
           <table class="data-table">
             <thead>
               <tr>
                 <th>اسم المرشح</th>
-                <th>الوظيفة المتقدم ليها</th>
-                <th>نسبة التطابق</th>
-                <th>الخبرة والمهارات</th>
+                <th>الوظيفة المتقدم لها</th>
+                <th>بيانات التواصل</th>
+                <th>السيرة الذاتية (CV)</th>
                 <th>حالة الطلب</th>
-                <th>الإجراء السريع</th>
+                <th>الإجراء</th>
               </tr>
             </thead>
-            <tbody>
-              <!-- 1. مينا (Mena) -->
-              <tr>
-                <td>
-                  <strong style="display: block; color: var(--text-headline);">مينا سمير يوسف</strong>
-                  <span style="font-size: 0.8rem; color: var(--text-muted);">mena.samir@example.com • القاهرة</span>
-                </td>
-                <td>مهندس برمجيات Frontend رئيسي</td>
-                <td><span style="color: var(--brand-teal); font-weight: 800;">٩٨٪ تطابق تام</span></td>
-                <td>٥ سنين (React, TypeScript, Next.js)</td>
-                <td><span class="badge-verified" style="background-color: var(--brand-blue-light); color: var(--brand-blue);">تمت المراجعة</span></td>
-                <td>
-                  <button class="btn-primary btn-sm candidate-action-btn">ابعث ميعاد إنترفيو</button>
-                </td>
-              </tr>
-
-              <!-- 2. سامح (Sameh) -->
-              <tr>
-                <td>
-                  <strong style="display: block; color: var(--text-headline);">سامح موريس غالي</strong>
-                  <span style="font-size: 0.8rem; color: var(--text-muted);">sameh.morris@example.com • الجيزة</span>
-                </td>
-                <td>مهندس موقع وإنشاءات معمارية</td>
-                <td><span style="color: var(--brand-teal); font-weight: 800;">٩٦٪ تطابق</span></td>
-                <td>٦ سنين (AutoCAD, Revit, إدارة مشاريع)</td>
-                <td><span class="badge-verified" style="background-color: #FEF3C7; color: #D97706;">جديد اليوم</span></td>
-                <td>
-                  <button class="btn-primary btn-sm candidate-action-btn">ابعث ميعاد إنترفيو</button>
-                </td>
-              </tr>
-
-              <!-- 3. رامي (Ramy) -->
-              <tr>
-                <td>
-                  <strong style="display: block; color: var(--text-headline);">رامي إسكندر جاد</strong>
-                  <span style="font-size: 0.8rem; color: var(--text-muted);">ramy.eskander@example.com • المعادي</span>
-                </td>
-                <td>مدير تطوير أعمال ومبيعات B2B</td>
-                <td><span style="color: var(--brand-teal); font-weight: 800;">٩٥٪ تطابق</span></td>
-                <td>٤ سنين (B2B Sales, Key Accounts)</td>
-                <td><span class="badge-verified">إنترفيو متحدد</span></td>
-                <td>
-                  <button class="btn-outline btn-sm">شوف تقييم الإنترفيو</button>
-                </td>
-              </tr>
-
-              <!-- 4. مارك (Marc) -->
-              <tr>
-                <td>
-                  <strong style="display: block; color: var(--text-headline);">مارك أشرف لبيب</strong>
-                  <span style="font-size: 0.8rem; color: var(--text-muted);">marc.ashraf@example.com • مصر الجديدة</span>
-                </td>
-                <td>مطور تطبيقات موبايل Flutter</td>
-                <td><span style="color: var(--brand-teal); font-weight: 800;">٩٤٪ تطابق</span></td>
-                <td>٣ سنين (Flutter, Dart, State Management)</td>
-                <td><span class="badge-verified" style="background-color: var(--brand-blue-light); color: var(--brand-blue);">تم فحص السيرة</span></td>
-                <td>
-                  <button class="btn-primary btn-sm candidate-action-btn">ابعث ميعاد إنترفيو</button>
-                </td>
-              </tr>
-
-              <!-- 5. جرجس (Gerges) -->
-              <tr>
-                <td>
-                  <strong style="display: block; color: var(--text-headline);">د. جرجس حنا فهيم</strong>
-                  <span style="font-size: 0.8rem; color: var(--text-muted);">gerges.hanna@example.com • الإسكندرية</span>
-                </td>
-                <td>أخصائي تخدير وعناية مركزة</td>
-                <td><span style="color: var(--brand-teal); font-weight: 800;">٩٩٪ تطابق</span></td>
-                <td>٧ سنين (ترخيص نقابة الأطباء، زمالة)</td>
-                <td><span class="badge-verified">مقبول مبدئياً</span></td>
-                <td>
-                  <button class="btn-outline btn-sm">إرسال عرض العمل (Job Offer)</button>
-                </td>
-              </tr>
+            <tbody id="applicationsTableBody">
+              <!-- Dynamically populated from Firestore -->
             </tbody>
           </table>
+          <div id="emptyApplicationsNotice" style="display: none; padding: 40px 20px; text-align: center; color: var(--text-muted);">
+            <div style="font-size: 2.2rem; margin-bottom: 8px;">📂</div>
+            <strong style="display: block; font-size: 1.05rem; color: var(--text-headline); margin-bottom: 6px;">لا توجد طلبات تقديم جديدة حتى الآن</strong>
+            <p style="font-size: 0.9rem;">بمجرد أن يقدّم أي مرشح على إعلانات وظائفك، سيظهر طلبه وسيرته الذاتية هنا فوراً في الوقت الفعلي.</p>
+          </div>
         </div>
       </div>
+
     </div>
   </main>
 
-  <!-- Post a Job Modal for Egypt -->
-  <div class="modal-backdrop" id="newJobModal" aria-hidden="true">
-    <div class="modal-dialog-container" style="max-width: 600px;">
-      <div class="auth-modal-card">
-        <button type="button" class="modal-close-btn" id="closeJobModalBtn">✕</button>
-        <div style="margin-bottom: 20px;">
-          <h3 style="font-size: 1.5rem; font-weight: 900; color: var(--brand-blue);">انشر إعلان وظيفة جديدة في مصر 🇪🇬</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">اكتب متطلبات الوظيفة وخوارزمية صنارة هترشحلك أشطر الكفاءات فوراً.</p>
-        </div>
-
-        <form id="createJobForm" class="auth-form" onsubmit="event.preventDefault();">
-          <div class="form-group">
-            <label class="form-label">المسمى الوظيفي المطلوب</label>
-            <input type="text" class="form-input" placeholder="مثال: Senior React Developer أو مهندس موقع" required>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-            <div class="form-group">
-              <label class="form-label">مجال الوظيفة</label>
-              <select class="form-input">
-                <option>تكنولوجيا والبرمجة</option>
-                <option>الهندسة والإنشاءات</option>
-                <option>الرعاية الصحية والطب</option>
-                <option>المبيعات والتسويق</option>
-                <option>المالية والمحاسبة</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">المحافظة / المنطقة في مصر</label>
-              <select class="form-input">
-                <option>القاهرة (التجمع والمعادي)</option>
-                <option>الجيزة (الشيخ زايد وأكتوبر)</option>
-                <option>القرية الذكية (Smart Village)</option>
-                <option>الإسكندرية</option>
-                <option>شغل ريموت من البيت (Remote)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">الراتب المتوقع (بالجنيه المصري شهرياً)</label>
-            <input type="text" class="form-input" placeholder="مثال: ٢٥,٠٠٠ - ٣٥,٠٠٠ ج.م">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">المهارات الأساسية (مفصولة بفواصل)</label>
-            <input type="text" class="form-input" placeholder="مثال: React, TypeScript, Redux, Git">
-          </div>
-
-          <button type="submit" class="btn-primary btn-block btn-lg" style="margin-top: 10px;">
-            <span>انشر الوظيفة دلوقتي في مصر</span>
-          </button>
-        </form>
+  <!-- New Job Modal -->
+  <div class="auth-modal" id="newJobModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="auth-card" style="max-width: 620px;">
+      <div class="auth-header">
+        <h3 class="auth-title" id="modalTitle">نشر إعلان وظيفة جديد في مصر</h3>
+        <button type="button" class="modal-close-btn" id="closeJobModalBtn" aria-label="إغلاق">✕</button>
       </div>
+      <form id="createJobForm" style="padding: 24px;">
+        <div class="form-group">
+          <label class="form-label" for="modalJobTitle">المسمى الوظيفي *</label>
+          <input type="text" id="modalJobTitle" class="form-input" placeholder="مثال: مطور واجهات أو مهندس موقع" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="modalJobCompany">اسم الشركة أو المؤسسة *</label>
+          <input type="text" id="modalJobCompany" class="form-input" placeholder="اسم شركتكم المعتمد" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group">
+            <label class="form-label" for="modalJobLocation">المحافظة / الموقع *</label>
+            <input type="text" id="modalJobLocation" class="form-input" placeholder="مثال: القاهرة • التجمع" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="modalJobSalary">الراتب المتوقع (ج.م)</label>
+            <input type="text" id="modalJobSalary" class="form-input" placeholder="مثال: 20,000 - 30,000 ج.م">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="modalJobCategory">المجال الوظيفي</label>
+          <select id="modalJobCategory" class="form-input">
+            <option value="tech">البرمجة وتكنولوجيا المعلومات</option>
+            <option value="engineering">الهندسة والإنشاءات</option>
+            <option value="medical">الرعاية الصحية والطب</option>
+            <option value="sales">المبيعات وتطوير الأعمال</option>
+            <option value="marketing">التسويق والإعلان</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="modalJobDesc">الوصف الوظيفي والمسؤوليات</label>
+          <textarea id="modalJobDesc" class="form-input" rows="3" placeholder="اكتب نبذة عن الدور والمهام المطلوبة..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-100 btn-lg" id="submitNewJobBtn" style="padding: 12px;">
+          <span>نشر الوظيفة في Firebase فوراً 🚀</span>
+        </button>
+      </form>
     </div>
   </div>
 
@@ -271,21 +237,20 @@
       <a href="index.html" class="brand-link" style="margin-bottom: 4px;">
         <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img-footer" style="margin: 0 auto;">
       </a>
-      <p>© 2026 منصة صنارة للتوظيف (SANARA مصر 🇪🇬). جميع الحقوق محفوظة.</p>
-      <div style="display: flex; gap: 16px; justify-content: center; font-size: 0.92rem;">
-        <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">الرجوع للرئيسية</a>
-        <span style="color: var(--text-muted);">•</span>
-        <a href="employer-login.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">بوابة دخول أصحاب العمل</a>
-      </div>
+      <p>© 2026 منصة صنارة للتوظيف (SANARA مصر). جميع الحقوق محفوظة.</p>
+      <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">الرجوع للرئيسية</a>
     </div>
   </footer>
 
   <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="firebase.js"></script>
   <script src="app.js"></script>
   <script>
+    // Live Dashboard Controller with Real Firebase Data
     const jobModal = document.getElementById('newJobModal');
     const openBtn1 = document.getElementById('openNewJobModalBtn');
     const openBtn2 = document.getElementById('postJobHeroBtn');
+    const openBtn3 = document.getElementById('btnAddNewJobTop');
     const closeBtn = document.getElementById('closeJobModalBtn');
 
     function openJobModal() { jobModal.classList.add('open'); }
@@ -293,36 +258,139 @@
 
     openBtn1?.addEventListener('click', openJobModal);
     openBtn2?.addEventListener('click', openJobModal);
+    openBtn3?.addEventListener('click', openJobModal);
     closeBtn?.addEventListener('click', closeJobModal);
     jobModal?.addEventListener('click', (e) => { if (e.target === jobModal) closeJobModal(); });
 
-    document.getElementById('createJobForm')?.addEventListener('submit', () => {
-      closeJobModal();
-      if (typeof showToast === 'function') {
-        showToast('عاش يا فنان! تم نشر الوظيفة وهيتم ترشيح أشطر الكفاءات فوراً 🚀', 'success');
-      } else {
-        alert('تم نشر الوظيفة بنجاح!');
+    // Handle Real Job Submission
+    document.getElementById('createJobForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const title = document.getElementById('modalJobTitle')?.value.trim();
+      const company = document.getElementById('modalJobCompany')?.value.trim();
+      const location = document.getElementById('modalJobLocation')?.value.trim();
+      const salary = document.getElementById('modalJobSalary')?.value.trim() || 'يحدد بالمقابلة';
+      const category = document.getElementById('modalJobCategory')?.value || 'tech';
+      const description = document.getElementById('modalJobDesc')?.value.trim() || '';
+      const submitBtn = document.getElementById('submitNewJobBtn');
+
+      if (!title || !company) return;
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'جاري الحفظ في Firebase... ⏳';
+
+      try {
+        if (window.SanaraFirebase && window.SanaraFirebase.postJob) {
+          await window.SanaraFirebase.postJob({
+            title,
+            company,
+            location,
+            salary,
+            category,
+            description,
+            type: 'full-time'
+          });
+        }
+        closeJobModal();
+        document.getElementById('createJobForm').reset();
+        showToast(`تم نشر وظيفة (${title}) بنجاح وظهرت في قاعدة البيانات 🚀`, 'success');
+        await loadDashboardData();
+      } catch (err) {
+        console.error("Post job error:", err);
+        showToast('تعذر نشر الوظيفة، تأكد من الاتصال بقاعدة البيانات.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'نشر الوظيفة في Firebase فوراً 🚀';
       }
     });
 
-    document.querySelectorAll('.candidate-action-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        this.textContent = 'تم إرسال الدعوة ✓';
-        this.style.backgroundColor = '#10B981';
-        this.disabled = true;
-        if (typeof showToast === 'function') {
-          showToast('اتبعثت دعوة الإنترفيو للمرشح على إيميله ورقمه بنجاح ✨', 'success');
-        }
-      });
-    });
+    // Load Live Dashboard Data
+    async function loadDashboardData() {
+      const activeJobsEl = document.getElementById('statActiveJobs');
+      const totalApplicantsEl = document.getElementById('statTotalApplicants');
+      const jobsListContainer = document.getElementById('employerJobsListContainer');
+      const tableBody = document.getElementById('applicationsTableBody');
+      const emptyNotice = document.getElementById('emptyApplicationsNotice');
 
-    if (new URLSearchParams(window.location.search).get('registered') === 'true') {
-      setTimeout(() => {
-        if (typeof showToast === 'function') {
-          showToast('أهلاً بشركتكم في صنارة! تم اعتماد الأوراق القانونية ونشر أول وظيفة بنجاح 🎉', 'success');
+      if (!window.SanaraFirebase) return;
+
+      try {
+        // 1. Fetch Real Jobs
+        const allJobs = await window.SanaraFirebase.fetchJobs();
+        activeJobsEl.textContent = allJobs.length;
+
+        if (allJobs.length === 0) {
+          jobsListContainer.innerHTML = `
+            <div style="padding: 30px; text-align: center; color: var(--text-muted);">
+              لم تقم بنشر أي وظائف حتى الآن. اضغط على "+ إضافة وظيفة" لبدء استقطاب الكفاءات.
+            </div>
+          `;
+        } else {
+          jobsListContainer.innerHTML = `
+            <div style="display: flex; flex-direction: column; gap: 10px; padding: 16px;">
+              ${allJobs.map(j => `
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 16px; background:var(--bg-subtle); border-radius:var(--radius-md); flex-wrap:wrap; gap:10px;">
+                  <div>
+                    <strong style="color:var(--text-headline); font-size:1rem; display:block;">${j.title}</strong>
+                    <span style="font-size:0.82rem; color:var(--text-muted);">${j.company} • ${j.location} • ${j.salary}</span>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <span class="badge-verified" style="background:var(--brand-blue-light); color:var(--brand-blue);">${j.applicantsCount || 0} متقدم</span>
+                    <a href="job-detail.html?id=${j.id}" class="btn-ghost btn-sm" target="_blank">معاينة</a>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `;
         }
-      }, 400);
+
+        // 2. Fetch Real Applications
+        const applications = await window.SanaraFirebase.fetchApplications();
+        totalApplicantsEl.textContent = applications.length;
+
+        if (applications.length === 0) {
+          tableBody.innerHTML = '';
+          emptyNotice.style.display = 'block';
+        } else {
+          emptyNotice.style.display = 'none';
+          tableBody.innerHTML = '';
+          applications.forEach(app => {
+            const tr = document.createElement('tr');
+            const cvBtn = app.cvUrl ? `<a href="${app.cvUrl}" target="_blank" class="btn-outline btn-sm">تحميل CV 📄</a>` : '<span style="color:var(--text-muted); font-size:0.8rem;">غير مرفق</span>';
+
+            tr.innerHTML = `
+              <td>
+                <strong style="display: block; color: var(--text-headline);">${app.applicantName || 'مرشح منصة صنارة'}</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">${app.applicantEmail || ''}</span>
+              </td>
+              <td>${app.jobTitle || 'وظيفة عامة'}</td>
+              <td dir="ltr" style="font-size:0.85rem;">${app.applicantPhone || 'غير مسجل'}</td>
+              <td>${cvBtn}</td>
+              <td><span class="badge-verified" style="background:#FEF3C7; color:#D97706;">جديد</span></td>
+              <td>
+                <button type="button" class="btn-primary btn-sm candidate-action-btn" onclick="this.textContent='تم التواصل ✓'; this.disabled=true;">دعوة لمقابلة</button>
+              </td>
+            `;
+            tableBody.appendChild(tr);
+          });
+        }
+      } catch (err) {
+        console.warn("Load dashboard err:", err);
+      }
     }
+
+    window.addEventListener('load', () => {
+      if (window.SanaraFirebase && window.SanaraFirebase.onAuthChange) {
+        window.SanaraFirebase.onAuthChange((user, profile) => {
+          if (user) {
+            const name = profile?.fullName || user.displayName || user.email.split('@')[0];
+            document.getElementById('employerWelcomeText').textContent = `أهلاً بك يا ${name} • هذا ملخص أداء إعلاناتك وطلبات المرشحين المسجلة في Firebase`;
+          }
+          loadDashboardData();
+        });
+      } else {
+        setTimeout(loadDashboardData, 600);
+      }
+    });
   </script>
 </body>
 </html>

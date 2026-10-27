@@ -1,0 +1,58 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // ===============================================================
+    // 1. Users Collection
+    // ===============================================================
+    match /users/{userId} {
+      allow read: if true;
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId);
+    }
+
+    // ===============================================================
+    // 2. Jobs Collection (Job Board)
+    // ===============================================================
+    match /jobs/{jobId} {
+      // Anyone can view job postings
+      allow read: if true;
+      
+      // Employers or authenticated users can post jobs
+      allow create: if isAuthenticated() || (request.resource.data.title is string && request.resource.data.company is string);
+      
+      // The posting employer can update or delete, or allow incrementing applicantsCount
+      allow update: if isAuthenticated() && (resource.data.employerId == request.auth.uid || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['applicantsCount']));
+      allow delete: if isAuthenticated() && resource.data.employerId == request.auth.uid;
+    }
+
+    // ===============================================================
+    // 3. Applications Collection
+    // ===============================================================
+    match /applications/{applicationId} {
+      // Candidates can submit applications
+      allow create: if request.resource.data.jobId is string && request.resource.data.jobTitle is string;
+      
+      // Candidate can view their own, employer can view applications
+      allow read: if isAuthenticated();
+      allow update, delete: if isAuthenticated();
+    }
+
+    // ===============================================================
+    // 4. FCM Web Push Tokens
+    // ===============================================================
+    match /fcm_tokens/{tokenId} {
+      allow read, write: if true;
+    }
+  }
+}

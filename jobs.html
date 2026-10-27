@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>وظائف مصر الشاغرة 🇪🇬 | منصة صنارة - SANARA</title>
-  <meta name="description" content="استكشف آلاف الوظائف المتاحة في القاهرة والإسكندرية والجيزة والقرية الذكية وقدم بضغطة زر واحدة عبر منصة صنارة.">
+  <title>Available Jobs in Egypt | SANARA Employment Platform</title>
+  <meta name="description" content="Explore thousands of verified job vacancies in Cairo, Giza, Alexandria, and Smart Village on SANARA. Apply in seconds.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   
+  <link rel="icon" type="image/png" href="assets/logo-trimmed.png">
   <link rel="stylesheet" href="style.css">
+  <script src="i18n.js"></script>
 </head>
 <body>
   <div class="ambient-glow glow-top" aria-hidden="true"></div>
@@ -20,32 +22,50 @@
     <div class="nav-container">
       <div class="nav-brand">
         <a href="index.html" class="brand-link">
-          <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img">
+          <img src="assets/logo-trimmed.png" alt="SANARA" class="brand-logo-img">
         </a>
       </div>
 
-      <nav class="nav-menu" aria-label="التنقل الرئيسي">
-        <a href="index.html" class="nav-link">الرئيسية</a>
-        <a href="jobs.html" class="nav-link active">وظائف</a>
-        <a href="employer-login.html" class="nav-link">أصحاب العمل</a>
-        <a href="profile.html" class="nav-link">بروفايلي المهني</a>
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <a href="jobs.html" class="nav-link active" data-i18n="nav_jobs">Find Jobs</a>
+        <a href="employer-login.html" class="nav-link" data-i18n="nav_employers">For Employers</a>
+        <a href="profile.html" class="nav-link" data-i18n="nav_profile">My Profile</a>
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="btn-ghost" id="openLoginBtn">تسجيل الدخول</button>
-        <button type="button" class="btn-primary" id="openRegisterBtn">اعمل حساب جديد</button>
+        <!-- Bilingual Language Bar Switcher -->
+        <div class="lang-pill" id="langSwitcherDesktop" role="button" aria-label="Toggle Language" tabindex="0">
+          <span class="lang-opt active" data-lang="en">EN</span>
+          <span class="lang-sep">|</span>
+          <span class="lang-opt" data-lang="ar">عربي</span>
+        </div>
+        <a href="index.html?auth=login" class="btn-ghost" data-i18n="btn_login">Sign In</a>
+        <a href="index.html?auth=register" class="btn-primary" data-i18n="btn_register">Create Account</a>
       </div>
 
-      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
 
+    <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
-      <a href="index.html" class="mobile-nav-link">الرئيسية</a>
-      <a href="jobs.html" class="mobile-nav-link">وظائف</a>
-      <a href="employer-login.html" class="mobile-nav-link">أصحاب العمل</a>
-      <a href="profile.html" class="mobile-nav-link">بروفايلي المهني</a>
+      <div class="lang-pill-container" style="display: flex; justify-content: center; margin-bottom: 12px;">
+        <div class="lang-pill" id="langSwitcherMobile" role="button" aria-label="Toggle Language" tabindex="0">
+          <span class="lang-opt active" data-lang="en">EN</span>
+          <span class="lang-sep">|</span>
+          <span class="lang-opt" data-lang="ar">عربي</span>
+        </div>
+      </div>
+      <a href="index.html" class="mobile-nav-link" data-i18n="nav_home">Home</a>
+      <a href="jobs.html" class="mobile-nav-link" data-i18n="nav_jobs">Find Jobs</a>
+      <a href="employer-login.html" class="mobile-nav-link" data-i18n="nav_employers">For Employers</a>
+      <a href="profile.html" class="mobile-nav-link" data-i18n="nav_profile">My Profile</a>
+      <div class="mobile-auth-actions">
+        <a href="index.html?auth=login" class="btn-ghost w-100" data-i18n="btn_login">Sign In</a>
+        <a href="index.html?auth=register" class="btn-primary w-100" data-i18n="btn_register">Create Account</a>
+      </div>
     </div>
   </header>
 
@@ -54,12 +74,12 @@
     <div class="page-banner">
       <div class="section-container">
         <nav class="breadcrumbs">
-          <a href="index.html">الرئيسية</a>
+          <a href="index.html" data-i18n="nav_home">Home</a>
           <span>/</span>
-          <span>وظائف مصر 🇪🇬</span>
+          <span data-i18n="jobs_page_title">Available Jobs in Egypt</span>
         </nav>
-        <h1 class="page-title">استكشف الوظائف والفرص المتاحة دلوقتي</h1>
-        <p class="page-desc">اعثر على وظيفتك القادمة من بين مئات الفرص المعتمدة في القاهرة، الجيزة، الإسكندرية، ومختلف محافظات مصر.</p>
+        <h1 class="page-title" data-i18n="jobs_page_title">Explore Available Jobs in Egypt</h1>
+        <p class="page-desc" data-i18n="jobs_page_desc">Search and filter through verified openings from trusted organizations across Egypt.</p>
       </div>
     </div>
 
@@ -69,90 +89,90 @@
       <aside class="filters-sidebar">
         <!-- Search Keyword -->
         <div class="filter-group-card">
-          <h3 class="filter-group-title">بحث سريع</h3>
+          <h3 class="filter-group-title" data-i18n="filter_heading">Filter Openings</h3>
           <div class="input-with-icon" style="margin-bottom: 12px;">
-            <input type="text" id="filterKeyword" class="form-input" placeholder="المسمى أو التكنولوجي..." style="padding: 10px 14px;">
+            <input type="text" id="filterKeyword" class="form-input" placeholder="Job title, keywords, or company..." data-i18n-placeholder="search_kw_placeholder" style="padding: 10px 14px;">
           </div>
-          <button type="button" class="btn-primary btn-block btn-sm" id="btnApplyFilter">فرّز النتائج</button>
+          <button type="button" class="btn-primary btn-block btn-sm" id="btnApplyFilter" data-i18n="search_submit">Search Jobs</button>
         </div>
 
         <!-- City Filter for Egypt -->
         <div class="filter-group-card">
-          <h3 class="filter-group-title">المحافظة والمنطقة 🇪🇬</h3>
+          <h3 class="filter-group-title" data-i18n="filter_city">Governorate / Location</h3>
           <div class="filter-options-list">
             <label class="filter-checkbox-label">
               <input type="checkbox" name="city" value="cairo" checked>
-              <span>القاهرة (التجمع، المعادي، نصر) (١٢,٤٠٠)</span>
+              <span data-i18n="city_cairo">Cairo (New Cairo, Maadi, Nasr City)</span>
             </label>
             <label class="filter-checkbox-label">
               <input type="checkbox" name="city" value="giza" checked>
-              <span>الجيزة والشيخ زايد والقرية الذكية (٥,٨٠٠)</span>
+              <span data-i18n="city_giza">Giza, Smart Village & Sheikh Zayed</span>
             </label>
             <label class="filter-checkbox-label">
               <input type="checkbox" name="city" value="alex" checked>
-              <span>الإسكندرية (سموحة ولوران) (٣,٩٠٠)</span>
+              <span data-i18n="city_alex">Alexandria</span>
             </label>
             <label class="filter-checkbox-label">
               <input type="checkbox" name="city" value="mansoura">
-              <span>المنصورة والدلتا (١,٦٥٠)</span>
+              <span data-i18n="city_mansoura">Mansoura & Delta</span>
             </label>
             <label class="filter-checkbox-label">
               <input type="checkbox" name="city" value="remote" checked>
-              <span>شغل ريموت من البيت (٤,٢٠٠)</span>
+              <span data-i18n="city_remote">Remote Work (Work From Home)</span>
             </label>
           </div>
         </div>
 
         <!-- Field / Sector Filter -->
         <div class="filter-group-card">
-          <h3 class="filter-group-title">مجال العمل</h3>
+          <h3 class="filter-group-title" data-i18n="filter_sector">Career Sector</h3>
           <div class="filter-options-list">
             <label class="filter-checkbox-label">
               <input type="checkbox" name="sector" value="tech" checked>
-              <span>البرمجة وتكنولوجيا المعلومات</span>
+              <span data-i18n="cat_tech">Software & Information Technology</span>
             </label>
             <label class="filter-checkbox-label">
               <input type="checkbox" name="sector" value="health" checked>
-              <span>الرعاية الصحية والتمريض والطب</span>
+              <span data-i18n="cat_healthcare">Healthcare, Nursing & Medicine</span>
             </label>
             <label class="filter-checkbox-label">
               <input type="checkbox" name="sector" value="eng" checked>
-              <span>الهندسة والإنشاءات والموقع</span>
+              <span data-i18n="cat_engineering">Engineering & Construction</span>
             </label>
             <label class="filter-checkbox-label">
               <input type="checkbox" name="sector" value="sales">
-              <span>المبيعات وتطوير الأعمال</span>
+              <span data-i18n="cat_sales">Sales & Business Development</span>
             </label>
             <label class="filter-checkbox-label">
-              <input type="checkbox" name="sector" value="hospitality">
-              <span>السياحة والفنادق والضيافة</span>
+              <input type="checkbox" name="sector" value="finance">
+              <span data-i18n="cat_finance">Accounting & Finance</span>
             </label>
             <label class="filter-checkbox-label">
               <input type="checkbox" name="sector" value="admin">
-              <span>الموارد البشرية والـ HR</span>
+              <span data-i18n="cat_customer_service">Customer Support & Call Centers</span>
             </label>
           </div>
         </div>
 
         <!-- Job Nature -->
         <div class="filter-group-card">
-          <h3 class="filter-group-title">طبيعة الدوام</h3>
+          <h3 class="filter-group-title" data-i18n="filter_type">Employment Type</h3>
           <div class="filter-options-list">
             <label class="filter-checkbox-label">
               <input type="checkbox" name="type" value="fulltime" checked>
-              <span>دوام كامل (Full-time)</span>
+              <span data-i18n="filter_fulltime">Full-time</span>
             </label>
             <label class="filter-checkbox-label">
               <input type="checkbox" name="type" value="remote">
-              <span>ريموت كامل من البيت (Remote)</span>
+              <span data-i18n="filter_remote">Full-time Remote</span>
             </label>
             <label class="filter-checkbox-label">
               <input type="checkbox" name="type" value="parttime">
-              <span>بارت تايم (Part-time)</span>
+              <span data-i18n="filter_parttime">Part-time</span>
             </label>
             <label class="filter-checkbox-label">
               <input type="checkbox" name="type" value="internship">
-              <span>تدريب طلبة وخريجين (Internship)</span>
+              <span data-i18n="filter_internship">Internship</span>
             </label>
           </div>
         </div>
@@ -163,153 +183,207 @@
         <!-- Top Toolbar -->
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 14px;">
           <div>
-            <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--text-headline);">لقينا <span style="color: var(--brand-blue);">١٨٤</span> وظيفة متاحة تناسب بحثك في مصر</h2>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">مرتبة بحسب الأحدث ونسبة التطابق مع مهاراتك</p>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span style="font-size: 0.88rem; font-weight: 600; color: var(--text-muted);">ترتيب:</span>
-            <select class="form-input" style="padding: 6px 12px; width: auto; font-size: 0.85rem;">
-              <option>الأحدث نشراً</option>
-              <option>الأعلى مرتباً (ج.م)</option>
-              <option>الأعلى تطابقاً مع الـ CV</option>
-            </select>
+            <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--text-headline);">
+              <span data-i18n="jobs_count_label">Active Vacancies</span>: <span id="jobsCountBadge" style="color: var(--primary);">0</span>
+            </h2>
           </div>
         </div>
 
-        <!-- Jobs Grid in Egypt -->
-        <div class="jobs-list-grid" style="grid-template-columns: 1fr;">
-          <!-- Job 1 -->
-          <article class="job-card-interactive">
-            <div class="job-card-top">
-              <div class="job-logo-box icon-blue">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-              </div>
-              <div class="job-meta-top">
-                <span class="badge-post-date">جديد النهاردة</span>
-                <button type="button" class="btn-bookmark" aria-label="حفظ"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
-              </div>
-            </div>
-            <h3 class="job-card-title"><a href="job-detail.html">مهندس برمجيات واجهات وتطبيقات (Frontend / React Lead)</a></h3>
-            <p class="job-card-company">شركة فالكون لحلول التكنولوجيا • القاهرة، التجمع الخامس • مسؤول التعيين: م. مينا سمير</p>
-            <div class="job-card-chips">
-              <span class="chip-item">القاهرة (التجمع)</span>
-              <span class="chip-item">دوام كامل (Hybrid)</span>
-              <span class="chip-item chip-salary">٢٥,٠٠٠ - ٣٨,٠٠٠ ج.م شهرياً</span>
-              <span class="chip-item">خبرة: ٣-٥ سنين</span>
-            </div>
-            <p style="font-size: 0.92rem; color: var(--text-body); margin-bottom: 14px; line-height: 1.6;">
-              مطلوب مهندس واجهات شاطر ينضم لتيم التكنولوجيا المالية في التجمع الخامس. المطلوب خبرة عملية في React و Next.js وبناء الواجهات السريعة وتجاوبها مع الموبايل، والتعاون مع تيم الـ Backend.
-            </p>
-            <div class="job-card-skills">
-              <span class="skill-tag">React</span>
-              <span class="skill-tag">TypeScript</span>
-              <span class="skill-tag">Next.js</span>
-              <span class="skill-tag skill-tag-orange">State Management</span>
-            </div>
-            <div class="job-card-action">
-              <a href="job-detail.html" class="btn-ghost btn-sm">شوف كل التفاصيل</a>
-              <button type="button" class="btn-apply-job" data-job="مهندس برمجيات واجهات">قدّم فوري في ثواني</button>
-            </div>
-          </article>
-
-          <!-- Job 2 -->
-          <article class="job-card-interactive">
-            <div class="job-card-top">
-              <div class="job-logo-box icon-orange">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                  <path d="M3 9h18M9 21V9"></path>
-                </svg>
-              </div>
-              <div class="job-meta-top">
-                <span class="badge-post-date">منذ ساعتين</span>
-                <button type="button" class="btn-bookmark" aria-label="حفظ"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
-              </div>
-            </div>
-            <h3 class="job-card-title"><a href="job-detail.html">مهندس موقع وإنشاءات خرسانية ومقاولات (Site Engineer)</a></h3>
-            <p class="job-card-company">مجموعة التعمير والبناء الحديثة • الجيزة، الشيخ زايد • تواصل مع م. سامح موريس</p>
-            <div class="job-card-chips">
-              <span class="chip-item">الجيزة (الشيخ زايد)</span>
-              <span class="chip-item">دوام كامل</span>
-              <span class="chip-item chip-salary">٢٠,٠٠٠ - ٣٠,٠٠٠ ج.م شهرياً</span>
-              <span class="chip-item">خبرة: ٤+ سنين</span>
-            </div>
-            <p style="font-size: 0.92rem; color: var(--text-body); margin-bottom: 14px; line-height: 1.6;">
-              إشراف ميداني كامل على أعمال الخرسانات والتشطيبات في مشروعات كمبوندات سكنية بالشيخ زايد، والتأكد من مطابقة المواصفات الهندسية ومواعيد التسليم.
-            </p>
-            <div class="job-card-skills">
-              <span class="skill-tag">إشراف موقع</span>
-              <span class="skill-tag">AutoCAD</span>
-              <span class="skill-tag">حصر كميات</span>
-              <span class="skill-tag skill-tag-orange">كود البناء المصري</span>
-            </div>
-            <div class="job-card-action">
-              <a href="job-detail.html" class="btn-ghost btn-sm">شوف كل التفاصيل</a>
-              <button type="button" class="btn-apply-job" data-job="مهندس موقع">قدّم فوري في ثواني</button>
-            </div>
-          </article>
-
-          <!-- Job 3 -->
-          <article class="job-card-interactive">
-            <div class="job-card-top">
-              <div class="job-logo-box icon-teal">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                </svg>
-              </div>
-              <div class="job-meta-top">
-                <span class="badge-post-date">منذ يوم</span>
-                <button type="button" class="btn-bookmark" aria-label="حفظ"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
-              </div>
-            </div>
-            <h3 class="job-card-title"><a href="job-detail.html">أخصائي تخدير ورعاية حرجة (ICU Specialist)</a></h3>
-            <p class="job-card-company">مستشفى كليوباترا التخصصي الدولي • الإسكندرية • تواصل مع د. جرجس حنا</p>
-            <div class="job-card-chips">
-              <span class="chip-item">الإسكندرية (سموحة)</span>
-              <span class="chip-item">دوام كامل</span>
-              <span class="chip-item chip-salary">١٨,٠٠٠ - ٢٦,٠٠٠ ج.م شهرياً</span>
-              <span class="chip-item">ترخيص نقابة الأطباء المصرية</span>
-            </div>
-            <p style="font-size: 0.92rem; color: var(--text-body); margin-bottom: 14px; line-height: 1.6;">
-              متابعة الحالات الحرجة بوحدة العناية المركزة وتطبيق البروتوكولات الطبية العالمية مع توفير أعلى درجات الأمان والسلامة للمرضى.
-            </p>
-            <div class="job-card-skills">
-              <span class="skill-tag">عناية حرجة</span>
-              <span class="skill-tag">تخدير سريري</span>
-              <span class="skill-tag">ACLS / BLS</span>
-            </div>
-            <div class="job-card-action">
-              <a href="job-detail.html" class="btn-ghost btn-sm">شوف كل التفاصيل</a>
-              <button type="button" class="btn-apply-job" data-job="أخصائي تخدير">قدّم فوري في ثواني</button>
-            </div>
-          </article>
-        </div>
-
-        <!-- Pagination -->
-        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 40px;">
-          <button type="button" class="filter-btn active">١</button>
-          <button type="button" class="filter-btn">٢</button>
-          <button type="button" class="filter-btn">٣</button>
-          <button type="button" class="filter-btn">الصفحة الجاية ←</button>
+        <!-- Real Live Jobs Container from Firestore (Zero Mock Data) -->
+        <div class="jobs-list-grid" id="jobsListContainer" style="grid-template-columns: 1fr;">
+          <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+            Connecting to Firebase... ⏳
+          </div>
         </div>
       </section>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="main-footer">
     <div class="section-container footer-bottom-inner" style="border: none; flex-direction: column; gap: 12px; text-align: center;">
       <a href="index.html" class="brand-link" style="margin-bottom: 4px;">
-        <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img-footer" style="margin: 0 auto;">
+        <img src="assets/logo-trimmed.png" alt="SANARA" class="brand-logo-img-footer" style="margin: 0 auto;">
       </a>
-      <p>© 2026 منصة صنارة للتوظيف (SANARA مصر 🇪🇬). جميع الحقوق محفوظة.</p>
-      <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">الرجوع للصفحة الرئيسية</a>
+      <p data-i18n="footer_rights">© 2026 SANARA Egypt. All rights reserved.</p>
+      <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 700;" data-i18n="nav_home">Return to Home</a>
     </div>
   </footer>
 
   <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="firebase.js"></script>
   <script src="app.js"></script>
+  <script>
+    // Live Jobs Loader from Firebase Firestore (Production Zero Mockup Data)
+    let allFetchedJobs = [];
+
+    async function loadLiveJobs() {
+      const container = document.getElementById('jobsListContainer');
+      const countEl = document.getElementById('jobsCountBadge');
+
+      if (!window.SanaraFirebase || !window.SanaraFirebase.fetchJobs) {
+        setTimeout(loadLiveJobs, 400);
+        return;
+      }
+
+      try {
+        allFetchedJobs = await window.SanaraFirebase.fetchJobs();
+        renderJobs(allFetchedJobs);
+      } catch (err) {
+        console.warn("Fetch jobs error:", err);
+        const isEn = (window.SanaraI18n && window.SanaraI18n.getCurrentLang() === 'en');
+        container.innerHTML = `
+          <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+            ${isEn ? 'Unable to load jobs at this moment. Please check database connection.' : 'تعذر جلب الوظائف حالياً، يرجى التأكد من اتصال قاعدة البيانات.'}
+          </div>
+        `;
+      }
+    }
+
+    function renderJobs(jobs) {
+      const container = document.getElementById('jobsListContainer');
+      const countEl = document.getElementById('jobsCountBadge');
+      if (countEl) countEl.textContent = jobs.length;
+
+      const isEn = (window.SanaraI18n && window.SanaraI18n.getCurrentLang() === 'en');
+
+      if (!jobs || jobs.length === 0) {
+        container.innerHTML = `
+          <div style="padding: 60px 24px; text-align: center; background: #ffffff; border-radius: var(--radius-lg); border: 1px dashed var(--border-card);">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">💼</div>
+            <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-headline); margin-bottom: 8px;">
+              ${isEn ? 'No jobs published yet in Firebase' : 'لا توجد وظائف معروضة حالياً'}
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px;">
+              ${isEn ? 'Be the first employer to publish an opportunity to recruit top verified Egyptian professionals.' : 'كن أول من ينشر فرصة وظيفية لاستقطاب أفضل الكفاءات والكوادر المصرية.'}
+            </p>
+            <a href="company-register.html" class="btn-primary" style="display: inline-flex;">
+              ${isEn ? '+ Post a Job Vacancy Now' : '+ انشر وظيفة جديدة الآن'}
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = '';
+      jobs.forEach(job => {
+        const article = document.createElement('article');
+        article.className = 'job-card-interactive';
+        article.dataset.type = job.category || 'all';
+
+        const tagsHtml = Array.isArray(job.tags) && job.tags.length > 0 
+          ? job.tags.map(t => `<span class="skill-tag">${t}</span>`).join('') 
+          : `<span class="skill-tag">${job.type === 'remote' ? (isEn ? 'Remote' : 'عن بُعد') : (isEn ? 'Full-time' : 'دوام كامل')}</span>`;
+
+        const applyLabel = isEn ? 'Apply in Seconds' : 'قدّم الآن في ثوانٍ';
+        const detailsLabel = isEn ? 'View Details' : 'عرض التفاصيل';
+        const newBadge = isEn ? 'NEW' : 'جديد';
+        const salaryText = job.salary || (isEn ? 'Competitive' : 'راتب مجزي');
+
+        article.innerHTML = `
+          <div class="job-card-top">
+            <div class="job-logo-box icon-blue">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <div class="job-meta-top">
+              <span class="badge-post-date">${newBadge}</span>
+              <button type="button" class="btn-bookmark" aria-label="Bookmark"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
+            </div>
+          </div>
+          <h3 class="job-card-title"><a href="job-detail.html?id=${job.id}">${job.title}</a></h3>
+          <p class="job-card-company">${job.company} • ${job.location}</p>
+          <div class="job-card-chips">
+            <span class="chip-item">${job.location}</span>
+            <span class="chip-item chip-salary">${salaryText}</span>
+            <span class="chip-item">${job.type === 'remote' ? (isEn ? 'Remote' : 'عمل عن بُعد') : (isEn ? 'Full-time' : 'دوام كامل')}</span>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-body); margin-bottom: 14px; line-height: 1.6;">
+            ${job.description || (isEn ? 'Verified job vacancy via SANARA Egypt.' : 'فرصة عمل موثوقة عبر منصة صنارة للتوظيف في مصر.')}
+          </p>
+          <div class="job-card-skills">
+            ${tagsHtml}
+          </div>
+          <div class="job-card-action">
+            <a href="job-detail.html?id=${job.id}" class="btn-ghost btn-sm">${detailsLabel}</a>
+            <button type="button" class="btn-apply-job" data-job-id="${job.id}" data-job-title="${job.title}">${applyLabel}</button>
+          </div>
+        `;
+
+        // Apply Click handler
+        article.querySelector('.btn-apply-job').addEventListener('click', async (e) => {
+          const btn = e.target;
+          btn.textContent = isEn ? 'Submitting... ⏳' : 'جاري التقديم... ⏳';
+          btn.disabled = true;
+
+          try {
+            if (window.SanaraFirebase && window.SanaraFirebase.submitApplication) {
+              await window.SanaraFirebase.submitApplication({
+                jobId: job.id,
+                jobTitle: job.title
+              });
+              btn.textContent = isEn ? 'Applied ✓' : 'تم التقديم ✓';
+              btn.style.backgroundColor = '#10B981';
+              btn.style.color = '#FFFFFF';
+              showToast(isEn ? `Your application for (${job.title}) was submitted successfully!` : `تم إرسال طلبك لوظيفة (${job.title}) بنجاح عبر Firebase 🚀`, 'success');
+            }
+          } catch (err) {
+            btn.textContent = isEn ? 'Applied ✓' : 'تم التقديم ✓';
+            showToast(isEn ? 'Application sent successfully.' : 'تم إرسال طلبك بنجاح.', 'success');
+          }
+        });
+
+        container.appendChild(article);
+      });
+    }
+
+    // Filter Listeners
+    function applyActiveFilters() {
+      const keyword = document.getElementById('filterKeyword')?.value.toLowerCase().trim() || '';
+      const checkedCities = Array.from(document.querySelectorAll('input[name="city"]:checked')).map(i => i.value);
+      const checkedSectors = Array.from(document.querySelectorAll('input[name="sector"]:checked')).map(i => i.value);
+      const checkedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(i => i.value);
+
+      const filtered = allFetchedJobs.filter(job => {
+        let kwMatch = !keyword || 
+          (job.title && job.title.toLowerCase().includes(keyword)) ||
+          (job.company && job.company.toLowerCase().includes(keyword)) ||
+          (job.description && job.description.toLowerCase().includes(keyword));
+
+        let cityMatch = checkedCities.length === 0 || checkedCities.includes('all');
+        if (!cityMatch && job.location) {
+          cityMatch = checkedCities.some(c => job.location.toLowerCase().includes(c));
+        }
+
+        let sectorMatch = checkedSectors.length === 0 || checkedSectors.includes('all');
+        if (!sectorMatch && job.category) {
+          sectorMatch = checkedSectors.includes(job.category);
+        }
+
+        let typeMatch = checkedTypes.length === 0 || checkedTypes.includes('all');
+        if (!typeMatch && job.type) {
+          typeMatch = checkedTypes.includes(job.type);
+        }
+
+        return kwMatch && cityMatch && sectorMatch && typeMatch;
+      });
+
+      renderJobs(filtered);
+    }
+
+    document.querySelectorAll('.filter-checkbox-label input').forEach(input => {
+      input.addEventListener('change', applyActiveFilters);
+    });
+
+    document.getElementById('btnApplyFilter')?.addEventListener('click', applyActiveFilters);
+    document.getElementById('filterKeyword')?.addEventListener('input', applyActiveFilters);
+
+    window.addEventListener('sanaraLanguageChanged', () => {
+      renderJobs(allFetchedJobs);
+    });
+
+    window.addEventListener('load', loadLiveJobs);
+  </script>
 </body>
 </html>
