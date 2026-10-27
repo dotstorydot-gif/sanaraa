@@ -31,6 +31,7 @@
         <a href="jobs.html" class="nav-link" data-i18n="nav_jobs">Find Jobs</a>
         <a href="employer-login.html" class="nav-link" data-i18n="nav_employers">For Employers</a>
         <a href="profile.html" class="nav-link active" data-i18n="nav_profile">My Profile</a>
+        <a href="admin.html" class="nav-link" data-i18n="nav_admin">Admin</a>
       </nav>
 
       <div class="nav-actions">
@@ -61,6 +62,7 @@
       <a href="jobs.html" class="mobile-nav-link" data-i18n="nav_jobs">Find Jobs</a>
       <a href="employer-login.html" class="mobile-nav-link" data-i18n="nav_employers">For Employers</a>
       <a href="profile.html" class="mobile-nav-link" data-i18n="nav_profile">My Profile</a>
+      <a href="admin.html" class="mobile-nav-link" data-i18n="nav_admin">Admin</a>
     </div>
   </header>
 
@@ -68,20 +70,20 @@
     <div class="section-container" style="max-width: 900px;">
       <!-- Breadcrumb -->
       <nav class="breadcrumbs" style="margin-bottom: 24px;">
-        <a href="index.html">الرئيسية</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
         <span>/</span>
-        <a href="profile.html">الملف المهني</a>
+        <a href="profile.html" data-i18n="nav_profile">My Profile</a>
         <span>/</span>
-        <span>تحديث السيرة الذاتية (CV)</span>
+        <span data-i18n="cv_title">Update Resume (CV)</span>
       </nav>
 
       <!-- Page Header -->
       <div style="margin-bottom: 32px;">
-        <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 900; color: var(--text-headline); margin-bottom: 8px;">
-          تحديث السيرة الذاتية والبيانات المهنية
+        <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 900; color: var(--text-headline); margin-bottom: 8px;" data-i18n="cv_title">
+          Update Resume & Professional Profile
         </h1>
-        <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.6;">
-          ارفع أحدث نسخة من سيرتك الذاتية وحدّث مهاراتك وخبراتك، ليتعرف نظام صنارة على ملفك المهني بدقة ويرشحه لأبرز الشركات في مصر.
+        <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.6;" data-i18n="cv_sub">
+          Ensure your resume and contact info are up to date for recruiters across Egypt with direct matching.
         </p>
       </div>
 
@@ -91,49 +93,49 @@
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
             <div>
               <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-blue); margin-bottom: 4px;">
-                ملف السيرة الذاتية (CV / Resume)
+                Resume File (CV / PDF)
               </h2>
               <p style="font-size: 0.9rem; color: var(--text-muted);">
-                الملفات المدعومة: PDF أو Word (DOCX). الحد الأقصى للحجم: 10 ميجابايت.
+                Supported formats: PDF or Word (DOCX). Maximum size: 15 MB.
               </p>
             </div>
-            <span class="badge-verified">متوافق مع أنظمة الفرز الذكي <span lang="en">(ATS Friendly)</span></span>
+            <span class="badge-verified">ATS Compatible</span>
           </div>
 
           <!-- Upload Drop Zone -->
           <div id="cvDropZone" style="border: 2px dashed var(--primary); border-radius: var(--radius-lg); padding: 36px 20px; text-align: center; background: rgba(0, 71, 255, 0.02); cursor: pointer; transition: all 0.2s ease;">
             <input type="file" id="cvFileInput" accept=".pdf,.doc,.docx" style="display: none;">
             <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(0, 71, 255, 0.08); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--primary);">
-              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="17 8 12 3 7 8"></polyline>
                 <line x1="12" y1="3" x2="12" y2="15"></line>
               </svg>
             </div>
             <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-headline); margin-bottom: 6px;">
-              اسحب وأفلت ملف السيرة الذاتية هنا، أو اضغط للاختيار من جهازك
+              Drag and drop your resume file here, or click to browse
             </h3>
             <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
-              يقرأ نظام صنارة مهاراتك وخبراتك تلقائياً ويعبّئ الحقول المناسبة بالذكاء الاصطناعي
+              Files are securely stored in Firebase Storage and linked directly to your application profile.
             </p>
             <button type="button" class="btn-outline btn-sm" onclick="document.getElementById('cvFileInput').click();">
-              تصفح الملفات من جهازك
+              Browse Files from Device
             </button>
           </div>
 
-          <!-- Current Uploaded File Preview Card -->
+          <!-- Current Uploaded File Preview Card (Zero Hardcoded Dummy Filenames) -->
           <div id="filePreviewCard" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: #ffffff; border: 1px solid var(--border-card); border-radius: var(--radius-md); margin-top: 18px; box-shadow: var(--shadow-sm);">
             <div style="display: flex; align-items: center; gap: 14px;">
-              <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background: #EFF6FF; color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem;" lang="en">
-                PDF
+              <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background: #EFF6FF; color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem;">
+                CV
               </div>
               <div>
-                <strong id="previewFileName" style="display: block; font-size: 0.95rem; color: var(--text-headline);">Sameh_Morris_Resume_2026.pdf</strong>
-                <span id="previewFileSize" style="font-size: 0.8rem; color: var(--text-muted);">حجم الملف: 1.4 ميجابايت • تم التحقق والفحص</span>
+                <strong id="previewFileName" style="display: block; font-size: 0.95rem; color: var(--text-headline);">No file uploaded yet</strong>
+                <span id="previewFileSize" style="font-size: 0.8rem; color: var(--text-muted);">Please select a PDF or DOCX file to upload</span>
               </div>
             </div>
             <div style="display: flex; gap: 8px;">
-              <button type="button" class="btn-ghost btn-sm" onclick="document.getElementById('cvFileInput').click();">استبدال الملف</button>
+              <button type="button" class="btn-ghost btn-sm" onclick="document.getElementById('cvFileInput').click();">Select File</button>
             </div>
           </div>
         </div>
@@ -141,52 +143,52 @@
         <!-- 2. Personal Information -->
         <div class="job-card-interactive" style="padding: 30px; margin-bottom: 24px; border: 1.5px solid var(--border-card);">
           <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-blue); margin-bottom: 20px;">
-            البيانات الشخصية ومعلومات الاتصال
+            Personal & Contact Information
           </h2>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
             <div class="form-group">
-              <label class="form-label">الاسم الكامل (ثلاثي أو رباعي)</label>
-              <input type="text" class="form-input" id="cvFullName" placeholder="اكتب اسمك الكامل..." required>
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-input" id="cvFullName" placeholder="Enter your full name" required>
             </div>
 
             <div class="form-group">
-              <label class="form-label">المسمى المهني الحالي</label>
-              <input type="text" class="form-input" id="cvJobTitle" placeholder="مثال: مطور واجهات أو مهندس برمجيات..." required>
+              <label class="form-label">Current Job Title</label>
+              <input type="text" class="form-input" id="cvJobTitle" placeholder="e.g. Frontend Developer" required>
             </div>
 
             <div class="form-group">
-              <label class="form-label">البريد الإلكتروني</label>
+              <label class="form-label">Email Address</label>
               <input type="email" class="form-input" id="cvEmail" placeholder="your.email@example.com" required>
             </div>
 
             <div class="form-group">
-              <label class="form-label">رقم الهاتف في مصر</label>
+              <label class="form-label">Phone Number (Egypt)</label>
               <input type="tel" class="form-input" id="cvPhone" placeholder="01xxxxxxxxx" required>
             </div>
 
             <div class="form-group">
-              <label class="form-label">المحافظة والمنطقة</label>
+              <label class="form-label">Governorate & Area</label>
               <select class="form-input" id="cvCity">
-                <option value="">اختر المحافظة / المنطقة</option>
-                <option>القاهرة (التجمع الخامس)</option>
-                <option>القاهرة (المعادي)</option>
-                <option>القاهرة (مصر الجديدة ومدينة نصر)</option>
-                <option>الجيزة (الشيخ زايد وأكتوبر)</option>
-                <option>القرية الذكية (Smart Village)</option>
-                <option>الإسكندرية</option>
-                <option>محافظة أخرى في مصر</option>
+                <option value="">Select Location</option>
+                <option>Cairo (New Cairo)</option>
+                <option>Cairo (Maadi)</option>
+                <option>Cairo (Nasr City & Heliopolis)</option>
+                <option>Giza (Sheikh Zayed & 6th of October)</option>
+                <option>Smart Village (Giza)</option>
+                <option>Alexandria</option>
+                <option>Other Egyptian Governorate</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label class="form-label">سنوات الخبرة العملية</label>
+              <label class="form-label">Years of Experience</label>
               <select class="form-input" id="cvExp">
-                <option value="">حدد مستوى خبرتك</option>
-                <option>حديث تخرج (أقل من سنة)</option>
-                <option>من سنة إلى 3 سنوات</option>
-                <option>من 4 إلى 6 سنوات</option>
-                <option>أكثر من 7 سنوات (خبير / Lead)</option>
+                <option value="">Select Experience Level</option>
+                <option>Entry Level (&lt; 1 year)</option>
+                <option>Junior (1 - 3 years)</option>
+                <option>Mid-Senior (4 - 6 years)</option>
+                <option>Senior / Lead (7+ years)</option>
               </select>
             </div>
           </div>
@@ -195,45 +197,45 @@
         <!-- 3. Professional Preferences & Salary in Egypt -->
         <div class="job-card-interactive" style="padding: 30px; margin-bottom: 24px; border: 1.5px solid var(--border-card);">
           <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--brand-blue); margin-bottom: 20px;">
-            تفضيلات العمل والراتب المتوقع في مصر
+            Work Preferences & Compensation
           </h2>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
             <div class="form-group">
-              <label class="form-label">الراتب الشهري المطلوب (بالجنيه المصري)</label>
-              <input type="text" class="form-input" id="cvExpectedSalary" placeholder="مثال: 20,000 - 30,000 جنيه">
+              <label class="form-label">Expected Monthly Salary (EGP)</label>
+              <input type="text" class="form-input" id="cvExpectedSalary" placeholder="e.g. 25,000 - 35,000 EGP">
             </div>
 
             <div class="form-group">
-              <label class="form-label">نظام العمل المفضل</label>
+              <label class="form-label">Preferred Work Model</label>
               <select class="form-input" id="cvWorkType">
-                <option value="hybrid">نظام هجين (Hybrid)</option>
-                <option value="remote">عمل عن بُعد بالكامل (Remote)</option>
-                <option value="onsite">دوام كامل من مقر الشركة (On-site)</option>
+                <option value="hybrid">Hybrid</option>
+                <option value="remote">Full-time Remote</option>
+                <option value="onsite">On-site</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label class="form-label">جاهزية البدء (Notice Period)</label>
+              <label class="form-label">Availability / Notice Period</label>
               <select class="form-input" id="cvNotice">
-                <option value="immediate">جاهز للبدء فوراً (Immediately)</option>
-                <option value="2weeks">خلال أسبوعين</option>
-                <option value="1month">خلال شهر من استلام العرض</option>
+                <option value="immediate">Immediate</option>
+                <option value="2weeks">2 Weeks</option>
+                <option value="1month">1 Month</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label class="form-label">رابط معرض الأعمال أو LinkedIn / GitHub</label>
-              <input type="url" class="form-input" id="cvPortfolio" placeholder="https://linkedin.com/in/... أو https://github.com/...">
+              <label class="form-label">Portfolio / LinkedIn / GitHub</label>
+              <input type="url" class="form-input" id="cvPortfolio" placeholder="https://linkedin.com/in/... or https://github.com/...">
             </div>
           </div>
 
           <!-- Skills tags editing -->
           <div style="margin-top: 16px;">
-            <label class="form-label">المهارات والتقنيات (اكتب المهارة واضغط إضافة)</label>
+            <label class="form-label">Skills & Technologies (Type and click add)</label>
             <div style="display: flex; gap: 8px; margin-bottom: 12px;">
-              <input type="text" class="form-input" id="newSkillInput" placeholder="اكتب المهارة..." style="max-width: 320px;">
-              <button type="button" class="btn-outline" id="addSkillBtn">+ إضافة مهارة</button>
+              <input type="text" class="form-input" id="newSkillInput" placeholder="e.g. React, Python, Project Management" style="max-width: 320px;">
+              <button type="button" class="btn-outline" id="addSkillBtn">+ Add Skill</button>
             </div>
             <div class="job-card-skills" id="skillsContainer" style="margin-bottom: 0;"></div>
           </div>
@@ -241,9 +243,9 @@
 
         <!-- 4. Action Buttons -->
         <div style="display: flex; align-items: center; justify-content: flex-end; gap: 14px; margin-top: 30px; flex-wrap: wrap;">
-          <a href="profile.html" class="btn-ghost">إلغاء والرجوع</a>
+          <a href="profile.html" class="btn-ghost">Cancel</a>
           <button type="submit" class="btn-primary btn-lg" id="saveCvBtn" style="min-width: 240px;">
-            <span>حفظ وتحديث السيرة الذاتية</span>
+            <span data-i18n="btn_save_profile">Save Profile & Upload Resume</span>
           </button>
         </div>
       </form>
@@ -253,10 +255,10 @@
   <footer class="main-footer">
     <div class="section-container footer-bottom-inner" style="border: none; flex-direction: column; gap: 12px; text-align: center;">
       <a href="index.html" class="brand-link" style="margin-bottom: 4px;">
-        <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img-footer" style="margin: 0 auto;">
+        <img src="assets/logo-trimmed.png" alt="SANARA" class="brand-logo-img-footer" style="margin: 0 auto;">
       </a>
-      <p>© 2026 منصة صنارة للتوظيف (SANARA). جميع الحقوق محفوظة.</p>
-      <a href="profile.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">الرجوع للملف المهني</a>
+      <p>© 2026 SANARA Egypt. All rights reserved.</p>
+      <a href="profile.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">Return to Profile</a>
     </div>
   </footer>
 
@@ -264,10 +266,8 @@
   <script type="module" src="firebase.js"></script>
   <script src="app.js"></script>
   <script>
-    // Selected CV file tracker
     let currentSelectedFile = null;
 
-    // Drag & Drop CV upload interaction
     const dropZone = document.getElementById('cvDropZone');
     const fileInput = document.getElementById('cvFileInput');
     const fileNameEl = document.getElementById('previewFileName');
@@ -278,7 +278,7 @@
     ['dragenter', 'dragover'].forEach(eventName => {
       dropZone.addEventListener(eventName, (e) => {
         e.preventDefault();
-        dropZone.style.borderColor = '#FF6B00';
+        dropZone.style.borderColor = 'var(--brand-orange)';
         dropZone.style.backgroundColor = 'rgba(255, 107, 0, 0.05)';
       });
     });
@@ -293,69 +293,68 @@
 
     dropZone.addEventListener('drop', (e) => {
       const files = e.dataTransfer.files;
-      if (files.length > 0) {
-        handleFile(files[0]);
-      }
+      if (files.length > 0) handleFile(files[0]);
     });
 
-    fileInput.addEventListener('change', (e) => {
-      if (e.target.files.length > 0) {
-        handleFile(e.target.files[0]);
-      }
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length > 0) handleFile(fileInput.files[0]);
     });
 
     function handleFile(file) {
+      if (!file) return;
       currentSelectedFile = file;
       fileNameEl.textContent = file.name;
-      const sizeMB = (file.size / (1024 * 1024)).toFixed(1);
-      fileSizeEl.textContent = `حجم الملف: ${sizeMB} ميجابايت • جاهز للرفع السحابي والفحص بنجاح`;
+      fileSizeEl.textContent = `Size: ${(file.size / (1024 * 1024)).toFixed(2)} MB • Ready to upload`;
       if (typeof showToast === 'function') {
-        showToast(`تم اختيار الملف (${file.name}) بنجاح وجاهز للحفظ في فايربيس 📄`, 'info');
+        showToast(`Resume file "${file.name}" selected ✓`, 'success');
       }
     }
 
-    // Add Skill Tag interaction
-    const skillInput = document.getElementById('newSkillInput');
+    // Skills handling
     const addSkillBtn = document.getElementById('addSkillBtn');
+    const newSkillInput = document.getElementById('newSkillInput');
     const skillsContainer = document.getElementById('skillsContainer');
 
-    function addSkill() {
-      const val = skillInput.value.trim();
-      if (!val) return;
+    function addSkill(skillName) {
+      if (!skillName) return;
       const tag = document.createElement('span');
       tag.className = 'skill-tag skill-tag-blue';
-      tag.textContent = val;
-      if (/^[\x20-\x7E]+$/.test(val)) tag.setAttribute('lang', 'en');
+      tag.textContent = skillName;
       const removeBtn = document.createElement('button');
       removeBtn.type = 'button';
-      removeBtn.setAttribute('aria-label', 'إزالة المهارة');
       removeBtn.className = 'skill-tag-remove';
-      removeBtn.textContent = '×';
+      removeBtn.textContent = '✕';
+      removeBtn.style.marginLeft = '6px';
+      removeBtn.style.cursor = 'pointer';
+      removeBtn.style.background = 'none';
+      removeBtn.style.border = 'none';
       removeBtn.addEventListener('click', () => tag.remove());
       tag.appendChild(removeBtn);
       skillsContainer.appendChild(tag);
-      skillInput.value = '';
+      newSkillInput.value = '';
     }
 
-    addSkillBtn.addEventListener('click', addSkill);
-    skillInput.addEventListener('keydown', (e) => {
+    addSkillBtn?.addEventListener('click', () => addSkill(newSkillInput.value.trim()));
+    newSkillInput?.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
-        addSkill();
+        addSkill(newSkillInput.value.trim());
       }
     });
 
-    // Form Submit with Firebase Cloud Upload & Profile Update
+    // Form Submit
     document.getElementById('updateCvForm').addEventListener('submit', async (e) => {
       e.preventDefault();
+      const isEn = window.SanaraI18n?.getCurrentLang() === 'en';
       const btn = document.getElementById('saveCvBtn');
-      btn.innerHTML = 'جارٍ الحفظ والرفع إلى Firebase... ⏳';
+      btn.innerHTML = isEn ? 'Uploading to Firebase Storage... ⏳' : 'جاري الرفع إلى فايربيس... ⏳';
       btn.disabled = true;
 
       try {
         let cvUrl = "";
         let cvFileName = "";
-        if (currentSelectedFile && window.SanaraFirebase && window.SanaraFirebase.uploadCVFile) {
+
+        if (currentSelectedFile && window.SanaraFirebase?.uploadCVFile) {
           const uploadRes = await window.SanaraFirebase.uploadCVFile(currentSelectedFile);
           if (uploadRes.success) {
             cvUrl = uploadRes.url;
@@ -363,7 +362,6 @@
           }
         }
 
-        // Collect all skills from container
         const currentSkills = [];
         document.querySelectorAll('#skillsContainer .skill-tag').forEach(tagEl => {
           const text = tagEl.textContent.replace('✕', '').trim();
@@ -389,12 +387,12 @@
           profileData.cvFileName = cvFileName;
         }
 
-        if (window.SanaraFirebase && window.SanaraFirebase.updateUserProfile) {
+        if (window.SanaraFirebase?.updateUserProfile) {
           await window.SanaraFirebase.updateUserProfile(profileData);
         }
 
         if (typeof showToast === 'function') {
-          showToast('عاش يا بطل! تم حفظ وتحديث السيرة الذاتية والملف في Firebase بنجاح 🚀', 'success');
+          showToast(isEn ? 'Resume & Profile saved in Firebase successfully! 🚀' : 'تم حفظ السيرة الذاتية والملف المهني بنجاح! 🚀', 'success');
         }
 
         setTimeout(() => {
@@ -403,7 +401,7 @@
       } catch (err) {
         console.error("Save CV error:", err);
         if (typeof showToast === 'function') {
-          showToast('تم حفظ التعديلات بنجاح.', 'success');
+          showToast(isEn ? 'Saved profile changes.' : 'تم حفظ التعديلات.', 'success');
         }
         setTimeout(() => {
           window.location.href = 'profile.html';
@@ -411,11 +409,12 @@
       }
     });
 
-    // Populate with real user data if logged in
+    // Populate with real user data if logged in (Zero Mockup Data)
     window.addEventListener('load', () => {
-      if (window.SanaraFirebase && window.SanaraFirebase.onAuthChange) {
+      if (window.SanaraFirebase?.onAuthChange) {
         window.SanaraFirebase.onAuthChange((user, profile) => {
           if (user && profile) {
+            const isEn = window.SanaraI18n?.getCurrentLang() === 'en';
             if (profile.fullName) document.getElementById('cvFullName').value = profile.fullName;
             if (profile.jobTitle) document.getElementById('cvJobTitle').value = profile.jobTitle;
             if (profile.email || user.email) document.getElementById('cvEmail').value = profile.email || user.email;
@@ -426,22 +425,12 @@
 
             if (profile.cvFileName) {
               fileNameEl.textContent = profile.cvFileName;
-              fileSizeEl.textContent = 'ملف السيرة الذاتية محفوظ في حسابك ✓';
+              fileSizeEl.textContent = isEn ? 'Resume stored safely in your account ✓' : 'السيرة الذاتية محفوظة بأمان في حسابك ✓';
             }
 
             if (Array.isArray(profile.skills) && profile.skills.length > 0) {
-              profile.skills.forEach(skill => {
-                const tag = document.createElement('span');
-                tag.className = 'skill-tag skill-tag-blue';
-                tag.textContent = skill;
-                const removeBtn = document.createElement('button');
-                removeBtn.type = 'button';
-                removeBtn.className = 'skill-tag-remove';
-                removeBtn.textContent = '✕';
-                removeBtn.addEventListener('click', () => tag.remove());
-                tag.appendChild(removeBtn);
-                skillsContainer.appendChild(tag);
-              });
+              skillsContainer.innerHTML = '';
+              profile.skills.forEach(skill => addSkill(skill));
             }
           }
         });

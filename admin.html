@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SANARA Admin Portal | Management & Verification Control Center</title>
+  <meta name="description" content="SANARA Centralized Admin Portal for company legal verifications, document inspection, job moderation, and applicant CV tracking.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="assets/logo-trimmed.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="i18n.js"></script>
+</head>
+<body>
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+
+  <!-- Admin Header -->
+  <header class="navbar" id="main-header" style="background: rgba(255, 255, 255, 0.94); border-bottom: 2px solid var(--border-card);">
+    <div class="nav-container">
+      <div class="nav-brand" style="display: flex; align-items: center; gap: 12px;">
+        <a href="index.html" class="brand-link">
+          <img src="assets/logo-trimmed.png" alt="SANARA" class="brand-logo-img">
+        </a>
+        <span style="font-size: 0.78rem; font-weight: 800; background: #0047FF; color: #FFFFFF; padding: 4px 10px; border-radius: var(--radius-pill); letter-spacing: 0.5px;">
+          ADMIN CONSOLE 🛡️
+        </span>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <a href="jobs.html" class="nav-link" data-i18n="nav_jobs">Find Jobs</a>
+        <a href="employer-dashboard.html" class="nav-link" data-i18n="nav_employers">Employer Dashboard</a>
+        <a href="admin.html" class="nav-link active" data-i18n="nav_admin">Admin Portal</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Bilingual Language Bar Switcher -->
+        <div class="lang-pill" id="langSwitcherDesktop" role="button" aria-label="Toggle Language" tabindex="0">
+          <span class="lang-opt active" data-lang="en">EN</span>
+          <span class="lang-sep">|</span>
+          <span class="lang-opt" data-lang="ar">عربي</span>
+        </div>
+        <a href="index.html" class="btn-outline btn-sm">Exit Admin</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 36px 0 80px;">
+    <div class="section-container">
+      
+      <!-- Admin Title -->
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <h1 style="font-size: 2.1rem; font-weight: 900; color: var(--text-headline); margin-bottom: 6px;" data-i18n="admin_portal_title">
+            SANARA Admin Portal ⚙️
+          </h1>
+          <p style="font-size: 1.05rem; color: var(--text-muted);" data-i18n="admin_portal_sub">
+            Comprehensive moderation for companies, legal verifications, jobs, and candidate applications
+          </p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button type="button" class="btn-primary btn-sm" id="btnRefreshAdminData">
+            <span>Refresh Data 🔄</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live KPI Metrics (Zero Dummy Numbers - Direct from Firestore) -->
+      <div class="stats-overview-grid" style="margin-bottom: 32px;">
+        <div class="dash-stat-card">
+          <div class="dash-stat-info">
+            <div class="title" data-i18n="stat_admin_companies">Registered Companies</div>
+            <div class="value" id="kpiCompanies">0</div>
+          </div>
+          <div class="dash-stat-icon icon-blue">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 11h2M6 15h2M16 11h2M16 15h2M10 21V3h4v18"/></svg>
+          </div>
+        </div>
+
+        <div class="dash-stat-card">
+          <div class="dash-stat-info">
+            <div class="title" data-i18n="stat_admin_jobs">Live Vacancies</div>
+            <div class="value" id="kpiJobs">0</div>
+          </div>
+          <div class="dash-stat-icon icon-teal">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </div>
+        </div>
+
+        <div class="dash-stat-card">
+          <div class="dash-stat-info">
+            <div class="title" data-i18n="stat_admin_applications">Total Applications</div>
+            <div class="value" id="kpiApplications">0</div>
+          </div>
+          <div class="dash-stat-icon icon-orange">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="dash-stat-card">
+          <div class="dash-stat-info">
+            <div class="title" data-i18n="stat_admin_candidates">Candidates in System</div>
+            <div class="value" id="kpiCandidates">0</div>
+          </div>
+          <div class="dash-stat-icon icon-cyan">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="auth-tabs" style="margin-bottom: 24px; border-bottom: 2px solid var(--border-card); background: #ffffff; border-radius: var(--radius-md) var(--radius-md) 0 0; padding: 6px 16px 0;">
+        <button type="button" class="tab-btn active" id="tabBtnCompanies" data-i18n="tab_admin_companies">Companies & Legal Docs</button>
+        <button type="button" class="tab-btn" id="tabBtnJobs" data-i18n="tab_admin_jobs">Job Vacancies Moderation</button>
+        <button type="button" class="tab-btn" id="tabBtnApplications" data-i18n="tab_admin_applications">Applications & Resumes</button>
+        <button type="button" class="tab-btn" id="tabBtnBroadcast" data-i18n="tab_admin_broadcast">System Notifications</button>
+      </div>
+
+      <!-- TAB 1: Companies & Verification -->
+      <div class="admin-tab-view" id="viewCompanies">
+        <div class="data-table-card">
+          <div class="table-header-flex">
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-headline);" data-i18n="tab_admin_companies">
+                Registered Companies & Official Legal Documents
+              </h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">
+                Inspect uploaded Commercial Registers and Tax Cards to approve or reject legal status
+              </p>
+            </div>
+          </div>
+
+          <div class="table-responsive" style="overflow-x: auto;">
+            <table class="dash-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+              <thead>
+                <tr style="background: #F8FAFC; border-bottom: 1.5px solid var(--border-card);">
+                  <th style="padding: 14px 16px;">Company</th>
+                  <th style="padding: 14px 16px;">HR / Contact</th>
+                  <th style="padding: 14px 16px;">Reg & Tax Numbers</th>
+                  <th style="padding: 14px 16px;">Commercial Register</th>
+                  <th style="padding: 14px 16px;">Tax Card</th>
+                  <th style="padding: 14px 16px;">Status</th>
+                  <th style="padding: 14px 16px;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="companiesTableBody">
+                <tr>
+                  <td colspan="7" style="padding: 36px; text-align: center; color: var(--text-muted);">
+                    Loading companies from Firebase Firestore... ⏳
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Job Moderation -->
+      <div class="admin-tab-view" id="viewJobs" style="display: none;">
+        <div class="data-table-card">
+          <div class="table-header-flex">
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-headline);" data-i18n="tab_admin_jobs">
+                Job Vacancies Moderation
+              </h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">
+                Edit, close, or delete job postings published on the platform
+              </p>
+            </div>
+            <a href="company-register.html" class="btn-primary btn-sm">+ Post New Job</a>
+          </div>
+
+          <div class="table-responsive" style="overflow-x: auto;">
+            <table class="dash-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+              <thead>
+                <tr style="background: #F8FAFC; border-bottom: 1.5px solid var(--border-card);">
+                  <th style="padding: 14px 16px;">Job Title</th>
+                  <th style="padding: 14px 16px;">Company</th>
+                  <th style="padding: 14px 16px;">Location</th>
+                  <th style="padding: 14px 16px;">Salary</th>
+                  <th style="padding: 14px 16px;">Applicants</th>
+                  <th style="padding: 14px 16px;">Status</th>
+                  <th style="padding: 14px 16px;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="jobsTableBody">
+                <tr>
+                  <td colspan="7" style="padding: 36px; text-align: center; color: var(--text-muted);">
+                    Loading jobs from Firebase Firestore... ⏳
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: Applications & CVs -->
+      <div class="admin-tab-view" id="viewApplications" style="display: none;">
+        <div class="data-table-card">
+          <div class="table-header-flex">
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-headline);" data-i18n="tab_admin_applications">
+                Candidate Applications & Uploaded CVs
+              </h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">
+                Review applicants across all Egyptian companies, download their resumes, and update recruitment status
+              </p>
+            </div>
+          </div>
+
+          <div class="table-responsive" style="overflow-x: auto;">
+            <table class="dash-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+              <thead>
+                <tr style="background: #F8FAFC; border-bottom: 1.5px solid var(--border-card);">
+                  <th style="padding: 14px 16px;">Candidate</th>
+                  <th style="padding: 14px 16px;">Applied Job</th>
+                  <th style="padding: 14px 16px;">Contact</th>
+                  <th style="padding: 14px 16px;">Uploaded Resume (CV)</th>
+                  <th style="padding: 14px 16px;">Date</th>
+                  <th style="padding: 14px 16px;">Status Decision</th>
+                </tr>
+              </thead>
+              <tbody id="applicationsTableBody">
+                <tr>
+                  <td colspan="6" style="padding: 36px; text-align: center; color: var(--text-muted);">
+                    Loading applications from Firebase Firestore... ⏳
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: Broadcast Notifications -->
+      <div class="admin-tab-view" id="viewBroadcast" style="display: none;">
+        <div class="job-card-interactive" style="padding: 36px; max-width: 720px; margin: 0 auto; border: 1.5px solid var(--border-card);">
+          <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-headline); margin-bottom: 6px;" data-i18n="tab_admin_broadcast">
+            Send System Notification
+          </h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 24px;">
+            Broadcast an announcement or alert to candidates and registered companies
+          </p>
+
+          <form id="broadcastForm" onsubmit="event.preventDefault();">
+            <div class="form-group">
+              <label class="form-label">Notification Title</label>
+              <input type="text" id="notifTitle" class="form-input" placeholder="e.g. Platform Maintenance or New Verified Jobs" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Notification Message Body</label>
+              <textarea id="notifBody" class="form-input" rows="4" placeholder="Write message details..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Action Link (Optional)</label>
+              <input type="text" id="notifLink" class="form-input" placeholder="e.g. jobs.html or profile.html">
+            </div>
+
+            <button type="submit" class="btn-primary btn-lg" id="btnSendBroadcast">
+              <span data-i18n="btn_send_notif">Send Notification 🔔</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Edit Job Modal -->
+  <div class="modal-backdrop" id="editJobModal" aria-hidden="true" role="dialog">
+    <div class="modal-dialog-container">
+      <div class="auth-modal-card" style="max-width: 600px;">
+        <button type="button" class="modal-close-btn" id="closeEditModalBtn">×</button>
+        <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 16px;">Edit Job Opening</h3>
+        <form id="editJobForm" onsubmit="event.preventDefault();">
+          <input type="hidden" id="editJobId">
+          <div class="form-group">
+            <label class="form-label">Job Title</label>
+            <input type="text" id="editJobTitle" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Company Name</label>
+            <input type="text" id="editJobCompany" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Location in Egypt</label>
+            <input type="text" id="editJobLocation" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Salary</label>
+            <input type="text" id="editJobSalary" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Status</label>
+            <select id="editJobStatus" class="form-input">
+              <option value="active">Active</option>
+              <option value="closed">Closed</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary btn-block" id="saveEditJobBtn">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="firebase.js"></script>
+  <script>
+    // Tab switching
+    const tabBtns = [
+      { btn: document.getElementById('tabBtnCompanies'), view: document.getElementById('viewCompanies') },
+      { btn: document.getElementById('tabBtnJobs'), view: document.getElementById('viewJobs') },
+      { btn: document.getElementById('tabBtnApplications'), view: document.getElementById('viewApplications') },
+      { btn: document.getElementById('tabBtnBroadcast'), view: document.getElementById('viewBroadcast') }
+    ];
+
+    tabBtns.forEach(({ btn, view }) => {
+      btn?.addEventListener('click', () => {
+        tabBtns.forEach(t => {
+          t.btn?.classList.remove('active');
+          if (t.view) t.view.style.display = 'none';
+        });
+        btn.classList.add('active');
+        if (view) view.style.display = 'block';
+      });
+    });
+
+    // Refresh button
+    document.getElementById('btnRefreshAdminData')?.addEventListener('click', loadAdminData);
+
+    async function loadAdminData() {
+      if (!window.SanaraFirebase) {
+        setTimeout(loadAdminData, 300);
+        return;
+      }
+
+      // Load Metrics
+      if (window.SanaraFirebase.fetchPlatformMetrics) {
+        const metrics = await window.SanaraFirebase.fetchPlatformMetrics();
+        document.getElementById('kpiJobs').textContent = metrics.jobsCount;
+        document.getElementById('kpiCompanies').textContent = metrics.companiesCount;
+        document.getElementById('kpiApplications').textContent = metrics.applicationsCount;
+        document.getElementById('kpiCandidates').textContent = metrics.candidatesCount;
+      }
+
+      // Load Companies
+      loadCompanies();
+      // Load Jobs
+      loadJobs();
+      // Load Applications
+      loadApplications();
+    }
+
+    async function loadCompanies() {
+      const tbody = document.getElementById('companiesTableBody');
+      if (!tbody || !window.SanaraFirebase.fetchAllCompanies) return;
+
+      const companies = await window.SanaraFirebase.fetchAllCompanies();
+      if (companies.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" style="padding: 32px; text-align: center; color: var(--text-muted);">No companies registered yet in Firebase.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = '';
+      companies.forEach(comp => {
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid var(--border-card)';
+
+        const statusColors = {
+          verified: { bg: 'rgba(16, 185, 129, 0.1)', text: '#059669', label: 'Verified 🛡️' },
+          rejected: { bg: 'rgba(239, 68, 68, 0.1)', text: '#DC2626', label: 'Rejected ✕' },
+          pending_verification: { bg: 'rgba(245, 158, 11, 0.1)', text: '#D97706', label: 'Pending Review ⏳' }
+        };
+        const s = statusColors[comp.status] || statusColors.pending_verification;
+
+        const regLink = comp.commercialRegUrl
+          ? `<a href="${comp.commercialRegUrl}" target="_blank" style="color: var(--primary); font-weight:700; text-decoration:none;">📄 View Register</a>`
+          : `<span style="color: var(--text-muted);">Not uploaded</span>`;
+
+        const taxLink = comp.taxCardUrl
+          ? `<a href="${comp.taxCardUrl}" target="_blank" style="color: var(--primary); font-weight:700; text-decoration:none;">📄 View Tax Card</a>`
+          : `<span style="color: var(--text-muted);">Not uploaded</span>`;
+
+        const logoImg = comp.logoUrl 
+          ? `<img src="${comp.logoUrl}" alt="${comp.name}" style="width:36px; height:36px; border-radius:8px; object-fit:contain; background:#ffffff; border:1px solid var(--border-card); padding:2px; flex-shrink:0;">` 
+          : `<div style="width:36px; height:36px; border-radius:8px; background:var(--brand-blue-light); display:flex; align-items:center; justify-content:center; color:var(--brand-blue); font-size:1.1rem; flex-shrink:0;">🏢</div>`;
+
+        tr.innerHTML = `
+          <td style="padding: 14px 16px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              ${logoImg}
+              <div>
+                <strong>${comp.name}</strong><br>
+                <small style="color: var(--text-muted);">${comp.location || 'Egypt'}</small>
+              </div>
+            </div>
+          </td>
+          <td style="padding: 14px 16px;">
+            ${comp.hrRepresentative || '-'}<br>
+            <small style="color: var(--text-muted);">${comp.hrPhone || '-'}</small>
+          </td>
+          <td style="padding: 14px 16px;">
+            <small>CR: ${comp.regNumber || '-'}<br>Tax: ${comp.taxNumber || '-'}</small>
+          </td>
+          <td style="padding: 14px 16px;">${regLink}</td>
+          <td style="padding: 14px 16px;">${taxLink}</td>
+          <td style="padding: 14px 16px;">
+            <span style="background:${s.bg}; color:${s.text}; padding:4px 10px; border-radius:99px; font-size:0.8rem; font-weight:800;">
+              ${s.label}
+            </span>
+          </td>
+          <td style="padding: 14px 16px;">
+            <div style="display:flex; gap:6px;">
+              <button class="btn-primary btn-sm btn-approve" data-id="${comp.id}" style="padding: 4px 10px; font-size: 0.8rem;">Approve 🛡️</button>
+              <button class="btn-ghost btn-sm btn-reject" data-id="${comp.id}" style="padding: 4px 10px; font-size: 0.8rem; color: #DC2626;">Reject</button>
+            </div>
+          </td>
+        `;
+
+        tr.querySelector('.btn-approve').addEventListener('click', async () => {
+          await window.SanaraFirebase.updateCompanyStatus(comp.id, 'verified');
+          if (typeof showToast === 'function') showToast(`Company "${comp.name}" approved officially! 🛡️`, 'success');
+          loadCompanies();
+        });
+
+        tr.querySelector('.btn-reject').addEventListener('click', async () => {
+          await window.SanaraFirebase.updateCompanyStatus(comp.id, 'rejected');
+          if (typeof showToast === 'function') showToast(`Company status updated to rejected.`, 'info');
+          loadCompanies();
+        });
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function loadJobs() {
+      const tbody = document.getElementById('jobsTableBody');
+      if (!tbody || !window.SanaraFirebase.fetchJobs) return;
+
+      const jobs = await window.SanaraFirebase.fetchJobs();
+      if (jobs.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" style="padding: 32px; text-align: center; color: var(--text-muted);">No job listings in Firebase.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = '';
+      jobs.forEach(job => {
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid var(--border-card)';
+        tr.innerHTML = `
+          <td style="padding: 14px 16px;"><strong>${job.title}</strong></td>
+          <td style="padding: 14px 16px;">${job.company}</td>
+          <td style="padding: 14px 16px;">${job.location}</td>
+          <td style="padding: 14px 16px;">${job.salary || 'Competitive'}</td>
+          <td style="padding: 14px 16px;">${job.applicantsCount || 0}</td>
+          <td style="padding: 14px 16px;">
+            <span style="background: rgba(16, 185, 129, 0.1); color: #059669; padding: 4px 10px; border-radius: 99px; font-size: 0.8rem; font-weight: 700;">
+              ${job.status || 'active'}
+            </span>
+          </td>
+          <td style="padding: 14px 16px;">
+            <div style="display:flex; gap:6px;">
+              <button class="btn-outline btn-sm btn-edit-job" data-id="${job.id}" style="padding: 4px 10px; font-size: 0.8rem;">Edit</button>
+              <button class="btn-ghost btn-sm btn-delete-job" data-id="${job.id}" style="padding: 4px 10px; font-size: 0.8rem; color: #DC2626;">Delete</button>
+            </div>
+          </td>
+        `;
+
+        tr.querySelector('.btn-edit-job').addEventListener('click', () => {
+          document.getElementById('editJobId').value = job.id;
+          document.getElementById('editJobTitle').value = job.title;
+          document.getElementById('editJobCompany').value = job.company;
+          document.getElementById('editJobLocation').value = job.location;
+          document.getElementById('editJobSalary').value = job.salary || '';
+          document.getElementById('editJobStatus').value = job.status || 'active';
+          document.getElementById('editJobModal').classList.add('open');
+        });
+
+        tr.querySelector('.btn-delete-job').addEventListener('click', async () => {
+          if (confirm(`Are you sure you want to delete job "${job.title}"?`)) {
+            await window.SanaraFirebase.deleteJob(job.id);
+            if (typeof showToast === 'function') showToast(`Job deleted.`, 'info');
+            loadJobs();
+          }
+        });
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function loadApplications() {
+      const tbody = document.getElementById('applicationsTableBody');
+      if (!tbody || !window.SanaraFirebase.fetchApplications) return;
+
+      const apps = await window.SanaraFirebase.fetchApplications();
+      if (apps.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="padding: 32px; text-align: center; color: var(--text-muted);">No applications submitted yet.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = '';
+      apps.forEach(app => {
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid var(--border-card)';
+
+        const cvLink = app.cvUrl
+          ? `<a href="${app.cvUrl}" target="_blank" style="color: var(--primary); font-weight:700; text-decoration:none;">📄 Download CV</a>`
+          : `<span style="color: var(--text-muted);">No CV uploaded</span>`;
+
+        tr.innerHTML = `
+          <td style="padding: 14px 16px;"><strong>${app.applicantName}</strong></td>
+          <td style="padding: 14px 16px;">${app.jobTitle}</td>
+          <td style="padding: 14px 16px;">
+            ${app.applicantEmail}<br>
+            <small style="color: var(--text-muted);">${app.applicantPhone || '-'}</small>
+          </td>
+          <td style="padding: 14px 16px;">${cvLink}</td>
+          <td style="padding: 14px 16px;"><small>${app.createdAtDate?.toLocaleDateString() || '-'}</small></td>
+          <td style="padding: 14px 16px;">
+            <select class="form-input app-status-select" style="padding: 4px 8px; font-size: 0.82rem; width: auto;" data-id="${app.id}">
+              <option value="new" ${app.status === 'new' ? 'selected' : ''}>New</option>
+              <option value="reviewed" ${app.status === 'reviewed' ? 'selected' : ''}>Reviewed</option>
+              <option value="interview" ${app.status === 'interview' ? 'selected' : ''}>Interview Scheduled 🎯</option>
+              <option value="accepted" ${app.status === 'accepted' ? 'selected' : ''}>Accepted 🌟</option>
+              <option value="rejected" ${app.status === 'rejected' ? 'selected' : ''}>Rejected</option>
+            </select>
+          </td>
+        `;
+
+        tr.querySelector('.app-status-select').addEventListener('change', async (e) => {
+          const newStatus = e.target.value;
+          await window.SanaraFirebase.updateApplicationStatus(app.id, newStatus, app.applicantEmail, app.jobTitle);
+          if (typeof showToast === 'function') showToast(`Status updated to ${newStatus} and candidate notified.`, 'success');
+        });
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Edit Job Form Submit
+    document.getElementById('editJobForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const jobId = document.getElementById('editJobId').value;
+      const title = document.getElementById('editJobTitle').value.trim();
+      const company = document.getElementById('editJobCompany').value.trim();
+      const location = document.getElementById('editJobLocation').value.trim();
+      const salary = document.getElementById('editJobSalary').value.trim();
+      const status = document.getElementById('editJobStatus').value;
+
+      await window.SanaraFirebase.updateJob(jobId, { title, company, location, salary, status });
+      document.getElementById('editJobModal').classList.remove('open');
+      if (typeof showToast === 'function') showToast(`Job updated successfully!`, 'success');
+      loadJobs();
+    });
+
+    document.getElementById('closeEditModalBtn')?.addEventListener('click', () => {
+      document.getElementById('editJobModal').classList.remove('open');
+    });
+
+    // Broadcast Form Submit
+    document.getElementById('broadcastForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const title = document.getElementById('notifTitle').value.trim();
+      const body = document.getElementById('notifBody').value.trim();
+      const link = document.getElementById('notifLink').value.trim();
+
+      await window.SanaraFirebase.createNotification({
+        title,
+        body,
+        link,
+        type: 'broadcast'
+      });
+
+      if (typeof showToast === 'function') showToast(`System notification broadcasted successfully! 🔔`, 'success');
+      document.getElementById('broadcastForm').reset();
+    });
+
+    window.addEventListener('load', loadAdminData);
+  </script>
+</body>
+</html>

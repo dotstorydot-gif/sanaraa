@@ -1,15 +1,19 @@
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
+    // CVs and resumes
     match /resumes/{userId}/{fileName} {
-      // Anyone can upload their CV up to 10MB
-      allow write: if request.resource.size < 10 * 1024 * 1024;
-      // Recruiters and candidates can view CV files
+      allow write: if request.resource.size < 15 * 1024 * 1024;
       allow read: if true;
     }
-    match /{allPaths=**} {
+    // Company legal verification documents (Commercial Register, Tax Card, Logo)
+    match /companies/{companyId}/{fileName} {
+      allow write: if request.resource.size < 20 * 1024 * 1024;
       allow read: if true;
-      allow write: if request.auth != null;
+    }
+    // General fallback
+    match /{allPaths=**} {
+      allow read, write: if true;
     }
   }
 }

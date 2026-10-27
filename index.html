@@ -34,6 +34,7 @@
         <a href="jobs.html" class="nav-link" data-i18n="nav_jobs">Find Jobs</a>
         <a href="employer-login.html" class="nav-link" data-i18n="nav_employers">For Employers</a>
         <a href="profile.html" class="nav-link" data-i18n="nav_profile">My Profile</a>
+        <a href="admin.html" class="nav-link" data-i18n="nav_admin">Admin</a>
       </nav>
 
       <div class="nav-actions">
@@ -48,8 +49,10 @@
       </div>
 
       <!-- Mobile Menu Toggle Button -->
-      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
-        <span></span><span></span><span></span>
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
 
@@ -66,6 +69,7 @@
       <a href="jobs.html" class="mobile-nav-link" data-i18n="nav_jobs">Find Jobs</a>
       <a href="employer-login.html" class="mobile-nav-link" data-i18n="nav_employers">For Employers</a>
       <a href="profile.html" class="mobile-nav-link" data-i18n="nav_profile">My Profile</a>
+      <a href="admin.html" class="mobile-nav-link" data-i18n="nav_admin">Admin</a>
       <div class="mobile-auth-actions">
         <button type="button" class="btn-ghost w-100" id="mobileLoginBtn" data-i18n="btn_login">Sign In</button>
         <button type="button" class="btn-primary w-100" id="mobileRegisterBtn" data-i18n="btn_register">Create Account</button>
@@ -74,298 +78,48 @@
   </header>
 
   <main>
-    <!-- Top Spotlight Scrolling Banners (3 Interactive Slides) -->
-    <section class="top-banners-section" aria-label="Spotlight Banners">
+    <!-- TOP SINGLE SPOTLIGHT BANNER (Clean, Visual, CTA, Non-scrolling, Uncrowded) -->
+    <section class="top-banners-section" style="padding-top: 24px; padding-bottom: 16px;">
       <div class="section-container">
-        <div class="banners-slider-wrapper">
-          <div class="banners-track-container">
-            <div class="banners-track" id="bannersTrack">
-              <!-- Slide 1: Tech & Engineering Opportunities -->
-              <div class="banner-slide banner-blue">
-                <div class="banner-glow-effect"></div>
-                <div class="banner-content">
-                  <div class="banner-badge">
-                    <span class="badge-icon">🔥</span>
-                    <span data-i18n="banner_1_badge">Top Trending Tech & Engineering Jobs in Egypt</span>
-                    <span class="badge-tag" data-i18n="banner_1_tag">Updated Today</span>
-                  </div>
-                  <h2 class="banner-title" data-i18n="banner_1_title">
-                    Connecting Top Talent with <span class="highlight-text">Egypt's Leading Companies</span>
-                  </h2>
-                  <p class="banner-desc" data-i18n="banner_1_desc">
-                    Discover high-salary verified opportunities in Cairo, Giza, and Alexandria with full health and social insurance.
-                  </p>
-                  <div class="banner-actions">
-                    <a href="jobs.html" class="banner-btn-primary" data-i18n="banner_1_btn1">Explore Tech Jobs →</a>
-                    <a href="company-register.html" class="banner-btn-secondary" data-i18n="banner_1_btn2">Post a Job Free</a>
-                  </div>
-                </div>
-                <div class="banner-visual">
-                  <div class="banner-stat-chip">
-                    <span class="chip-number" dir="ltr">+4,800</span>
-                    <div class="card-text-wrap">
-                      <span class="chip-label" data-i18n="banner_1_chip1_title">+4,800 Verified Companies</span>
-                      <strong data-i18n="banner_1_chip1_sub">Active monthly recruiters</strong>
-                    </div>
-                  </div>
-                  <div class="banner-stat-chip">
-                    <span class="chip-badge-icon">⚡</span>
-                    <div class="card-text-wrap">
-                      <span class="chip-label" data-i18n="banner_1_chip2_title">Direct Fast Hiring</span>
-                      <strong data-i18n="banner_1_chip2_sub">Zero intermediary fees</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 2: Employers & Fast Hiring -->
-              <div class="banner-slide banner-orange">
-                <div class="banner-glow-effect"></div>
-                <div class="banner-content">
-                  <div class="banner-badge">
-                    <span class="badge-icon">⚡</span>
-                    <span data-i18n="banner_2_badge">Fast Hiring For Employers & HR Leaders</span>
-                    <span class="badge-tag" data-i18n="banner_2_tag">Verified HR</span>
-                  </div>
-                  <h2 class="banner-title" data-i18n="banner_2_title">
-                    Hire Top 5% Pre-Screened <span class="highlight-text">Egyptian Talent in 48 Hours</span>
-                  </h2>
-                  <p class="banner-desc" data-i18n="banner_2_desc">
-                    Post job openings directly to thousands of verified professionals. Fast-track recruitment with no duplicate CVs.
-                  </p>
-                  <div class="banner-actions">
-                    <a href="company-register.html" class="banner-btn-primary" data-i18n="banner_2_btn1">Post a Vacancy Now →</a>
-                    <a href="employer-login.html" class="banner-btn-secondary" data-i18n="banner_2_btn2">Company Verification</a>
-                  </div>
-                </div>
-                <div class="banner-visual">
-                  <div class="banner-stat-chip">
-                    <span class="chip-number" dir="ltr">48h</span>
-                    <div class="card-text-wrap">
-                      <span class="chip-label" data-i18n="banner_2_chip1_title">48h Average Fill Time</span>
-                      <strong data-i18n="banner_2_chip1_sub">From post to interview</strong>
-                    </div>
-                  </div>
-                  <div class="banner-stat-chip">
-                    <span class="chip-number" dir="ltr">96%</span>
-                    <div class="card-text-wrap">
-                      <span class="chip-label" data-i18n="banner_2_chip2_title">96% Retention Rate</span>
-                      <strong data-i18n="banner_2_chip2_sub">Proven employee stability</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 3: Smart CV Builder & Instant Apply -->
-              <div class="banner-slide banner-teal">
-                <div class="banner-glow-effect"></div>
-                <div class="banner-content">
-                  <div class="banner-badge">
-                    <span class="badge-icon">📄</span>
-                    <span data-i18n="banner_3_badge">Smart CV Builder & Career Match</span>
-                    <span class="badge-tag" data-i18n="banner_3_tag">One Click</span>
-                  </div>
-                  <h2 class="banner-title" data-i18n="banner_3_title">
-                    Build Your Professional Resume & <span class="highlight-text">Apply in One Tap</span>
-                  </h2>
-                  <p class="banner-desc" data-i18n="banner_3_desc">
-                    Upload your resume or build a verified digital profile to receive instant matches from top recruiters across Egypt.
-                  </p>
-                  <div class="banner-actions">
-                    <a href="update-cv.html" class="banner-btn-primary" data-i18n="banner_3_btn1">Update My CV Now →</a>
-                    <a href="jobs.html" class="banner-btn-secondary" data-i18n="banner_3_btn2">Browse Top Sectors</a>
-                  </div>
-                </div>
-                <div class="banner-visual">
-                  <div class="banner-stat-chip">
-                    <span class="chip-badge-icon">🎯</span>
-                    <div class="card-text-wrap">
-                      <span class="chip-label" data-i18n="banner_3_chip1_title">AI Skill Matching</span>
-                      <strong data-i18n="banner_3_chip1_sub">Smart matching algorithms</strong>
-                    </div>
-                  </div>
-                  <div class="banner-stat-chip">
-                    <span class="chip-badge-icon">💬</span>
-                    <div class="card-text-wrap">
-                      <span class="chip-label" data-i18n="banner_3_chip2_title">Direct HR Access</span>
-                      <strong data-i18n="banner_3_chip2_sub">Direct chat with recruiters</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div class="banner-slide banner-blue single-spotlight-card" style="border-radius: var(--radius-xl); box-shadow: 0 16px 40px -10px rgba(0, 71, 255, 0.22); border: 1px solid rgba(255, 255, 255, 0.2);">
+          <div class="banner-glow-effect"></div>
+          <div class="banner-content">
+            <div class="banner-badge">
+              <span class="badge-icon">🇪🇬</span>
+              <span data-i18n="single_banner_badge">Official Verified Employment Platform</span>
+              <span class="badge-tag" data-i18n="single_banner_tag">Live & Active</span>
+            </div>
+            <h1 class="banner-title" data-i18n="single_banner_title" style="font-size: clamp(1.8rem, 3.8vw, 2.7rem); line-height: 1.25; margin: 12px 0 16px;">
+              Connecting Egypt's Top Talent with <span class="highlight-text">Leading Companies</span>
+            </h1>
+            <p class="banner-desc" data-i18n="single_banner_desc" style="font-size: 1.05rem; opacity: 0.95; line-height: 1.6; max-width: 620px; margin-bottom: 24px;">
+              Discover verified high-salary opportunities across Cairo, Giza, and Alexandria with full insurance, or hire pre-screened Egyptian talent directly with zero intermediary fees.
+            </p>
+            <div class="banner-actions" style="display: flex; gap: 14px; flex-wrap: wrap;">
+              <a href="jobs.html" class="banner-btn-primary" data-i18n="single_banner_btn_jobs">Explore Verified Jobs →</a>
+              <a href="company-register.html" class="banner-btn-secondary" data-i18n="single_banner_btn_post">Post a Job Free</a>
             </div>
           </div>
-
-          <!-- Slider Navigation & Indicators -->
-          <div class="banners-nav-bar">
-            <div class="banner-dots" id="bannerDots">
-              <button type="button" class="banner-dot active" data-slide="0" aria-label="Slide 1"></button>
-              <button type="button" class="banner-dot" data-slide="1" aria-label="Slide 2"></button>
-              <button type="button" class="banner-dot" data-slide="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="banners-nav-controls">
-              <button type="button" class="banner-nav-btn" id="bannerPrevBtn" aria-label="Previous Slide">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
-              <button type="button" class="banner-nav-btn" id="bannerNextBtn" aria-label="Next Slide">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Hero: single promotional banner -->
-    <section class="hero-section" id="hero">
-      <div class="section-container hero-grid">
-        <!-- Content Column (Right in RTL) -->
-        <div class="hero-content">
-          <div class="pill-badge" id="why-sanaraa">
-            <span class="badge-dot"></span>
-            منصة التوظيف الأولى في مصر
-          </div>
-
-          <h1 class="hero-title">
-            نربط بين <span class="hero-accent">الشركات</span> و<span class="hero-accent">أفضل الكفاءات</span> في مصر
-          </h1>
-
-          <p class="hero-description">
-            منصة واحدة تتيح لأصحاب العمل الوصول إلى الكفاءات التي يحتاجونها، وتمنح المهنيين فرصًا حقيقية برواتب مجزية — بلا وسطاء ولا تعقيد.
-          </p>
-
-          <!-- Dual-audience primary actions: employers and job seekers -->
-          <div class="hero-actions-row">
-            <a href="company-register.html" class="btn-primary btn-lg">
-              <span>لأصحاب العمل: انشر وظيفة</span>
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-            <a href="jobs.html" class="btn-outline btn-lg">
-              <span>للباحثين عن عمل: تصفّح الوظائف</span>
-            </a>
-          </div>
-
-          <!-- Trust metrics -->
-          <div class="hero-stats-strip">
-            <div class="stat-box">
-              <span class="stat-number" dir="ltr">+25,000</span>
-              <span class="stat-label">وظيفة نشطة في مصر</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-box">
-              <span class="stat-number" dir="ltr">+3,800</span>
-              <span class="stat-label">شركة معتمدة</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-box">
-              <span class="stat-number" dir="ltr">98%</span>
-              <span class="stat-label">نسبة الرد على الطلبات</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Visual Showcase Column -->
-        <div class="hero-visual">
-          <div class="visual-backdrop-card">
-            <!-- Floating notification badge -->
-            <div class="floating-badge badge-top-left">
-              <div class="badge-icon-bell" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                  <path d="M13.7 21a2 2 0 0 1-3.4 0"></path>
-                </svg>
-              </div>
-              <div>
-                <div class="badge-title">لديك موعد مقابلة جديد</div>
-                <div class="badge-sub">من مسؤول التوظيف • قبل دقيقتين</div>
+          <div class="banner-visual">
+            <div class="banner-stat-chip" style="background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.25);">
+              <span class="chip-badge-icon">🛡️</span>
+              <div class="card-text-wrap">
+                <span class="chip-label" data-i18n="single_banner_visual_title">Verified Egyptian Organizations</span>
+                <strong data-i18n="single_banner_visual_sub">Direct hiring • Zero fake listings</strong>
               </div>
             </div>
-
-            <!-- Featured job card -->
-            <div class="job-showcase-card" id="demoJobCard">
-              <div class="job-card-header">
-                <div class="job-company-icon">
-                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                  </svg>
-                </div>
-                <div class="job-header-info">
-                  <div class="job-title-row">
-                    <p class="job-title" id="demoJobTitle">مهندس برمجيات واجهات</p>
-                    <span class="badge-verified">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                      </svg>
-                      شركة موثوقة
-                    </span>
-                  </div>
-                  <p class="job-company" id="demoJobCompany">شركة تكنولوجيا معتمدة</p>
-                </div>
-              </div>
-
-              <!-- Location and salary metadata -->
-              <div class="job-meta-row">
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                  <span id="demoJobLocation">القاهرة • التجمع الخامس</span>
-                </div>
-                <div class="meta-item">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                    <polyline points="17 6 23 6 23 12"></polyline>
-                  </svg>
-                  <span id="demoJobType">دوام كامل مع يومين عن بُعد</span>
-                </div>
-                <div class="meta-item meta-salary">
-                  <span id="demoJobSalary">25,000 - 38,000 جنيه</span>
-                </div>
-                <div class="meta-item meta-match">
-                  <span>تطابق <span dir="ltr">97%</span></span>
-                </div>
-              </div>
-
-              <!-- Skill tags -->
-              <div class="job-tags-row" id="demoJobTags">
-                <span class="skill-tag"><span lang="en">React</span></span>
-                <span class="skill-tag"><span lang="en">TypeScript</span></span>
-                <span class="skill-tag"><span lang="en">Next.js</span></span>
-                <span class="skill-tag skill-tag-more" dir="ltr">+3 مهارات</span>
-              </div>
-
-              <!-- Card action -->
-              <div class="job-card-footer">
-                <a href="job-detail.html" class="btn-card-apply" id="applyDemoBtn">
-                  <span>قدّم الآن</span>
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-                <div class="applicant-stats">
-                  <div class="applicant-avatars">
-                    <span class="avatar-dot" style="background:#0047FF"></span>
-                    <span class="avatar-dot" style="background:#FF6B00"></span>
-                    <span class="avatar-dot" style="background:#008080"></span>
-                  </div>
-                  <span class="applicant-text">28 متقدماً</span>
-                </div>
+            <div class="banner-stat-chip" style="background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.25);">
+              <span class="chip-badge-icon">⚡</span>
+              <div class="card-text-wrap">
+                <span class="chip-label" data-i18n="single_banner_chip1_title">Direct Fast Hiring</span>
+                <strong data-i18n="single_banner_chip1_sub">Connect with decision makers</strong>
               </div>
             </div>
-
-            <!-- Showcase switcher -->
-            <div class="card-switcher">
-              <span class="switcher-label">نماذج وظائف أخرى:</span>
-              <div class="switcher-buttons">
-                <button type="button" class="switcher-btn active" data-job="dev">برمجيات</button>
-                <button type="button" class="switcher-btn" data-job="civil">هندسة مدنية</button>
-                <button type="button" class="switcher-btn" data-job="nurse">تمريض وتخدير</button>
-                <button type="button" class="switcher-btn" data-job="sales">مبيعات وتطوير الأعمال</button>
+            <div class="banner-stat-chip" style="background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.25);">
+              <span class="chip-badge-icon">📜</span>
+              <div class="card-text-wrap">
+                <span class="chip-label" data-i18n="single_banner_chip2_title">Full Social Insurance</span>
+                <strong data-i18n="single_banner_chip2_sub">Guaranteed legal protection</strong>
               </div>
             </div>
           </div>
@@ -373,55 +127,8 @@
       </div>
     </section>
 
-    <!-- Why SANARA: value proposition for both audiences -->
-    <section class="why-section" id="why">
-      <div class="section-container">
-        <div class="section-header">
-          <h2 class="section-title">لماذا صنارة؟</h2>
-          <p class="section-subtitle">منصّة واحدة تختصر الطريق بين الشركة والموهبة المناسبة، للطرفين.</p>
-        </div>
-        <div class="why-grid">
-          <div class="check-item">
-            <div class="check-icon-circle">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-            </div>
-            <div class="check-item-text">
-              <h3 class="check-title">تقديم سريع بلمسة واحدة</h3>
-              <p class="check-desc">قدّم على أي وظيفة بخطوات بسيطة ودون إجراءات معقدة أو استبيانات مطوّلة.</p>
-            </div>
-          </div>
-          <div class="check-item">
-            <div class="check-icon-circle">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-            </div>
-            <div class="check-item-text">
-              <h3 class="check-title">تواصل مباشر مع أصحاب العمل</h3>
-              <p class="check-desc">تواصل مع مسؤولي التوظيف والفرق المعنيّة بالتعيين مباشرة، دون وسطاء.</p>
-            </div>
-          </div>
-          <div class="check-item">
-            <div class="check-icon-circle">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-            </div>
-            <div class="check-item-text">
-              <h3 class="check-title">إشعارات فورية مخصّصة</h3>
-              <p class="check-desc">تنبيهات ذكية فور نشر الوظائف التي تطابق مهاراتك والراتب المتوقع.</p>
-            </div>
-          </div>
-          <div class="check-item">
-            <div class="check-icon-circle">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
-            </div>
-            <div class="check-item-text">
-              <h3 class="check-title">ملف تعريفي احترافي</h3>
-              <p class="check-desc">اعرض خبراتك وسيرتك الذاتية بصيغة تليق بك وتجعل الشركات هي من تسعى إليك.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Search and filter bar -->
-    <section class="quick-search-section">
+    <!-- Quick Search Section -->
+    <section class="quick-search-section" style="padding: 24px 0 36px;">
       <div class="section-container">
         <form class="search-box-card" id="mainSearchForm" action="jobs.html" method="GET">
           <div class="search-field">
@@ -429,7 +136,7 @@
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <input type="text" name="q" id="searchKeyword" placeholder="المسمى الوظيفي، التكنولوجي، أو اسم الشركة في مصر..." autocomplete="off">
+            <input type="text" name="q" id="searchKeyword" placeholder="Job title, keywords, or company in Egypt..." data-i18n-placeholder="search_kw_placeholder" autocomplete="off">
           </div>
 
           <div class="search-divider"></div>
@@ -439,14 +146,14 @@
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
-            <select name="city" id="searchLocation" aria-label="اختر المحافظة أو المنطقة">
-              <option value="">كل المحافظات</option>
-              <option value="cairo">القاهرة (التجمع، المعادي، مدينة نصر)</option>
-              <option value="giza">الجيزة والقرية الذكية والشيخ زايد</option>
-              <option value="alex">الإسكندرية</option>
-              <option value="mansoura">المنصورة والدلتا</option>
-              <option value="assiut">أسيوط والصعيد</option>
-              <option value="remote">عمل عن بُعد <span lang="en">(Remote)</span></option>
+            <select name="city" id="searchLocation" aria-label="Select Governorate">
+              <option value="" data-i18n="city_all">All Governorates</option>
+              <option value="cairo" data-i18n="city_cairo">Cairo (New Cairo, Maadi, Nasr City)</option>
+              <option value="giza" data-i18n="city_giza">Giza, Smart Village & Sheikh Zayed</option>
+              <option value="alex" data-i18n="city_alex">Alexandria</option>
+              <option value="mansoura" data-i18n="city_mansoura">Mansoura & Delta</option>
+              <option value="assiut" data-i18n="city_assiut">Assiut & Upper Egypt</option>
+              <option value="remote" data-i18n="city_remote">Remote Work (Work From Home)</option>
             </select>
           </div>
 
@@ -454,17 +161,17 @@
 
           <div class="search-field">
             <svg class="field-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <rect x="2" y="7" width="20" height="14" rx="2"></rect>
               <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
             </svg>
-            <select name="cat" id="searchCategory" aria-label="اختر المجال">
-              <option value="">جميع المجالات</option>
-              <option value="tech">البرمجة وتكنولوجيا المعلومات</option>
-              <option value="engineering">الهندسة والمقاولات</option>
-              <option value="healthcare">الرعاية الصحية والتمريض</option>
-              <option value="sales">المبيعات وتطوير الأعمال</option>
-              <option value="finance">المحاسبة والمالية</option>
-              <option value="customer_service">خدمة العملاء ومراكز الاتصال</option>
+            <select name="cat" id="searchCategory" aria-label="Select Sector">
+              <option value="" data-i18n="cat_all">All Career Sectors</option>
+              <option value="tech" data-i18n="cat_tech">Software & Technology</option>
+              <option value="engineering" data-i18n="cat_engineering">Engineering & Construction</option>
+              <option value="healthcare" data-i18n="cat_healthcare">Healthcare & Medicine</option>
+              <option value="sales" data-i18n="cat_sales">Sales & Business Development</option>
+              <option value="finance" data-i18n="cat_finance">Accounting & Finance</option>
+              <option value="customer_service" data-i18n="cat_customer_service">Customer Support & Call Centers</option>
             </select>
           </div>
 
@@ -473,7 +180,7 @@
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <span>ابحث عن وظيفة</span>
+            <span data-i18n="search_submit">Search Jobs</span>
           </button>
         </form>
       </div>
@@ -482,154 +189,108 @@
     <!-- Trusted-by logo marquee -->
     <section class="trusted-by" id="trusted" aria-labelledby="trusted-title">
       <div class="section-container">
-        <h2 class="trusted-title" id="trusted-title">شركات مصرية تثق بصنارة</h2>
-        <p class="trusted-sub">أكثر من 3,800 شركة تنشر وظائفها وتوظّف عبر المنصة.</p>
+        <h2 class="trusted-title" id="trusted-title" data-i18n="trusted_title">Egyptian Enterprises Trust SANARA</h2>
+        <p class="trusted-sub" data-i18n="trusted_sub">Connecting verified organizations with pre-screened talent across Egypt.</p>
       </div>
-      <div class="logo-marquee" role="group" aria-label="شعارات الشركات الشريكة">
-        <div class="logo-track">
-          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3"></circle></svg><span lang="en">Nile Wave Tech</span></span>
-          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg><span lang="en">Delta Pharma</span></span>
-          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"></rect></svg><span lang="en">Cairo Build Group</span></span>
-          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg><span lang="en">Alexandria Logistics</span></span>
-          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg><span lang="en">Misr Health Network</span></span>
-          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4C9 4 4 9 4 20c11 0 16-5 16-16Z"></path><path d="M4 20 14 10"></path></svg><span lang="en">Fayoum Agri</span></span>
-          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"></rect></svg><span lang="en">Mansoura Steel</span></span>
-          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 9-9 9-9-9 9-9Z"></path></svg><span lang="en">Luxor Hospitality</span></span>
-          <span class="logo-item" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3"></circle></svg><span lang="en">Nile Wave Tech</span></span>
-          <span class="logo-item" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg><span lang="en">Delta Pharma</span></span>
-          <span class="logo-item" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"></rect></svg><span lang="en">Cairo Build Group</span></span>
-          <span class="logo-item" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg><span lang="en">Alexandria Logistics</span></span>
-          <span class="logo-item" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg><span lang="en">Misr Health Network</span></span>
-          <span class="logo-item" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4C9 4 4 9 4 20c11 0 16-5 16-16Z"></path><path d="M4 20 14 10"></path></svg><span lang="en">Fayoum Agri</span></span>
-          <span class="logo-item" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"></rect></svg><span lang="en">Mansoura Steel</span></span>
-          <span class="logo-item" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 9-9 9-9-9 9-9Z"></path></svg><span lang="en">Luxor Hospitality</span></span>
+      <div class="logo-marquee" role="group" aria-label="Partner Companies">
+        <div class="logo-track" id="trustedCompaniesTrack">
+          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3"></circle></svg><span lang="en">Nile Wave Tech</span></span>
+          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg><span lang="en">Delta Pharma</span></span>
+          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="14" height="14" rx="3"></rect></svg><span lang="en">Cairo Build Group</span></span>
+          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"></path></svg><span lang="en">Alexandria Logistics</span></span>
+          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg><span lang="en">Misr Health Network</span></span>
+          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 4C9 4 4 9 4 20c11 0 16-5 16-16Z"></path></svg><span lang="en">Fayoum Agri</span></span>
+          <span class="logo-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="14" height="14" rx="3"></rect></svg><span lang="en">Mansoura Steel</span></span>
         </div>
       </div>
     </section>
 
-    <!-- Browse by category -->
+    <!-- Browse by category (Clean Dynamic Labels - Zero Fake Numbers) -->
     <section class="categories-section" id="categories">
       <div class="section-container">
         <div class="section-header">
-          <h2 class="section-title">تصفح الوظائف حسب المجال</h2>
-          <p class="section-subtitle">اكتشف أفضل الفرص والوظائف المتاحة الآن في مجالك بأعلى الرواتب في مصر</p>
+          <h2 class="section-title" data-i18n="categories_title">Browse Jobs by Industry</h2>
+          <p class="section-subtitle" data-i18n="categories_sub">Explore verified career openings across Egypt's top sectors</p>
         </div>
 
-        <!-- 8 Grid Cards from original screenshot localized to Egypt -->
         <div class="categories-grid" id="categoriesGrid">
-          <!-- 1. الرعاية الصحية / Healthcare -->
+          <!-- 1. Healthcare -->
           <a href="jobs.html?cat=healthcare" class="category-card" data-category="healthcare">
             <div class="category-icon-wrapper icon-teal">
-              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                <path d="M12 11h.01M9 11h6"></path>
               </svg>
             </div>
-            <h3 class="category-title">الرعاية الصحية والطب</h3>
+            <h3 class="category-title" data-i18n="cat_health_title">Healthcare & Medicine</h3>
             <span class="category-subtitle" lang="en">Healthcare & Medicine</span>
-            <div class="category-job-count">1,120+ وظيفة شاغرة</div>
+            <div class="category-job-count" data-i18n="cat_explore_now">Explore Sector</div>
           </a>
 
-          <!-- 2. التمريض / Nursing -->
+          <!-- 2. Nursing -->
           <a href="jobs.html?cat=nursing" class="category-card" data-category="nursing">
             <div class="category-icon-wrapper icon-blue">
-              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2"></rect>
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                <line x1="12" y1="11" x2="12" y2="17"></line>
-                <line x1="9" y1="14" x2="15" y2="14"></line>
               </svg>
             </div>
-            <h3 class="category-title">التمريض والعناية</h3>
+            <h3 class="category-title" data-i18n="cat_nursing_title">Nursing & Clinical Care</h3>
             <span class="category-subtitle" lang="en">Nursing & Clinical Care</span>
-            <div class="category-job-count">780+ وظيفة شاغرة</div>
+            <div class="category-job-count" data-i18n="cat_explore_now">Explore Sector</div>
           </a>
 
-          <!-- 3. الهندسة / Engineering -->
+          <!-- 3. Engineering -->
           <a href="jobs.html?cat=engineering" class="category-card" data-category="engineering">
             <div class="category-icon-wrapper icon-orange">
-              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M2 18h20v2H2z"></path>
                 <path d="M12 2a8 8 0 0 0-8 8v8h16v-8a8 8 0 0 0-8-8z"></path>
-                <path d="M10 2v6h4V2"></path>
               </svg>
             </div>
-            <h3 class="category-title">الهندسة العامة</h3>
+            <h3 class="category-title" data-i18n="cat_eng_title">General Engineering</h3>
             <span class="category-subtitle" lang="en">Engineering</span>
-            <div class="category-job-count">2,450+ وظيفة شاغرة</div>
+            <div class="category-job-count" data-i18n="cat_explore_now">Explore Sector</div>
           </a>
 
-          <!-- 4. الهندسة المدنية / Civil Engineering -->
+          <!-- 4. Civil Engineering -->
           <a href="jobs.html?cat=civil" class="category-card" data-category="civil">
             <div class="category-icon-wrapper icon-cyan">
-              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="3" y="3" width="18" height="18" rx="2"></rect>
                 <path d="M3 9h18M9 21V9"></path>
-                <path d="M14 13h3m-3 4h3"></path>
               </svg>
             </div>
-            <h3 class="category-title">الهندسة المدنية والإنشاءات</h3>
+            <h3 class="category-title" data-i18n="cat_civil_title">Civil & Construction</h3>
             <span class="category-subtitle" lang="en">Civil & Construction</span>
-            <div class="category-job-count">940+ وظيفة شاغرة</div>
+            <div class="category-job-count" data-i18n="cat_explore_now">Explore Sector</div>
           </a>
 
-          <!-- 5. الهندسة الكهربائية / Electrical Engineering -->
+          <!-- 5. Electrical -->
           <a href="jobs.html?cat=electrical" class="category-card" data-category="electrical">
             <div class="category-icon-wrapper icon-amber">
-              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
               </svg>
             </div>
-            <h3 class="category-title">الهندسة الكهربائية</h3>
+            <h3 class="category-title" data-i18n="cat_electrical_title">Electrical Engineering</h3>
             <span class="category-subtitle" lang="en">Electrical Engineering</span>
-            <div class="category-job-count">630+ وظيفة شاغرة</div>
+            <div class="category-job-count" data-i18n="cat_explore_now">Explore Sector</div>
           </a>
 
-          <!-- 6. الهندسة الميكانيكية / Mechanical Engineering -->
+          <!-- 6. Mechanical -->
           <a href="jobs.html?cat=mechanical" class="category-card" data-category="mechanical">
             <div class="category-icon-wrapper icon-blue">
-              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="3"></circle>
                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
               </svg>
             </div>
-            <h3 class="category-title">الهندسة الميكانيكية</h3>
+            <h3 class="category-title" data-i18n="cat_mechanical_title">Mechanical Engineering</h3>
             <span class="category-subtitle" lang="en">Mechanical Engineering</span>
-            <div class="category-job-count">510+ وظيفة شاغرة</div>
+            <div class="category-job-count" data-i18n="cat_explore_now">Explore Sector</div>
           </a>
 
-          <!-- 7. الضيافة / Hospitality -->
-          <a href="jobs.html?cat=hospitality" class="category-card" data-category="hospitality">
-            <div class="category-icon-wrapper icon-rose">
-              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                <line x1="6" y1="1" x2="6" y2="4"></line>
-                <line x1="10" y1="1" x2="10" y2="4"></line>
-                <line x1="14" y1="1" x2="14" y2="4"></line>
-              </svg>
-            </div>
-            <h3 class="category-title">السياحة والفنادق والضيافة</h3>
-            <span class="category-subtitle" lang="en">Hospitality & Tourism</span>
-            <div class="category-job-count">1,350+ وظيفة شاغرة</div>
-          </a>
-
-          <!-- 8. التدبير المنزلي / Housekeeping -->
-          <a href="jobs.html?cat=housekeeping" class="category-card" data-category="housekeeping">
-            <div class="category-icon-wrapper icon-indigo">
-              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-            </div>
-            <h3 class="category-title">الخدمات وإدارة المنشآت</h3>
-            <span class="category-subtitle" lang="en">Facility Services</span>
-            <div class="category-job-count">620+ وظيفة شاغرة</div>
-          </a>
-        </div>
-
-        <!-- Additional Categories (Expandable) -->
-        <div class="categories-grid extra-categories" id="extraCategories" style="display: none; margin-top: 24px;">
+          <!-- 7. Software & AI -->
           <a href="jobs.html?cat=tech" class="category-card" data-category="tech">
             <div class="category-icon-wrapper icon-teal">
               <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2">
@@ -637,22 +298,26 @@
                 <polyline points="8 6 2 12 8 18"></polyline>
               </svg>
             </div>
-            <h3 class="category-title">البرمجة والذكاء الاصطناعي</h3>
+            <h3 class="category-title" data-i18n="cat_tech_title">Software & AI</h3>
             <span class="category-subtitle" lang="en">Software & AI</span>
-            <div class="category-job-count">3,200+ وظيفة شاغرة</div>
+            <div class="category-job-count" data-i18n="cat_explore_now">Explore Sector</div>
           </a>
 
+          <!-- 8. Sales & Marketing -->
           <a href="jobs.html?cat=sales" class="category-card" data-category="sales">
             <div class="category-icon-wrapper icon-sky">
               <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
               </svg>
             </div>
-            <h3 class="category-title">المبيعات والتسويق الرقمي</h3>
-            <span class="category-subtitle" lang="en">Sales & Digital Marketing</span>
-            <div class="category-job-count">1,850+ وظيفة شاغرة</div>
+            <h3 class="category-title" data-i18n="cat_sales_title">Sales & Marketing</h3>
+            <span class="category-subtitle" lang="en">Sales & Marketing</span>
+            <div class="category-job-count" data-i18n="cat_explore_now">Explore Sector</div>
           </a>
+        </div>
 
+        <!-- Additional Categories (Expandable) -->
+        <div class="categories-grid extra-categories" id="extraCategories" style="display: none; margin-top: 24px;">
           <a href="jobs.html?cat=finance" class="category-card" data-category="finance">
             <div class="category-icon-wrapper icon-emerald">
               <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2">
@@ -660,9 +325,9 @@
                 <line x1="2" y1="10" x2="22" y2="10"></line>
               </svg>
             </div>
-            <h3 class="category-title">المحاسبة والمالية والضرائب</h3>
+            <h3 class="category-title" data-i18n="cat_finance_title">Finance & Accounting</h3>
             <span class="category-subtitle" lang="en">Finance & Accounting</span>
-            <div class="category-job-count">890+ وظيفة شاغرة</div>
+            <div class="category-job-count" data-i18n="cat_explore_now">Explore Sector</div>
           </a>
 
           <a href="jobs.html?cat=admin" class="category-card" data-category="admin">
@@ -670,84 +335,128 @@
               <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
               </svg>
             </div>
-            <h3 class="category-title">الموارد البشرية والـ HR</h3>
+            <h3 class="category-title" data-i18n="cat_hr_title">Human Resources (HR)</h3>
             <span class="category-subtitle" lang="en">Human Resources</span>
-            <div class="category-job-count">1,050+ وظيفة شاغرة</div>
+            <div class="category-job-count" data-i18n="cat_explore_now">Explore Sector</div>
           </a>
         </div>
 
-        <!-- "عرض جميع المجالات" Button -->
         <div class="categories-action-wrap">
           <button type="button" class="btn-outline view-all-btn" id="toggleAllCategoriesBtn">
-            <span id="viewAllCategoriesText">عرض كل المجالات في مصر</span>
-            <svg id="viewAllArrowIcon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
+            <span id="viewAllCategoriesText" data-i18n="btn_view_all_cats">View All Career Sectors in Egypt</span>
+            <svg id="viewAllArrowIcon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- Featured jobs -->
+    <!-- Featured Live Jobs (From Firestore - Zero Mockup Data) -->
     <section class="featured-jobs-section" id="featured-jobs">
       <div class="section-container">
         <div class="section-header-flex">
           <div>
-            <h2 class="section-title">أحدث الوظائف المتاحة</h2>
-            <p class="section-subtitle">فرص وظيفية موثوقة ومفحوصة مسبقاً برواتب مجزية وتأمينات كاملة</p>
+            <h2 class="section-title" data-i18n="featured_title">Latest Verified Job Openings</h2>
+            <p class="section-subtitle" data-i18n="featured_sub">Verified pre-screened opportunities with competitive salaries and full benefits</p>
           </div>
           <div class="filter-pills" id="jobFilters">
-            <button type="button" class="filter-btn active" data-filter="all">الكل</button>
-            <button type="button" class="filter-btn" data-filter="tech">برمجة وتقنية</button>
-            <button type="button" class="filter-btn" data-filter="health">طبي وصيدلة</button>
-            <button type="button" class="filter-btn" data-filter="eng">هندسة</button>
-            <button type="button" class="filter-btn" data-filter="sales">المبيعات والأعمال</button>
+            <button type="button" class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+            <button type="button" class="filter-btn" data-filter="tech" data-i18n="filter_tech">Software & Tech</button>
+            <button type="button" class="filter-btn" data-filter="health" data-i18n="filter_health">Healthcare & Pharma</button>
+            <button type="button" class="filter-btn" data-filter="eng" data-i18n="filter_eng">Engineering</button>
+            <button type="button" class="filter-btn" data-filter="sales" data-i18n="filter_sales">Sales & Growth</button>
           </div>
         </div>
 
         <div class="jobs-list-grid" id="jobsContainer">
           <div style="grid-column: 1 / -1; padding: 40px; text-align: center; color: var(--text-muted);">
-            جاري جلب أحدث الوظائف المعتمدة من Firebase... ⏳
+            Connecting to Firebase... ⏳
           </div>
         </div>
 
         <div style="text-align: center; margin-top: 36px;">
           <a href="jobs.html" class="btn-primary btn-lg">
-            <span>استعرض جميع الوظائف المتاحة عبر المنصة</span>
+            <span data-i18n="btn_view_all_jobs">Explore All Opportunities Across Egypt</span>
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Employers CTA -->
+    <!-- Why SANARA: Value Proposition -->
+    <section class="why-section" id="why">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="why_title">Why SANARA?</h2>
+          <p class="section-subtitle" data-i18n="why_sub">A unified platform bridging the gap between talent and top companies.</p>
+        </div>
+        <div class="why-grid">
+          <div class="check-item">
+            <div class="check-icon-circle">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            </div>
+            <div class="check-item-text">
+              <h3 class="check-title" data-i18n="why_1_title">One-Click Quick Apply</h3>
+              <p class="check-desc" data-i18n="why_1_desc">Apply to verified positions in seconds without redundant questionnaires.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon-circle">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            </div>
+            <div class="check-item-text">
+              <h3 class="check-title" data-i18n="why_2_title">Direct Employer Access</h3>
+              <p class="check-desc" data-i18n="why_2_desc">Connect directly with decision makers and HR teams without intermediaries.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon-circle">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            </div>
+            <div class="check-item-text">
+              <h3 class="check-title" data-i18n="why_3_title">Instant Job Notifications</h3>
+              <p class="check-desc" data-i18n="why_3_desc">Real-time alerts whenever a job matching your skills and expected salary is published.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon-circle">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            </div>
+            <div class="check-item-text">
+              <h3 class="check-title" data-i18n="why_4_title">Verified Digital Portfolio</h3>
+              <p class="check-desc" data-i18n="why_4_desc">Showcase your real experience and resume so top companies find you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Employers CTA Section -->
     <section class="employers-cta-section" id="employers">
       <div class="section-container">
         <div class="cta-banner-card">
           <div class="cta-content">
-            <span class="pill-badge-white">لأصحاب الشركات ومسؤولي الـ HR في مصر</span>
-            <h2 class="cta-title">هل تبحث عن كفاءات حقيقية لفريقك؟</h2>
-            <p class="cta-text">
-              انشر إعلان وظيفتك في دقائق وصولاً إلى أفضل الكفاءات الموثّقة في مصر، بلا إعلانات مضلّلة ولا سير ذاتية مكرّرة. وفّر 70% من وقت ومجهود التوظيف.
+            <span class="pill-badge-white" data-i18n="cta_pill">For Companies & HR Leaders in Egypt</span>
+            <h2 class="cta-title" data-i18n="cta_title">Looking for Top Egyptian Talent for Your Team?</h2>
+            <p class="cta-text" data-i18n="cta_desc">
+              Publish your vacancy in minutes to reach thousands of verified professionals. Fast-track recruitment with no duplicate CVs. Save 70% of hiring time.
             </p>
             <div class="cta-buttons">
-              <a href="company-register.html" class="btn-light" id="ctaPostJobBtn">تسجيل شركة واعتماد قانوني</a>
-              <a href="employer-dashboard.html" class="btn-translucent" id="ctaExploreTalentsBtn">لوحة أصحاب العمل والوظائف</a>
+              <a href="company-register.html" class="btn-light" id="ctaPostJobBtn" data-i18n="cta_btn_register">Register Company & Verify</a>
+              <a href="employer-dashboard.html" class="btn-translucent" id="ctaExploreTalentsBtn" data-i18n="cta_btn_dashboard">Employer Portal & Jobs</a>
             </div>
           </div>
           <div class="cta-visual-preview">
             <div class="stat-pill-float">
-              <span class="number">96%</span>
-              <span class="text">نسبة استقرار وتثبيت الموظفين</span>
+              <span class="number">✓</span>
+              <span class="text" data-i18n="cta_stat_direct">Direct communication with recruiters</span>
             </div>
             <div class="stat-pill-float pill-2">
-              <span class="number">48 ساعة</span>
-              <span class="text">متوسط زمن إشغال الوظيفة</span>
+              <span class="number">100%</span>
+              <span class="text" data-i18n="cta_stat_nofees">100% free for job seekers</span>
             </div>
           </div>
         </div>
@@ -760,115 +469,103 @@
     <div class="section-container footer-grid">
       <div class="footer-col-brand">
         <a href="index.html" class="brand-link">
-          <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img-footer">
+          <img src="assets/logo-trimmed.png" alt="SANARA" class="brand-logo-img-footer">
         </a>
-        <p class="footer-tagline">
-          منصة التوظيف في مصر. نربط الكفاءات الشابة بأقوى الشركات في بيئة عمل احترافية.
+        <p class="footer-tagline" data-i18n="footer_tagline">
+          Egypt's premier employment platform. Connecting ambitious talent with leading organizations in a professional environment.
         </p>
-        <div class="social-links">
-          <a href="#" class="social-btn" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.09c.92 0 1.66-.74 1.66-1.66A1.66 1.66 0 0 0 6.46 4.77 1.66 1.66 0 0 0 4.8 6.43c0 .92.74 1.66 1.66 1.66m1.39 10.41v-8.37H5.07v8.37h2.78z"/>
-            </svg>
-          </a>
-          <a href="#" class="social-btn" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </a>
-        </div>
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">للباحثين عن عمل</h4>
+        <h4 class="footer-heading" data-i18n="footer_heading_seekers">For Job Seekers</h4>
         <ul class="footer-links">
-          <li><a href="jobs.html">تصفح الوظائف المتاحة</a></li>
-          <li><a href="update-cv.html">تحديث السيرة الذاتية (CV)</a></li>
-          <li><a href="profile.html">الملف المهني</a></li>
-          <li><a href="jobs.html">تنبيهات الوظائف الجديدة</a></li>
+          <li><a href="jobs.html" data-i18n="footer_link_jobs">Browse Available Jobs</a></li>
+          <li><a href="update-cv.html" data-i18n="footer_link_cv">Update Resume (CV)</a></li>
+          <li><a href="profile.html" data-i18n="footer_link_profile">My Profile</a></li>
+          <li><a href="jobs.html" data-i18n="footer_link_alerts">Job Alerts</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">لأصحاب العمل</h4>
+        <h4 class="footer-heading" data-i18n="footer_heading_employers">For Employers</h4>
         <ul class="footer-links">
-          <li><a href="company-register.html">تسجيل شركة واعتماد قانوني</a></li>
-          <li><a href="employer-dashboard.html">لوحة تحكم التوظيف</a></li>
-          <li><a href="company-register.html">انشر وظيفة جديدة</a></li>
-          <li><a href="employer-dashboard.html">تصفّح السير الذاتية</a></li>
+          <li><a href="company-register.html" data-i18n="footer_link_reg_company">Register & Verify Company</a></li>
+          <li><a href="employer-dashboard.html" data-i18n="footer_link_dash">Hiring Dashboard</a></li>
+          <li><a href="company-register.html" data-i18n="footer_link_post_job">Post New Job</a></li>
+          <li><a href="employer-dashboard.html" data-i18n="footer_link_resumes">Browse Resumes</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">عن المنصة</h4>
+        <h4 class="footer-heading" data-i18n="footer_heading_about">About Platform</h4>
         <ul class="footer-links">
-          <li><a href="#why-sanaraa">ليه صنارة في مصر؟</a></li>
-          <li><a href="#featured-jobs">فرص العمل المميزة</a></li>
-          <li><a href="#">الشروط وسياسة الخصوصية</a></li>
-          <li><a href="#">تواصل مع خدمة العملاء</a></li>
+          <li><a href="admin.html" data-i18n="footer_link_admin">Admin Portal</a></li>
+          <li><a href="#why" data-i18n="footer_link_why">Why SANARA in Egypt?</a></li>
+          <li><a href="#featured-jobs" data-i18n="footer_link_featured">Featured Opportunities</a></li>
+          <li><a href="#" data-i18n="footer_link_terms">Terms & Privacy Policy</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
       <div class="section-container footer-bottom-inner">
-        <p>© 2026 منصة صنارة (SANARA). جميع الحقوق محفوظة.</p>
-        <p class="made-with">صُنعت في مصر لخدمة أفضل الكفاءات الشابة</p>
+        <p data-i18n="footer_rights">© 2026 SANARA Egypt. All rights reserved.</p>
+        <p class="made-with" data-i18n="footer_made_with">Made in Egypt for ambitious professionals</p>
       </div>
     </div>
   </footer>
 
-  <!-- AUTHENTICATION MODAL -->
+  <!-- AUTHENTICATION MODAL (100% PURE ENGLISH DEFAULT & 100% PURE ARABIC) -->
   <div class="modal-backdrop" id="authModal" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modal-dialog-container">
       <div class="auth-modal-card">
-        <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="إغلاق">×</button>
+        <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close" data-i18n-aria="modal_close_btn">×</button>
 
         <div class="modal-logo-header">
-          <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img-modal">
+          <img src="assets/logo-trimmed.png" alt="SANARA" class="brand-logo-img-modal">
         </div>
 
         <div class="auth-tabs" role="tablist">
-          <button type="button" class="tab-btn active" id="tabLoginBtn">تسجيل الدخول</button>
-          <button type="button" class="tab-btn" id="tabRegisterBtn">حساب جديد</button>
+          <button type="button" class="tab-btn active" id="tabLoginBtn" data-i18n="auth_tab_login">Sign In</button>
+          <button type="button" class="tab-btn" id="tabRegisterBtn" data-i18n="auth_tab_register">Create Account</button>
         </div>
 
         <!-- Login Form -->
         <div class="auth-view active" id="loginFormView">
           <div class="auth-header-text">
-            <h3 class="auth-title">مرحباً بعودتك</h3>
-            <p class="auth-subtitle">أدخل بياناتك لتسجيل الدخول ومتابعة طلباتك</p>
+            <h3 class="auth-title" data-i18n="auth_login_title">Welcome Back</h3>
+            <p class="auth-subtitle" data-i18n="auth_login_sub">Sign in to your account and track your job applications</p>
           </div>
 
           <form id="loginForm" class="auth-form" onsubmit="event.preventDefault();">
             <div class="form-group">
-              <label for="loginEmail" class="form-label">إيميلك الشخصي</label>
+              <label for="loginEmail" class="form-label" data-i18n="auth_email_label">Email Address</label>
               <div class="input-with-icon">
-                <input type="email" id="loginEmail" class="form-input" placeholder="mena@example.com" required>
+                <input type="email" id="loginEmail" class="form-input" placeholder="example@email.com" data-i18n-placeholder="auth_email_placeholder" required>
               </div>
             </div>
 
             <div class="form-group">
               <div class="label-with-link">
-                <label for="loginPassword" class="form-label">الباسورد (كلمة المرور)</label>
-                <a href="#" class="forgot-link">نسيت الباسورد؟</a>
+                <label for="loginPassword" class="form-label" data-i18n="auth_password_label">Password</label>
+                <a href="#" class="forgot-link" data-i18n="auth_forgot_pw">Forgot password?</a>
               </div>
               <div class="input-with-icon">
-                <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required>
+                <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" data-i18n-placeholder="auth_password_placeholder" required>
               </div>
             </div>
 
             <button type="submit" class="btn-primary btn-block" id="submitLoginBtn">
-              <span>ادخل على حسابك</span>
+              <span data-i18n="auth_btn_login">Sign In</span>
             </button>
 
             <!-- Business Owner Portal Box -->
             <div style="margin-top: 16px; padding: 12px; background: rgba(0, 71, 255, 0.04); border: 1px dashed var(--brand-blue); border-radius: var(--radius-md); text-align: center;">
-              <span style="font-size: 0.88rem; color: var(--text-headline); font-weight: 700; display: block; margin-bottom: 4px;">
-                صاحب عمل أو مسؤول توظيف؟
+              <span style="font-size: 0.88rem; color: var(--text-headline); font-weight: 700; display: block; margin-bottom: 4px;" data-i18n="auth_employer_callout_title">
+                Are you an employer or recruiter?
               </span>
-              <a href="employer-login.html" style="font-size: 0.85rem; color: var(--primary); text-decoration: none; font-weight: 800;">
-                انتقل إلى بوابة وتسجيل دخول أصحاب العمل ←
+              <a href="employer-login.html" style="font-size: 0.85rem; color: var(--primary); text-decoration: none; font-weight: 800;" data-i18n="auth_employer_callout_link">
+                Go to Employers Portal →
               </a>
             </div>
           </form>
@@ -877,35 +574,35 @@
         <!-- Register Form -->
         <div class="auth-view" id="registerFormView" style="display: none;">
           <div class="auth-header-text">
-            <h3 class="auth-title">إنشاء حساب جديد في دقائق</h3>
-            <p class="auth-subtitle">انضم لأكبر تجمع للمحترفين والشركات في مصر</p>
+            <h3 class="auth-title" data-i18n="auth_reg_title">Create Your Account in Minutes</h3>
+            <p class="auth-subtitle" data-i18n="auth_reg_sub">Join Egypt's fastest growing career platform</p>
           </div>
 
           <form id="registerForm" class="auth-form" onsubmit="event.preventDefault();">
             <div class="form-group">
-              <label for="regFullName" class="form-label">اسمك بالكامل</label>
+              <label for="regFullName" class="form-label" data-i18n="auth_name_label">Full Name</label>
               <div class="input-with-icon">
-                <input type="text" id="regFullName" class="form-input" placeholder="اكتب اسمك الثلاثي" required>
+                <input type="text" id="regFullName" class="form-input" placeholder="Enter your full name" data-i18n-placeholder="auth_name_placeholder" required>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="regEmail" class="form-label">الإيميل</label>
+              <label for="regEmail" class="form-label" data-i18n="auth_email_label">Email Address</label>
               <div class="input-with-icon">
-                <input type="email" id="regEmail" class="form-input" placeholder="example@email.com" required>
+                <input type="email" id="regEmail" class="form-input" placeholder="example@email.com" data-i18n-placeholder="auth_email_placeholder" required>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="regPassword" class="form-label">الباسورد (6 حروف أو أكتر)</label>
+              <label for="regPassword" class="form-label" data-i18n="auth_password_label">Password</label>
               <div class="input-with-icon">
-                <input type="password" id="regPassword" class="form-input" placeholder="الباسورد..." required minlength="6">
+                <input type="password" id="regPassword" class="form-input" placeholder="••••••••" data-i18n-placeholder="auth_password_placeholder" required minlength="6">
               </div>
             </div>
 
             <!-- Role Selector -->
             <div class="form-group">
-              <label class="form-label">أنت مسجل بصفتك إيه؟</label>
+              <label class="form-label" data-i18n="auth_role_label">Registering as:</label>
               <div class="role-selector-group">
                 <label class="role-card-label selected" for="roleSeeker">
                   <div class="role-radio-box">
@@ -913,8 +610,8 @@
                     <span class="custom-radio"></span>
                   </div>
                   <div class="role-text-box">
-                    <span class="role-title">باحث عن عمل</span>
-                    <span class="role-subtitle">عاوز أقدم على وظائف تناسب خبرتي</span>
+                    <span class="role-title" data-i18n="auth_role_seeker_title">Job Seeker</span>
+                    <span class="role-subtitle" data-i18n="auth_role_seeker_sub">I want to discover & apply for matching jobs</span>
                   </div>
                 </label>
 
@@ -924,8 +621,8 @@
                     <span class="custom-radio"></span>
                   </div>
                   <div class="role-text-box">
-                    <span class="role-title">صاحب عمل أو HR بشركة</span>
-                    <span class="role-subtitle">عاوز أوظف شطار وأعين في فريقي</span>
+                    <span class="role-title" data-i18n="auth_role_emp_title">Employer / HR</span>
+                    <span class="role-subtitle" data-i18n="auth_role_emp_sub">I want to hire top professionals for my company</span>
                   </div>
                 </label>
 
@@ -935,15 +632,15 @@
                     <span class="custom-radio"></span>
                   </div>
                   <div class="role-text-box">
-                    <span class="role-title">شركة توظيف واستشارات</span>
-                    <span class="role-subtitle">نقدّم خدمات التوظيف للشركات</span>
+                    <span class="role-title" data-i18n="auth_role_agency_title">Recruitment Agency</span>
+                    <span class="role-subtitle" data-i18n="auth_role_agency_sub">We provide recruitment services to companies</span>
                   </div>
                 </label>
               </div>
             </div>
 
             <button type="submit" class="btn-primary btn-block" id="submitRegisterBtn">
-              <span>يلا نعمل الحساب</span>
+              <span data-i18n="auth_btn_register">Create My Account</span>
             </button>
           </form>
         </div>

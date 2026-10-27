@@ -93,7 +93,10 @@
           <div class="input-with-icon" style="margin-bottom: 12px;">
             <input type="text" id="filterKeyword" class="form-input" placeholder="Job title, keywords, or company..." data-i18n-placeholder="search_kw_placeholder" style="padding: 10px 14px;">
           </div>
-          <button type="button" class="btn-primary btn-block btn-sm" id="btnApplyFilter" data-i18n="search_submit">Search Jobs</button>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" class="btn-primary btn-sm" id="btnApplyFilter" data-i18n="search_submit" style="flex: 1;">Search Jobs</button>
+            <button type="button" class="btn-ghost btn-sm" id="btnResetFilters" data-i18n="filter_reset" style="padding: 6px 14px;">Reset</button>
+          </div>
         </div>
 
         <!-- City Filter for Egypt -->
@@ -113,7 +116,7 @@
               <span data-i18n="city_alex">Alexandria</span>
             </label>
             <label class="filter-checkbox-label">
-              <input type="checkbox" name="city" value="mansoura">
+              <input type="checkbox" name="city" value="mansoura" checked>
               <span data-i18n="city_mansoura">Mansoura & Delta</span>
             </label>
             <label class="filter-checkbox-label">
@@ -140,15 +143,15 @@
               <span data-i18n="cat_engineering">Engineering & Construction</span>
             </label>
             <label class="filter-checkbox-label">
-              <input type="checkbox" name="sector" value="sales">
+              <input type="checkbox" name="sector" value="sales" checked>
               <span data-i18n="cat_sales">Sales & Business Development</span>
             </label>
             <label class="filter-checkbox-label">
-              <input type="checkbox" name="sector" value="finance">
+              <input type="checkbox" name="sector" value="finance" checked>
               <span data-i18n="cat_finance">Accounting & Finance</span>
             </label>
             <label class="filter-checkbox-label">
-              <input type="checkbox" name="sector" value="admin">
+              <input type="checkbox" name="sector" value="admin" checked>
               <span data-i18n="cat_customer_service">Customer Support & Call Centers</span>
             </label>
           </div>
@@ -163,15 +166,15 @@
               <span data-i18n="filter_fulltime">Full-time</span>
             </label>
             <label class="filter-checkbox-label">
-              <input type="checkbox" name="type" value="remote">
+              <input type="checkbox" name="type" value="remote" checked>
               <span data-i18n="filter_remote">Full-time Remote</span>
             </label>
             <label class="filter-checkbox-label">
-              <input type="checkbox" name="type" value="parttime">
+              <input type="checkbox" name="type" value="parttime" checked>
               <span data-i18n="filter_parttime">Part-time</span>
             </label>
             <label class="filter-checkbox-label">
-              <input type="checkbox" name="type" value="internship">
+              <input type="checkbox" name="type" value="internship" checked>
               <span data-i18n="filter_internship">Internship</span>
             </label>
           </div>
@@ -217,26 +220,102 @@
     // Live Jobs Loader from Firebase Firestore (Production Zero Mockup Data)
     let allFetchedJobs = [];
 
+    // Intelligent bilingual search matching
+    function matchesSearch(job, kw) {
+      if (!kw) return true;
+      const term = kw.toLowerCase().trim();
+      const text = [
+        job.title || '',
+        job.company || '',
+        job.description || '',
+        job.location || '',
+        job.category || '',
+        (job.tags || []).join(' ')
+      ].join(' ').toLowerCase();
+
+      // Direct substring match
+      if (text.includes(term)) return true;
+
+      // Bilingual synonym map for Egyptian Job Market
+      const synonyms = {
+        'cairo': ['القاهرة', 'التجمع', 'المعادي', 'مدينة نصر', 'new cairo', 'maadi', 'nasr city'],
+        'giza': ['الجيزة', 'القرية الذكية', 'الشيخ زايد', 'أكتوبر', 'smart village', 'sheikh zayed', 'october', '6th of october'],
+        'alex': ['الإسكندرية', 'alexandria', 'سموحة'],
+        'mansoura': ['المنصورة', 'الدلتا', 'delta'],
+        'remote': ['عن بعد', 'من المنزل', 'work from home', 'remote'],
+        'tech': ['برمجة', 'تكنولوجيا', 'مطور', 'software', 'developer', 'frontend', 'backend', 'fullstack', 'react', 'engineer'],
+        'health': ['صحة', 'طب', 'طبي', 'صيدلة', 'صيدلي', 'تمريض', 'medical', 'hospital', 'clinical', 'pharma', 'doctor'],
+        'eng': ['هندسة', 'مهندس', 'معماري', 'مدني', 'ميكانيكا', 'engineering', 'construction', 'civil', 'architect'],
+        'sales': ['مبيعات', 'تسويق', 'تطوير أعمال', 'business development', 'marketing', 'sales', 'corporate'],
+        'finance': ['مالية', 'محاسبة', 'محاسب', 'بنوك', 'accounting', 'auditor', 'bank', 'finance'],
+        'admin': ['خدمة عملاء', 'إداري', 'عمليات', 'customer service', 'support', 'call center', 'operations']
+      };
+
+      for (const [key, list] of Object.entries(synonyms)) {
+        if (term === key || list.some(syn => term.includes(syn) || syn.includes(term))) {
+          if (text.includes(key) || list.some(syn => text.includes(syn))) {
+            return true;
+          }
+        }
+      }
+
+      return false;
+    }
+
     async function loadLiveJobs() {
       const container = document.getElementById('jobsListContainer');
       const countEl = document.getElementById('jobsCountBadge');
 
       if (!window.SanaraFirebase || !window.SanaraFirebase.fetchJobs) {
-        setTimeout(loadLiveJobs, 400);
+        setTimeout(loadLiveJobs, 250);
         return;
       }
 
       try {
         allFetchedJobs = await window.SanaraFirebase.fetchJobs();
-        renderJobs(allFetchedJobs);
+        applyUrlParams();
+        applyActiveFilters();
       } catch (err) {
         console.warn("Fetch jobs error:", err);
         const isEn = (window.SanaraI18n && window.SanaraI18n.getCurrentLang() === 'en');
-        container.innerHTML = `
-          <div style="padding: 40px; text-align: center; color: var(--text-muted);">
-            ${isEn ? 'Unable to load jobs at this moment. Please check database connection.' : 'تعذر جلب الوظائف حالياً، يرجى التأكد من اتصال قاعدة البيانات.'}
-          </div>
-        `;
+        if (container) {
+          container.innerHTML = `
+            <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+              ${isEn ? 'Unable to load jobs at this moment. Please check database connection.' : 'تعذر جلب الوظائف حالياً، يرجى التأكد من اتصال قاعدة البيانات.'}
+            </div>
+          `;
+        }
+      }
+    }
+
+    function applyUrlParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const q = urlParams.get('q') || urlParams.get('keyword');
+      const city = urlParams.get('city');
+      const cat = urlParams.get('cat') || urlParams.get('sector');
+      const type = urlParams.get('type');
+
+      if (q) {
+        const kwInput = document.getElementById('filterKeyword');
+        if (kwInput) kwInput.value = q;
+      }
+
+      if (city && city !== 'all' && city !== '') {
+        document.querySelectorAll('input[name="city"]').forEach(cb => {
+          cb.checked = (cb.value === city || city.includes(cb.value));
+        });
+      }
+
+      if (cat && cat !== 'all' && cat !== '') {
+        document.querySelectorAll('input[name="sector"]').forEach(cb => {
+          cb.checked = (cb.value === cat || cat.includes(cb.value));
+        });
+      }
+
+      if (type && type !== 'all' && type !== '') {
+        document.querySelectorAll('input[name="type"]').forEach(cb => {
+          cb.checked = (cb.value === type);
+        });
       }
     }
 
@@ -248,23 +327,27 @@
       const isEn = (window.SanaraI18n && window.SanaraI18n.getCurrentLang() === 'en');
 
       if (!jobs || jobs.length === 0) {
-        container.innerHTML = `
-          <div style="padding: 60px 24px; text-align: center; background: #ffffff; border-radius: var(--radius-lg); border: 1px dashed var(--border-card);">
-            <div style="font-size: 2.5rem; margin-bottom: 12px;">💼</div>
-            <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-headline); margin-bottom: 8px;">
-              ${isEn ? 'No jobs published yet in Firebase' : 'لا توجد وظائف معروضة حالياً'}
-            </h3>
-            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px;">
-              ${isEn ? 'Be the first employer to publish an opportunity to recruit top verified Egyptian professionals.' : 'كن أول من ينشر فرصة وظيفية لاستقطاب أفضل الكفاءات والكوادر المصرية.'}
-            </p>
-            <a href="company-register.html" class="btn-primary" style="display: inline-flex;">
-              ${isEn ? '+ Post a Job Vacancy Now' : '+ انشر وظيفة جديدة الآن'}
-            </a>
-          </div>
-        `;
+        if (container) {
+          container.innerHTML = `
+            <div style="padding: 60px 24px; text-align: center; background: #ffffff; border-radius: var(--radius-lg); border: 1px dashed var(--border-card);">
+              <div style="font-size: 2.5rem; margin-bottom: 12px;">💼</div>
+              <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-headline); margin-bottom: 8px;">
+                ${isEn ? 'No jobs match your filter criteria' : 'لا توجد وظائف تطابق معايير البحث المحددة'}
+              </h3>
+              <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px;">
+                ${isEn ? 'Try adjusting your keywords, governorates, or sectors, or click reset to view all available positions.' : 'جرب تغيير الكلمات المفتاحية أو المحافظة أو المجال، أو اضغط إعادة ضبط لعرض كافة الفرص.'}
+              </p>
+              <button type="button" class="btn-primary" id="btnEmptyReset" style="display: inline-flex;">
+                ${isEn ? 'Reset All Filters' : 'إعادة ضبط كافة فلاتر البحث'}
+              </button>
+            </div>
+          `;
+          document.getElementById('btnEmptyReset')?.addEventListener('click', resetAllFilters);
+        }
         return;
       }
 
+      if (!container) return;
       container.innerHTML = '';
       jobs.forEach(job => {
         const article = document.createElement('article');
@@ -280,13 +363,14 @@
         const newBadge = isEn ? 'NEW' : 'جديد';
         const salaryText = job.salary || (isEn ? 'Competitive' : 'راتب مجزي');
 
+        // Dynamic Company Logo (If company uploaded logo, show it! Otherwise sleek icon)
+        const logoHtml = job.companyLogo
+          ? `<div class="job-logo-box" style="background:#ffffff; border:1px solid var(--border-card); padding:3px; overflow:hidden;"><img src="${job.companyLogo}" alt="${job.company}" class="job-company-logo-img" style="width:100%; height:100%; object-fit:contain; border-radius:8px;"></div>`
+          : `<div class="job-logo-box icon-blue"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>`;
+
         article.innerHTML = `
           <div class="job-card-top">
-            <div class="job-logo-box icon-blue">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-              </svg>
-            </div>
+            ${logoHtml}
             <div class="job-meta-top">
               <span class="badge-post-date">${newBadge}</span>
               <button type="button" class="btn-bookmark" aria-label="Bookmark"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
@@ -326,11 +410,15 @@
               btn.textContent = isEn ? 'Applied ✓' : 'تم التقديم ✓';
               btn.style.backgroundColor = '#10B981';
               btn.style.color = '#FFFFFF';
-              showToast(isEn ? `Your application for (${job.title}) was submitted successfully!` : `تم إرسال طلبك لوظيفة (${job.title}) بنجاح عبر Firebase 🚀`, 'success');
+              if (typeof showToast === 'function') {
+                showToast(isEn ? `Your application for (${job.title}) was submitted successfully!` : `تم إرسال طلبك لوظيفة (${job.title}) بنجاح عبر Firebase 🚀`, 'success');
+              }
             }
           } catch (err) {
             btn.textContent = isEn ? 'Applied ✓' : 'تم التقديم ✓';
-            showToast(isEn ? 'Application sent successfully.' : 'تم إرسال طلبك بنجاح.', 'success');
+            if (typeof showToast === 'function') {
+              showToast(isEn ? 'Application sent successfully.' : 'تم إرسال طلبك بنجاح.', 'success');
+            }
           }
         });
 
@@ -338,30 +426,44 @@
       });
     }
 
-    // Filter Listeners
+    // Smart Filter Listeners
     function applyActiveFilters() {
-      const keyword = document.getElementById('filterKeyword')?.value.toLowerCase().trim() || '';
+      const keyword = document.getElementById('filterKeyword')?.value || '';
       const checkedCities = Array.from(document.querySelectorAll('input[name="city"]:checked')).map(i => i.value);
+      const totalCities = document.querySelectorAll('input[name="city"]').length;
+
       const checkedSectors = Array.from(document.querySelectorAll('input[name="sector"]:checked')).map(i => i.value);
+      const totalSectors = document.querySelectorAll('input[name="sector"]').length;
+
       const checkedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(i => i.value);
+      const totalTypes = document.querySelectorAll('input[name="type"]').length;
 
       const filtered = allFetchedJobs.filter(job => {
-        let kwMatch = !keyword || 
-          (job.title && job.title.toLowerCase().includes(keyword)) ||
-          (job.company && job.company.toLowerCase().includes(keyword)) ||
-          (job.description && job.description.toLowerCase().includes(keyword));
+        // Keyword match (bilingual synonyms)
+        const kwMatch = matchesSearch(job, keyword);
 
-        let cityMatch = checkedCities.length === 0 || checkedCities.includes('all');
+        // City match
+        let cityMatch = (checkedCities.length === 0 || checkedCities.length === totalCities);
         if (!cityMatch && job.location) {
-          cityMatch = checkedCities.some(c => job.location.toLowerCase().includes(c));
+          const locLower = job.location.toLowerCase();
+          cityMatch = checkedCities.some(c => {
+            if (c === 'cairo') return locLower.includes('cairo') || locLower.includes('قاهرة') || locLower.includes('maadi') || locLower.includes('nasr');
+            if (c === 'giza') return locLower.includes('giza') || locLower.includes('جيزة') || locLower.includes('smart village') || locLower.includes('zayed') || locLower.includes('october');
+            if (c === 'alex') return locLower.includes('alex') || locLower.includes('إسكندرية');
+            if (c === 'mansoura') return locLower.includes('mansoura') || locLower.includes('منصورة') || locLower.includes('delta');
+            if (c === 'remote') return locLower.includes('remote') || locLower.includes('عن بعد') || job.type === 'remote';
+            return locLower.includes(c);
+          });
         }
 
-        let sectorMatch = checkedSectors.length === 0 || checkedSectors.includes('all');
+        // Sector match
+        let sectorMatch = (checkedSectors.length === 0 || checkedSectors.length === totalSectors);
         if (!sectorMatch && job.category) {
           sectorMatch = checkedSectors.includes(job.category);
         }
 
-        let typeMatch = checkedTypes.length === 0 || checkedTypes.includes('all');
+        // Type match
+        let typeMatch = (checkedTypes.length === 0 || checkedTypes.length === totalTypes);
         if (!typeMatch && job.type) {
           typeMatch = checkedTypes.includes(job.type);
         }
@@ -372,15 +474,23 @@
       renderJobs(filtered);
     }
 
+    function resetAllFilters() {
+      const kwInput = document.getElementById('filterKeyword');
+      if (kwInput) kwInput.value = '';
+      document.querySelectorAll('.filter-checkbox-label input').forEach(cb => cb.checked = true);
+      applyActiveFilters();
+    }
+
     document.querySelectorAll('.filter-checkbox-label input').forEach(input => {
       input.addEventListener('change', applyActiveFilters);
     });
 
     document.getElementById('btnApplyFilter')?.addEventListener('click', applyActiveFilters);
+    document.getElementById('btnResetFilters')?.addEventListener('click', resetAllFilters);
     document.getElementById('filterKeyword')?.addEventListener('input', applyActiveFilters);
 
     window.addEventListener('sanaraLanguageChanged', () => {
-      renderJobs(allFetchedJobs);
+      applyActiveFilters();
     });
 
     window.addEventListener('load', loadLiveJobs);

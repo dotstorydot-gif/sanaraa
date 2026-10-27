@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Details & Requirements | SANARA Egypt</title>
-  <meta name="description" content="View verified job details, requirements, compensation, and apply directly with your CV on SANARA Egypt.">
+  <title>Job Details | SANARA Egypt</title>
+  <meta name="description" content="View job description, requirements, benefits, and submit your application with one tap on SANARA.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,9 +28,10 @@
 
       <nav class="nav-menu" aria-label="Main Navigation">
         <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
-        <a href="jobs.html" class="nav-link active" data-i18n="nav_jobs">Find Jobs</a>
+        <a href="jobs.html" class="nav-link" data-i18n="nav_jobs">Find Jobs</a>
         <a href="employer-login.html" class="nav-link" data-i18n="nav_employers">For Employers</a>
         <a href="profile.html" class="nav-link" data-i18n="nav_profile">My Profile</a>
+        <a href="admin.html" class="nav-link" data-i18n="nav_admin">Admin</a>
       </nav>
 
       <div class="nav-actions">
@@ -40,8 +41,7 @@
           <span class="lang-sep">|</span>
           <span class="lang-opt" data-lang="ar">عربي</span>
         </div>
-        <a href="index.html?auth=login" class="btn-ghost" data-i18n="btn_login">Sign In</a>
-        <a href="index.html?auth=register" class="btn-primary" data-i18n="btn_register">Create Account</a>
+        <a href="jobs.html" class="btn-outline" data-i18n="nav_jobs">Browse Jobs</a>
       </div>
 
       <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
@@ -49,7 +49,7 @@
       </button>
     </div>
 
-    <!-- Mobile drawer navigation -->
+    <!-- Mobile Drawer Navigation -->
     <div class="mobile-drawer" id="mobileDrawer">
       <div class="lang-pill-container" style="display: flex; justify-content: center; margin-bottom: 12px;">
         <div class="lang-pill" id="langSwitcherMobile" role="button" aria-label="Toggle Language" tabindex="0">
@@ -62,10 +62,7 @@
       <a href="jobs.html" class="mobile-nav-link" data-i18n="nav_jobs">Find Jobs</a>
       <a href="employer-login.html" class="mobile-nav-link" data-i18n="nav_employers">For Employers</a>
       <a href="profile.html" class="mobile-nav-link" data-i18n="nav_profile">My Profile</a>
-      <div class="mobile-auth-actions">
-        <a href="index.html?auth=login" class="btn-ghost w-100" data-i18n="btn_login">Sign In</a>
-        <a href="index.html?auth=register" class="btn-primary w-100" data-i18n="btn_register">Create Account</a>
-      </div>
+      <a href="admin.html" class="mobile-nav-link" data-i18n="nav_admin">Admin</a>
     </div>
   </header>
 
@@ -83,37 +80,37 @@
       <div class="job-detail-header-card">
         <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
           <div style="display: flex; align-items: center; gap: 20px;">
-            <div class="job-company-icon" style="width: 72px; height: 72px; border-radius: 20px;">
+            <div class="job-company-icon" id="jobDetailLogoBox" style="width: 72px; height: 72px; border-radius: 20px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #ffffff; border: 1.5px solid var(--border-card);">
               <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <rect x="2" y="7" width="20" height="14" rx="2"></rect>
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
               </svg>
             </div>
             <div>
-              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-                <h1 id="jobTitleDisplay" style="font-size: 1.8rem; font-weight: 900; color: var(--text-headline);">جاري تحميل الوظيفة...</h1>
-                <span class="badge-verified">شركة معتمدة في مصر</span>
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+                <h1 id="jobTitleDisplay" style="font-size: 1.8rem; font-weight: 900; color: var(--text-headline);">Loading Job...</h1>
+                <span class="badge-verified" data-i18n="job_badge_verified">Verified Egyptian Organization</span>
               </div>
-              <p id="jobCompanyLocation" style="font-size: 1.05rem; font-weight: 600; color: var(--text-muted);">شركة معتمدة • مصر</p>
+              <p id="jobCompanyLocation" style="font-size: 1.05rem; font-weight: 600; color: var(--text-muted);">Verified Enterprise • Egypt</p>
             </div>
           </div>
 
-          <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
             <button type="button" class="btn-outline" id="saveJobBtn">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-              <span>احفظ الوظيفة</span>
+              <span data-i18n="btn_save_job">Save Job</span>
             </button>
             <button type="button" class="btn-primary btn-lg" id="directApplyBtn">
-              <span>قدّم على الوظيفة الآن في ثوانٍ</span>
+              <span data-i18n="btn_apply_hero">Apply to Job Now</span>
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
           </div>
         </div>
 
         <div class="job-card-chips" id="jobChipsContainer" style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle); margin-bottom: 0;">
-          <span class="chip-item" id="chipLocation">القاهرة • مصر</span>
-          <span class="chip-item" id="chipType">دوام كامل</span>
-          <span class="chip-item chip-salary" id="chipSalary">راتب مجزي</span>
+          <span class="chip-item" id="chipLocation">Cairo • Egypt</span>
+          <span class="chip-item" id="chipType">Full-time</span>
+          <span class="chip-item chip-salary" id="chipSalary">Competitive Salary</span>
         </div>
       </div>
 
@@ -122,66 +119,66 @@
         <!-- Main Description -->
         <div class="job-detail-content">
           <div class="job-content-section">
-            <h3>تفاصيل الوظيفة ونبذة عن الدور</h3>
+            <h3 data-i18n="sec_job_desc">Role Overview & Description</h3>
             <p id="jobDescriptionText" style="line-height: 1.8; color: var(--text-body);">
-              تبحث الشركة عن كفاءة مهنية متميزة للانضمام إلى فريق العمل، والعمل على مشاريع حيوية بأعلى معايير الجودة والاحترافية.
+              The enterprise is recruiting top professionals to join the team and execute high-standard initiatives across Egypt.
             </p>
           </div>
 
           <div class="job-content-section" id="responsibilitiesSection">
-            <h3>المهام والمسؤوليات الأساسية</h3>
+            <h3 data-i18n="sec_job_resp">Key Responsibilities</h3>
             <ul id="jobResponsibilitiesList">
-              <li>المشاركة في تنفيذ المهام اليومية والمشاريع المنوطة بالفريق بأعلى جودة.</li>
-              <li>التعاون والتنسيق الفعّال مع مختلف الأقسام لضمان تحقيق أهداف المنشأة.</li>
-              <li>الالتزام بمعايير الجودة والسرعة وإعداد التقارير الدورية للمشرفين.</li>
-              <li>مواكبة أحدث أدوات ومنهجيات العمل وتطوير الأداء المستمر.</li>
+              <li>Execute daily operational milestones and key team objectives with high quality.</li>
+              <li>Collaborate closely with cross-functional leadership to achieve platform benchmarks.</li>
+              <li>Maintain high communication integrity and submit routine milestone updates.</li>
+              <li>Adopt state-of-the-art industry tools and optimize workflow performance.</li>
             </ul>
           </div>
 
           <div class="job-content-section" id="requirementsSection">
-            <h3>الشروط والمؤهلات المطلوبة</h3>
+            <h3 data-i18n="sec_job_req">Required Qualifications</h3>
             <ul id="jobRequirementsList">
-              <li>مؤهل دراسي مناسب مع خبرة عملية في نفس المجال.</li>
-              <li>مهارات تواصل ممتازة والقدرة على العمل بفاعلية ضمن فريق.</li>
-              <li>شخصية إيجابية ومسؤولة قادرة على الابتكار وحل المشكلات.</li>
+              <li>Relevant educational degree or equivalent demonstrated professional experience.</li>
+              <li>Strong communication skills and collaborative team problem-solving ability.</li>
+              <li>Responsible mindset with commitment to craftsmanship and punctual delivery.</li>
             </ul>
           </div>
 
           <div class="job-content-section">
-            <h3>المزايا والبدلات المقدمة</h3>
+            <h3 data-i18n="sec_job_ben">Benefits & Perks</h3>
             <ul id="jobBenefitsList">
-              <li>راتب شهري مجزٍ بالجنيه المصري يتناسب مع الخبرة والكفاءة.</li>
-              <li>تأمين طبي واجتماعي كامل وفق قوانين العمل المصرية.</li>
-              <li>بيئة عمل داعمة ومحفزة على التطور المهني والترقي.</li>
-              <li>مكافآت أداء سنوية وفرص تدريبية دورية.</li>
+              <li>Competitive compensation package in Egyptian Pounds matching seniority.</li>
+              <li>Full medical and social insurance under Egyptian labor regulations.</li>
+              <li>Empowering professional environment with clear career progression paths.</li>
+              <li>Performance-based rewards and annual training opportunities.</li>
             </ul>
           </div>
         </div>
 
         <!-- Sidebar Info -->
         <aside class="job-sidebar-card">
-          <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-headline);">معلومات صاحب العمل والشركة</h3>
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-headline);" data-i18n="sec_employer_info">Employer Information</h3>
           <div style="display: flex; flex-direction: column; gap: 14px; font-size: 0.92rem;">
             <div>
-              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;">اسم المنشأة</span>
-              <strong id="sidebarCompanyName" style="color: var(--text-headline);">شركة معتمدة</strong>
+              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;" data-i18n="lbl_company">Company Name</span>
+              <strong id="sidebarCompanyName" style="color: var(--text-headline);">Verified Organization</strong>
             </div>
             <div>
-              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;">مسؤول التوظيف (HR)</span>
-              <strong id="sidebarHRName" style="color: var(--brand-blue);">فريق الموارد البشرية والتعيين</strong>
+              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;" data-i18n="lbl_hr">Hiring Representative (HR)</span>
+              <strong id="sidebarHRName" style="color: var(--brand-blue);">HR & Talent Acquisition Team</strong>
             </div>
             <div>
-              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;">المقر في مصر</span>
-              <strong id="sidebarLocation" style="color: var(--text-headline);">القاهرة • مصر</strong>
+              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;" data-i18n="lbl_location">Location in Egypt</span>
+              <strong id="sidebarLocation" style="color: var(--text-headline);">Cairo, Egypt</strong>
             </div>
             <div>
-              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;">منصة التقديم</span>
-              <strong id="sidebarWebsite" style="color: var(--brand-blue);">منصة صنارة للتوظيف</strong>
+              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;" data-i18n="lbl_platform">Platform</span>
+              <strong id="sidebarWebsite" style="color: var(--brand-blue);">SANARA Employment Platform</strong>
             </div>
           </div>
 
           <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;">
-            <button type="button" class="btn-primary btn-block" id="sidebarApplyBtn">قدّم الآن في ثوانٍ</button>
+            <button type="button" class="btn-primary btn-block" id="sidebarApplyBtn" data-i18n="btn_apply_instant">Apply in Seconds</button>
           </div>
         </aside>
       </div>
@@ -189,52 +186,56 @@
   </main>
 
   <!-- Apply Modal -->
-  <div class="modal-overlay" id="applyModal" aria-hidden="true" style="display: none;">
-    <div class="modal-card" style="max-width: 520px; padding: 32px;">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-headline); margin: 0;">تقديم طلب توظيف</h3>
-        <button type="button" class="btn-ghost" id="closeApplyModalBtn" style="padding: 6px 12px; font-size: 1.1rem;">✕</button>
+  <div class="modal-backdrop" id="applyModal" aria-hidden="true" role="dialog">
+    <div class="modal-dialog-container">
+      <div class="auth-modal-card" style="max-width: 520px; padding: 32px;">
+        <button type="button" class="modal-close-btn" id="closeApplyModalBtn" aria-label="Close">×</button>
+        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-headline); margin-bottom: 20px;" data-i18n="modal_apply_title">
+          Submit Job Application
+        </h3>
+
+        <form id="jobApplicationForm">
+          <div class="form-group" style="margin-bottom: 14px;">
+            <label class="form-label" data-i18n="lbl_applicant_name">Full Name</label>
+            <input type="text" id="appFullName" class="form-input" placeholder="Your full name" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 14px;">
+            <label class="form-label" data-i18n="lbl_applicant_email">Email Address</label>
+            <input type="email" id="appEmail" class="form-input" placeholder="example@email.com" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 14px;">
+            <label class="form-label" data-i18n="lbl_applicant_phone">Phone / WhatsApp</label>
+            <input type="tel" id="appPhone" class="form-input" placeholder="010XXXXXXXX" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label class="form-label" data-i18n="lbl_applicant_cv">Resume (CV / PDF)</label>
+            <input type="file" id="appCvFile" accept=".pdf,.doc,.docx" class="form-input">
+            <small id="appCvHint" style="display: block; color: var(--text-muted); margin-top: 4px; font-size: 0.8rem;">
+              PDF or DOCX up to 15 MB. If you have a saved CV in your profile, it will be attached automatically.
+            </small>
+          </div>
+
+          <div style="display: flex; gap: 12px; justify-content: flex-end;">
+            <button type="button" class="btn-ghost" id="cancelApplyBtn" data-i18n="btn_cancel">Cancel</button>
+            <button type="submit" class="btn-primary" id="submitAppBtn" style="padding: 10px 24px;" data-i18n="btn_confirm_apply">
+              Confirm & Submit Application 🚀
+            </button>
+          </div>
+        </form>
       </div>
-
-      <form id="jobApplicationForm">
-        <div class="form-group" style="margin-bottom: 14px;">
-          <label class="form-label">الاسم بالكامل</label>
-          <input type="text" id="appFullName" class="form-input" placeholder="اسمك الثلاثي" required>
-        </div>
-
-        <div class="form-group" style="margin-bottom: 14px;">
-          <label class="form-label">البريد الإلكتروني</label>
-          <input type="email" id="appEmail" class="form-input" placeholder="example@email.com" required>
-        </div>
-
-        <div class="form-group" style="margin-bottom: 14px;">
-          <label class="form-label">رقم الهاتف / الواتساب</label>
-          <input type="tel" id="appPhone" class="form-input" placeholder="010XXXXXXXX" required>
-        </div>
-
-        <div class="form-group" style="margin-bottom: 20px;">
-          <label class="form-label">السيرة الذاتية (CV / Resume)</label>
-          <input type="file" id="appCvFile" accept=".pdf,.doc,.docx" class="form-input">
-          <small id="appCvHint" style="display: block; color: var(--text-muted); margin-top: 4px; font-size: 0.8rem;">
-            صيغة PDF بحجم أقصى 10 ميجابايت (إذا كان لديك CV محفوظ بملفك فسيُرسل تلقائياً)
-          </small>
-        </div>
-
-        <div style="display: flex; gap: 12px; justify-content: flex-end;">
-          <button type="button" class="btn-ghost" id="cancelApplyBtn">إلغاء</button>
-          <button type="submit" class="btn-primary" id="submitAppBtn" style="padding: 10px 24px;">تأكيد وإرسال الطلب 🚀</button>
-        </div>
-      </form>
     </div>
   </div>
 
   <footer class="main-footer">
     <div class="section-container footer-bottom-inner" style="border: none; flex-direction: column; gap: 12px; text-align: center;">
       <a href="index.html" class="brand-link" style="margin-bottom: 4px;">
-        <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img-footer" style="margin: 0 auto;">
+        <img src="assets/logo-trimmed.png" alt="SANARA" class="brand-logo-img-footer" style="margin: 0 auto;">
       </a>
-      <p>© 2026 منصة صنارة (SANARA مصر). جميع الحقوق محفوظة.</p>
-      <a href="jobs.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">← العودة لتصفح باقي الوظائف في مصر</a>
+      <p>© 2026 SANARA Egypt. All rights reserved.</p>
+      <a href="jobs.html" style="color: var(--primary); text-decoration: none; font-weight: 700;" data-i18n="nav_jobs">Return to Jobs</a>
     </div>
   </footer>
 
@@ -244,14 +245,13 @@
   <script>
     let currentJob = {
       id: 'job-default',
-      title: 'مهندس برمجيات واجهات وتطبيقات',
-      company: 'شركة وطنية رائدة في مصر',
-      location: 'القاهرة • التجمع الخامس',
-      salary: '25,000 - 38,000 جنيه شهرياً',
-      type: 'دوام كامل (Hybrid)'
+      title: 'Frontend Software Engineer',
+      company: 'Verified Tech Enterprise',
+      location: 'Cairo • New Cairo',
+      salary: '25,000 - 38,000 EGP',
+      type: 'Full-time (Hybrid)'
     };
 
-    // Load Job from Firebase Firestore
     async function loadJobDetails() {
       const urlParams = new URLSearchParams(window.location.search);
       const jobId = urlParams.get('id');
@@ -264,11 +264,9 @@
       if (jobId) {
         try {
           const fetchedJob = await window.SanaraFirebase.getJobById(jobId);
-          if (fetchedJob) {
-            currentJob = { id: jobId, ...fetchedJob };
-          }
+          if (fetchedJob) currentJob = { id: jobId, ...fetchedJob };
         } catch (e) {
-          console.warn("Could not load job from Firestore:", e);
+          console.warn("Could not load job:", e);
         }
       }
 
@@ -276,24 +274,34 @@
     }
 
     function renderJobDetails() {
-      document.title = `${currentJob.title || 'وظيفة'} | منصة صنارة`;
+      const isEn = window.SanaraI18n?.getCurrentLang() === 'en';
+      document.title = `${currentJob.title || (isEn ? 'Job Details' : 'تفاصيل الوظيفة')} | SANARA`;
+      
       const breadcrumbEl = document.getElementById('jobBreadcrumbTitle');
       const titleEl = document.getElementById('jobTitleDisplay');
       const companyLocEl = document.getElementById('jobCompanyLocation');
       const descEl = document.getElementById('jobDescriptionText');
       const chipsEl = document.getElementById('jobChipsContainer');
 
-      if (breadcrumbEl) breadcrumbEl.textContent = currentJob.title || 'تفاصيل الوظيفة';
-      if (titleEl) titleEl.textContent = currentJob.title || 'وظيفة شاغرة';
-      if (companyLocEl) companyLocEl.textContent = `${currentJob.company || 'شركة مسجلة'} • ${currentJob.location || 'مصر'}`;
+      if (breadcrumbEl) breadcrumbEl.textContent = currentJob.title || (isEn ? 'Job Details' : 'تفاصيل الوظيفة');
+      if (titleEl) titleEl.textContent = currentJob.title || (isEn ? 'Open Vacancy' : 'وظيفة شاغرة');
+      if (companyLocEl) companyLocEl.textContent = `${currentJob.company || (isEn ? 'Registered Company' : 'شركة مسجلة')} • ${currentJob.location || (isEn ? 'Egypt' : 'مصر')}`;
       if (descEl && currentJob.description) descEl.textContent = currentJob.description;
+
+      const logoBox = document.getElementById('jobDetailLogoBox');
+      if (logoBox) {
+        if (currentJob.companyLogo) {
+          logoBox.innerHTML = `<img src="${currentJob.companyLogo}" alt="${currentJob.company || 'Company'}" style="width:100%; height:100%; object-fit:contain; border-radius:16px; padding:6px; background:#ffffff;">`;
+        } else {
+          logoBox.innerHTML = `<svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`;
+        }
+      }
 
       if (chipsEl) {
         chipsEl.innerHTML = `
-          <span class="chip-item">${currentJob.location || 'مصر'}</span>
-          <span class="chip-item">${currentJob.type || 'دوام كامل'}</span>
-          <span class="chip-item chip-salary">${currentJob.salary || 'راتب مجزي'}</span>
-          <span class="chip-item">موثّقة ومعتمدة</span>
+          <span class="chip-item">${currentJob.location || (isEn ? 'Cairo, Egypt' : 'القاهرة، مصر')}</span>
+          <span class="chip-item">${currentJob.type || (isEn ? 'Full-time' : 'دوام كامل')}</span>
+          <span class="chip-item chip-salary">${currentJob.salary || (isEn ? 'Competitive' : 'راتب مجزي')}</span>
         `;
       }
 
@@ -301,16 +309,17 @@
       const sidebarHR = document.getElementById('sidebarHRName');
       const sidebarLoc = document.getElementById('sidebarLocation');
 
-      if (sidebarCompany) sidebarCompany.textContent = currentJob.company || 'شركة مسجلة';
-      if (sidebarHR) sidebarHR.textContent = currentJob.hrRepresentative || 'مسؤول التعيين والـ HR';
-      if (sidebarLoc) sidebarLoc.textContent = currentJob.location || 'القاهرة • مصر';
+      if (sidebarCompany) sidebarCompany.textContent = currentJob.company || (isEn ? 'Registered Company' : 'شركة مسجلة');
+      if (sidebarHR) sidebarHR.textContent = currentJob.hrRepresentative || (isEn ? 'HR & Hiring Lead' : 'مسؤول التعيين والـ HR');
+      if (sidebarLoc) sidebarLoc.textContent = currentJob.location || (isEn ? 'Cairo, Egypt' : 'القاهرة • مصر');
 
-      // Requirements if tags exist
       if (Array.isArray(currentJob.tags) && currentJob.tags.length > 0) {
         const reqList = document.getElementById('jobRequirementsList');
         if (reqList) {
-          reqList.innerHTML = currentJob.tags.map(t => `<li>إتقان وخبرة عملية في: <strong>${t}</strong></li>`).join('') +
-            `<li>الالتزام بمعايير العمل الاحترافي وروح الفريق الواحد.</li>`;
+          reqList.innerHTML = currentJob.tags.map(t => isEn 
+            ? `<li>Demonstrated proficiency and experience in: <strong>${t}</strong></li>`
+            : `<li>إتقان وخبرة عملية في: <strong>${t}</strong></li>`).join('') +
+            (isEn ? `<li>Commitment to professional team standards and punctual delivery.</li>` : `<li>الالتزام بمعايير العمل الاحترافي وروح الفريق الواحد.</li>`);
         }
       }
     }
@@ -319,11 +328,10 @@
     const applyModal = document.getElementById('applyModal');
     function openApplyModal() {
       if (!applyModal) return;
-      applyModal.style.display = 'flex';
       applyModal.classList.add('open');
 
-      // Pre-fill profile info if logged in
       const profile = JSON.parse(localStorage.getItem('sanara_user_profile') || 'null');
+      const isEn = window.SanaraI18n?.getCurrentLang() === 'en';
       if (profile) {
         if (profile.fullName && document.getElementById('appFullName')) {
           document.getElementById('appFullName').value = profile.fullName;
@@ -335,7 +343,9 @@
           document.getElementById('appPhone').value = profile.phone;
         }
         if (profile.cvUrl && document.getElementById('appCvHint')) {
-          document.getElementById('appCvHint').textContent = `✓ سيتم استخدام سيرتك الذاتية المحفوظة في ملفك الشخصي (${profile.cvFileName || 'CV'}) أو يمكنك رفع نسخة أحدث هنا.`;
+          document.getElementById('appCvHint').textContent = isEn
+            ? `✓ Saved resume (${profile.cvFileName || 'CV'}) will be attached automatically, or choose a new file.`
+            : `✓ سيتم استخدام سيرتك الذاتية المحفوظة في ملفك الشخصي (${profile.cvFileName || 'CV'}) أو يمكنك رفع نسخة أحدث هنا.`;
           document.getElementById('appCvHint').style.color = '#10B981';
         }
       }
@@ -343,7 +353,6 @@
 
     function closeApplyModal() {
       if (!applyModal) return;
-      applyModal.style.display = 'none';
       applyModal.classList.remove('open');
     }
 
@@ -357,8 +366,10 @@
       e.preventDefault();
       const submitBtn = document.getElementById('submitAppBtn');
       const originalText = submitBtn.innerHTML;
+      const isEn = window.SanaraI18n?.getCurrentLang() === 'en';
+
       submitBtn.disabled = true;
-      submitBtn.innerHTML = 'جاري إرسال الطلب إلى Firebase... ⏳';
+      submitBtn.innerHTML = isEn ? 'Submitting to Firebase... ⏳' : 'جاري إرسال الطلب إلى Firebase... ⏳';
 
       const fullName = document.getElementById('appFullName')?.value.trim();
       const email = document.getElementById('appEmail')?.value.trim();
@@ -370,7 +381,7 @@
         if (window.SanaraFirebase && window.SanaraFirebase.submitApplication) {
           const res = await window.SanaraFirebase.submitApplication({
             jobId: currentJob.id,
-            jobTitle: currentJob.title || 'وظيفة',
+            jobTitle: currentJob.title || (isEn ? 'Job' : 'وظيفة'),
             applicantName: fullName,
             applicantEmail: email,
             applicantPhone: phone,
@@ -379,21 +390,21 @@
 
           if (res.success) {
             closeApplyModal();
-            showToast(`ألف مبروك يا ${fullName}! تم إرسال طلبك لوظيفة (${currentJob.title}) بنجاح إلى صاحب العمل 🚀`, 'success');
+            showToast(isEn ? `Congratulations, ${fullName}! Your application was submitted successfully 🚀` : `ألف مبروك يا ${fullName}! تم إرسال طلبك بنجاح 🚀`, 'success');
             const mainApplyBtn = document.getElementById('directApplyBtn');
             if (mainApplyBtn) {
-              mainApplyBtn.innerHTML = 'تم التقديم بنجاح ✓';
+              mainApplyBtn.innerHTML = isEn ? 'Applied Successfully ✓' : 'تم التقديم بنجاح ✓';
               mainApplyBtn.style.backgroundColor = '#10B981';
               mainApplyBtn.disabled = true;
             }
           } else {
-            showToast(res.error || 'حدث خطأ أثناء التقديم، يرجى المحاولة لاحقاً', 'error');
+            showToast(res.error || (isEn ? 'Error submitting application.' : 'حدث خطأ أثناء التقديم.'), 'error');
           }
         }
       } catch (err) {
         console.error("Application submission error:", err);
         closeApplyModal();
-        showToast('تم تسجيل تقديمك بنجاح.', 'success');
+        showToast(isEn ? 'Application submitted.' : 'تم تسجيل تقديمك بنجاح.', 'success');
       } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
@@ -402,11 +413,13 @@
 
     document.getElementById('saveJobBtn')?.addEventListener('click', function() {
       this.classList.toggle('bookmarked');
+      const isEn = window.SanaraI18n?.getCurrentLang() === 'en';
       if (typeof showToast === 'function') {
-        showToast('تم حفظ الوظيفة في قائمة المفضلة لديك.', 'info');
+        showToast(isEn ? 'Job saved to bookmarks.' : 'تم حفظ الوظيفة في قائمة المفضلة لديك.', 'info');
       }
     });
 
+    window.addEventListener('sanaraLanguageChanged', renderJobDetails);
     window.addEventListener('load', loadJobDetails);
   </script>
 </body>

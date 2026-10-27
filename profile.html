@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional Profile & Applications | SANARA Egypt</title>
-  <meta name="description" content="Manage your professional profile, track job applications, and update your resume on SANARA Egypt.">
+  <title>Professional Profile | SANARA Egypt</title>
+  <meta name="description" content="Manage your professional career profile, update skills and resume, and track active job applications on SANARA.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +31,7 @@
         <a href="jobs.html" class="nav-link" data-i18n="nav_jobs">Find Jobs</a>
         <a href="employer-login.html" class="nav-link" data-i18n="nav_employers">For Employers</a>
         <a href="profile.html" class="nav-link active" data-i18n="nav_profile">My Profile</a>
+        <a href="admin.html" class="nav-link" data-i18n="nav_admin">Admin</a>
       </nav>
 
       <div class="nav-actions">
@@ -40,7 +41,7 @@
           <span class="lang-sep">|</span>
           <span class="lang-opt" data-lang="ar">عربي</span>
         </div>
-        <a href="update-cv.html" class="btn-primary" id="headerEditCvBtn" data-i18n="btn_edit_cv">Update Profile & CV</a>
+        <a href="update-cv.html" class="btn-primary" data-i18n="btn_edit_cv">Update Profile & CV</a>
       </div>
 
       <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
@@ -61,6 +62,7 @@
       <a href="jobs.html" class="mobile-nav-link" data-i18n="nav_jobs">Find Jobs</a>
       <a href="employer-login.html" class="mobile-nav-link" data-i18n="nav_employers">For Employers</a>
       <a href="profile.html" class="mobile-nav-link" data-i18n="nav_profile">My Profile</a>
+      <a href="admin.html" class="mobile-nav-link" data-i18n="nav_admin">Admin</a>
       <div class="mobile-auth-actions" style="margin-top: 16px;">
         <a href="update-cv.html" class="btn-primary w-100" data-i18n="btn_edit_cv">Update Profile & CV</a>
       </div>
@@ -73,7 +75,7 @@
       <!-- Loading State Skeleton -->
       <div id="profileLoadingState" style="text-align: center; padding: 60px 20px;">
         <div style="font-size: 2rem; margin-bottom: 12px;">⏳</div>
-        <p style="color: var(--text-muted); font-size: 1.1rem; font-weight: 700;">جاري تحميل بيانات ملفك المهني من Firebase...</p>
+        <p style="color: var(--text-muted); font-size: 1.1rem; font-weight: 700;" data-i18n="lbl_loading">Loading your profile from Firebase...</p>
       </div>
 
       <!-- Guest / Not Logged In State -->
@@ -81,15 +83,15 @@
         <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--brand-blue-light); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 20px; color: var(--brand-blue);">
           👤
         </div>
-        <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--text-headline); margin-bottom: 10px;">
-          سجّل دخولك للوصول إلى بروفايلك المهني
+        <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--text-headline); margin-bottom: 10px;" data-i18n="lbl_sign_in_profile_title">
+          Sign In to Access Your Profile
         </h2>
-        <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6;">
-          قم بتسجيل الدخول أو إنشاء حساب جديد لتتمكن من متابعة طلبات تقديمك على الوظائف وتحديث سيرتك الذاتية في منصة صنارة.
+        <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6;" data-i18n="lbl_sign_in_profile_sub">
+          Sign in or create a new account to track your submitted job applications and keep your resume updated on SANARA.
         </p>
         <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-          <a href="index.html" class="btn-primary" style="padding: 12px 28px;">تسجيل الدخول / إنشاء حساب</a>
-          <a href="jobs.html" class="btn-outline" style="padding: 12px 24px;">تصفح الوظائف المتاحة</a>
+          <a href="index.html?auth=login" class="btn-primary" style="padding: 12px 28px;" data-i18n="btn_login">Sign In</a>
+          <a href="jobs.html" class="btn-outline" style="padding: 12px 24px;" data-i18n="nav_jobs">Explore Available Jobs</a>
         </div>
       </div>
 
@@ -100,16 +102,16 @@
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
             <div style="display: flex; align-items: center; gap: 22px;">
               <div id="userAvatarCircle" style="width: 80px; height: 80px; border-radius: 50%; background: var(--primary-gradient); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 900; box-shadow: 0 4px 14px var(--primary-glow); flex-shrink: 0;">
-                ص
+                S
               </div>
               <div>
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px; flex-wrap: wrap;">
-                  <h1 id="userFullName" style="font-size: 1.8rem; font-weight: 900; color: var(--text-headline);">حساب مرشح</h1>
-                  <span class="badge-verified" id="userRoleBadge">ملف معتمد</span>
+                  <h1 id="userFullName" style="font-size: 1.8rem; font-weight: 900; color: var(--text-headline);" data-i18n="lbl_candidate_profile">Candidate Profile</h1>
+                  <span class="badge-verified" id="userRoleBadge" data-i18n="lbl_verified_profile">Verified Profile</span>
                 </div>
-                <p id="userJobTitle" style="font-size: 1.05rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px;">كفاءة مهنية مسجلة في مصر</p>
+                <p id="userJobTitle" style="font-size: 1.05rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px;" data-i18n="lbl_professional_talent">Professional Talent in Egypt</p>
                 <div style="display: flex; align-items: center; gap: 16px; font-size: 0.88rem; color: var(--text-muted); flex-wrap: wrap;">
-                  <span id="userLocation">مصر</span>
+                  <span id="userLocation">Egypt</span>
                   <span id="userEmail" dir="ltr"></span>
                   <span id="userPhone" dir="ltr"></span>
                 </div>
@@ -118,7 +120,7 @@
 
             <div style="display: flex; align-items: center; gap: 12px;">
               <a href="update-cv.html" class="btn-primary">
-                <span>تحديث السيرة الذاتية (CV) 📄</span>
+                <span data-i18n="btn_edit_cv">Update Resume (CV) 📄</span>
               </a>
             </div>
           </div>
@@ -132,8 +134,8 @@
             <!-- Real Submitted Applications Section -->
             <div class="job-content-section">
               <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-                <h3 style="margin-bottom: 0;">متابعة طلبات التقديم (Applications)</h3>
-                <span id="appsCountBadge" class="badge-verified" style="background: var(--brand-blue-light); color: var(--brand-blue);">0 تقديمات</span>
+                <h3 style="margin-bottom: 0;" data-i18n="sec_applied">My Job Applications</h3>
+                <span id="appsCountBadge" class="badge-verified" style="background: var(--brand-blue-light); color: var(--brand-blue);">0 Applications</span>
               </div>
               <div id="candidateApplicationsContainer" style="display: flex; flex-direction: column; gap: 12px;">
                 <!-- Dynamically populated from Firestore -->
@@ -142,27 +144,27 @@
 
             <!-- Professional Summary -->
             <div class="job-content-section">
-              <h3>الملخص المهني</h3>
-              <p id="userBioText" style="line-height: 1.8; color: var(--text-body);">
-                لم يتم إضافة ملخص مهني بعد. يمكنك إضافة نبذة عن خبراتك ومسارك الوظيفي من صفحة تعديل الملف.
+              <h3 data-i18n="sec_summary">Professional Summary</h3>
+              <p id="userBioText" style="line-height: 1.8; color: var(--text-body);" data-i18n="sec_summary_empty">
+                No professional summary added yet. You can update your career background from the edit profile page.
               </p>
             </div>
 
             <!-- Work Preferences -->
             <div class="job-content-section">
-              <h3>تفضيلات العمل في مصر</h3>
+              <h3 data-i18n="sec_prefs">Career Preferences in Egypt</h3>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
                 <div style="padding: 14px; background: var(--bg-subtle); border-radius: var(--radius-md);">
-                  <strong style="display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 4px;">الراتب المتوقع</strong>
-                  <span id="prefSalary" style="font-weight: 800; color: var(--text-headline);">يحدد في المقابلة</span>
+                  <strong style="display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 4px;" data-i18n="lbl_exp_salary">Expected Salary</strong>
+                  <span id="prefSalary" style="font-weight: 800; color: var(--text-headline);">Competitive</span>
                 </div>
                 <div style="padding: 14px; background: var(--bg-subtle); border-radius: var(--radius-md);">
-                  <strong style="display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 4px;">نظام العمل</strong>
-                  <span id="prefWorkType" style="font-weight: 800; color: var(--text-headline);">دوام كامل / عن بُعد</span>
+                  <strong style="display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 4px;" data-i18n="lbl_work_model">Work Model</strong>
+                  <span id="prefWorkType" style="font-weight: 800; color: var(--text-headline);" data-i18n="lbl_work_model_val">Full-time / Remote</span>
                 </div>
                 <div style="padding: 14px; background: var(--bg-subtle); border-radius: var(--radius-md);">
-                  <strong style="display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 4px;">فترة الإخطار (Notice Period)</strong>
-                  <span id="prefNotice" style="font-weight: 800; color: var(--text-headline);">متاح للبدء فوراً</span>
+                  <strong style="display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 4px;" data-i18n="lbl_notice_period">Notice Period</strong>
+                  <span id="prefNotice" style="font-weight: 800; color: var(--text-headline);" data-i18n="lbl_notice_val">Immediate Availability</span>
                 </div>
               </div>
             </div>
@@ -171,19 +173,19 @@
 
           <!-- Sidebar -->
           <aside class="job-sidebar-card">
-            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-headline);">المهارات والتقنيات</h3>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-headline);" data-i18n="sec_skills">Professional Skills</h3>
             <div class="job-card-skills" id="userSkillsContainer" style="margin-bottom: 0;">
               <!-- Dynamically rendered -->
             </div>
 
             <div style="border-top: 1px solid var(--border-subtle); padding-top: 18px; margin-top: 20px;">
-              <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 10px;">ملف السيرة الذاتية (CV)</h4>
+              <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 10px;" data-i18n="lbl_resume_file">Resume File (CV)</h4>
               <div id="cvDisplayBox" style="padding: 16px; border: 1.5px dashed var(--border-card); border-radius: var(--radius-md); text-align: center;">
-                <p id="cvFileNameLabel" style="font-size: 0.9rem; font-weight: 800; color: var(--text-headline); margin-bottom: 4px;">لم يتم رفع سيرة ذاتية بعد</p>
-                <span id="cvUploadDateLabel" style="font-size: 0.78rem; color: var(--text-muted); display: block; margin-bottom: 12px;">ارفع سيرتك الذاتية لزيادة فرص قبولك</span>
+                <p id="cvFileNameLabel" style="font-size: 0.9rem; font-weight: 800; color: var(--text-headline); margin-bottom: 4px;" data-i18n="lbl_no_cv">No resume uploaded yet</p>
+                <span id="cvUploadDateLabel" style="font-size: 0.78rem; color: var(--text-muted); display: block; margin-bottom: 12px;" data-i18n="lbl_cv_boost">Upload your CV to boost recruiter visibility</span>
                 <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-                  <a href="#" id="downloadCvBtn" class="btn-outline btn-sm" style="display: none;" target="_blank">تحميل الـ CV</a>
-                  <a href="update-cv.html" class="btn-primary btn-sm">رفع وتحديث الـ CV</a>
+                  <a href="#" id="downloadCvBtn" class="btn-outline btn-sm" style="display: none;" target="_blank" data-i18n="lbl_download_cv">Download CV 📄</a>
+                  <a href="update-cv.html" class="btn-primary btn-sm" data-i18n="lbl_upload_cv">Upload CV</a>
                 </div>
               </div>
             </div>
@@ -197,10 +199,10 @@
   <footer class="main-footer">
     <div class="section-container footer-bottom-inner" style="border: none; flex-direction: column; gap: 12px; text-align: center;">
       <a href="index.html" class="brand-link" style="margin-bottom: 4px;">
-        <img src="assets/logo-trimmed.png" alt="صنارة" class="brand-logo-img-footer" style="margin: 0 auto;">
+        <img src="assets/logo-trimmed.png" alt="SANARA" class="brand-logo-img-footer" style="margin: 0 auto;">
       </a>
-      <p>© 2026 منصة صنارة للتوظيف (SANARA مصر). جميع الحقوق محفوظة.</p>
-      <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">الرجوع للرئيسية</a>
+      <p data-i18n="footer_rights">© 2026 SANARA Egypt. All rights reserved.</p>
+      <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 700;" data-i18n="nav_home">Return to Home</a>
     </div>
   </footer>
 
@@ -208,144 +210,187 @@
   <script type="module" src="firebase.js"></script>
   <script src="app.js"></script>
   <script>
-    // Dynamic Profile Loader from Firebase
-    window.addEventListener('load', () => {
+    // Fast 0ms Profile Loader (Instant Cached View + Reactive Firebase Update)
+    (function initFastProfile() {
       const loadingState = document.getElementById('profileLoadingState');
       const guestState = document.getElementById('profileGuestState');
       const authView = document.getElementById('profileAuthenticatedView');
 
-      if (!window.SanaraFirebase || !window.SanaraFirebase.onAuthChange) {
-        setTimeout(checkFallbackProfile, 1000);
-        return;
-      }
-
-      window.SanaraFirebase.onAuthChange(async (user, profile) => {
-        loadingState.style.display = 'none';
-
-        if (!user) {
-          guestState.style.display = 'block';
-          authView.style.display = 'none';
+      function renderProfile(user, profile) {
+        if (!user && !profile) {
+          if (loadingState) loadingState.style.display = 'none';
+          if (guestState) guestState.style.display = 'block';
+          if (authView) authView.style.display = 'none';
           return;
         }
 
-        guestState.style.display = 'none';
-        authView.style.display = 'block';
+        if (loadingState) loadingState.style.display = 'none';
+        if (guestState) guestState.style.display = 'none';
+        if (authView) authView.style.display = 'block';
 
-        const name = profile?.fullName || user.displayName || user.email.split('@')[0];
-        document.getElementById('userFullName').textContent = name;
-        document.getElementById('userAvatarCircle').textContent = name.trim().charAt(0) || 'ص';
-        document.getElementById('userEmail').textContent = user.email || '';
-        document.getElementById('userJobTitle').textContent = profile?.jobTitle || 'مرشح وباحث عن عمل في مصر';
-        document.getElementById('userLocation').textContent = profile?.location || 'القاهرة، مصر';
-        document.getElementById('userPhone').textContent = profile?.phone || '';
+        const name = profile?.fullName || user?.displayName || user?.email?.split('@')[0] || 'Professional';
+        const isEn = window.SanaraI18n?.getCurrentLang() === 'en';
 
-        if (profile?.role === 'employer') {
-          document.getElementById('userRoleBadge').textContent = 'صاحب عمل معتمد 🏢';
-        } else {
-          document.getElementById('userRoleBadge').textContent = 'كفاءة مهنية موثّقة 👤';
+        const fullNameEl = document.getElementById('userFullName');
+        if (fullNameEl) fullNameEl.textContent = name;
+        const avatarEl = document.getElementById('userAvatarCircle');
+        if (avatarEl) avatarEl.textContent = name.trim().charAt(0) || 'S';
+        const emailEl = document.getElementById('userEmail');
+        if (emailEl) emailEl.textContent = user?.email || profile?.email || '';
+        const jobTitleEl = document.getElementById('userJobTitle');
+        if (jobTitleEl) jobTitleEl.textContent = profile?.jobTitle || (isEn ? 'Candidate in Egypt' : 'مرشح وباحث عن عمل في مصر');
+        const locEl = document.getElementById('userLocation');
+        if (locEl) locEl.textContent = profile?.location || (isEn ? 'Cairo, Egypt' : 'القاهرة، مصر');
+        const phoneEl = document.getElementById('userPhone');
+        if (phoneEl) phoneEl.textContent = profile?.phone || '';
+
+        const badgeEl = document.getElementById('userRoleBadge');
+        if (badgeEl) {
+          if (profile?.role === 'employer') {
+            badgeEl.textContent = isEn ? 'Verified Employer 🏢' : 'صاحب عمل معتمد 🏢';
+          } else {
+            badgeEl.textContent = isEn ? 'Verified Talent 👤' : 'كفاءة مهنية موثّقة 👤';
+          }
         }
 
         if (profile?.bio) {
-          document.getElementById('userBioText').textContent = profile.bio;
+          const bioEl = document.getElementById('userBioText');
+          if (bioEl) bioEl.textContent = profile.bio;
         }
 
         if (profile?.expectedSalary) {
-          document.getElementById('prefSalary').textContent = profile.expectedSalary;
+          const salEl = document.getElementById('prefSalary');
+          if (salEl) salEl.textContent = profile.expectedSalary;
         }
         if (profile?.workType) {
-          document.getElementById('prefWorkType').textContent = profile.workType;
+          const wtEl = document.getElementById('prefWorkType');
+          if (wtEl) wtEl.textContent = profile.workType;
         }
         if (profile?.noticePeriod) {
-          document.getElementById('prefNotice').textContent = profile.noticePeriod;
+          const npEl = document.getElementById('prefNotice');
+          if (npEl) npEl.textContent = profile.noticePeriod;
         }
 
         // CV File
         if (profile?.cvUrl) {
-          document.getElementById('cvFileNameLabel').textContent = profile.cvFileName || 'سيرة ذاتية مرفوعة (PDF)';
-          document.getElementById('cvUploadDateLabel').textContent = 'تم حفظ الملف السحابي في Firebase بنجاح ✓';
+          const fnEl = document.getElementById('cvFileNameLabel');
+          if (fnEl) fnEl.textContent = profile.cvFileName || (isEn ? 'Uploaded Resume (PDF)' : 'سيرة ذاتية مرفوعة (PDF)');
+          const dateEl = document.getElementById('cvUploadDateLabel');
+          if (dateEl) dateEl.textContent = isEn ? 'File stored safely in Firebase ✓' : 'تم حفظ الملف السحابي في Firebase بنجاح ✓';
           const downloadBtn = document.getElementById('downloadCvBtn');
-          downloadBtn.href = profile.cvUrl;
-          downloadBtn.style.display = 'inline-flex';
+          if (downloadBtn) {
+            downloadBtn.href = profile.cvUrl;
+            downloadBtn.style.display = 'inline-flex';
+          }
         }
 
         // Skills
         const skillsContainer = document.getElementById('userSkillsContainer');
-        skillsContainer.innerHTML = '';
-        if (Array.isArray(profile?.skills) && profile.skills.length > 0) {
-          profile.skills.forEach(skill => {
-            const span = document.createElement('span');
-            span.className = 'skill-tag skill-tag-blue';
-            span.textContent = skill;
-            skillsContainer.appendChild(span);
+        if (skillsContainer) {
+          skillsContainer.innerHTML = '';
+          if (Array.isArray(profile?.skills) && profile.skills.length > 0) {
+            profile.skills.forEach(skill => {
+              const span = document.createElement('span');
+              span.className = 'skill-tag skill-tag-blue';
+              span.textContent = skill;
+              skillsContainer.appendChild(span);
+            });
+          } else {
+            skillsContainer.innerHTML = `<span style="font-size:0.85rem; color:var(--text-muted);">${isEn ? 'No skills added yet.' : 'لم يتم إضافة مهارات بعد.'}</span>`;
+          }
+        }
+      }
+
+      // 1. Instant cache check (0ms display)
+      const cached = localStorage.getItem('sanara_user_profile');
+      if (cached) {
+        try {
+          const p = JSON.parse(cached);
+          renderProfile({ uid: p.uid, email: p.email, displayName: p.fullName }, p);
+        } catch (e) {}
+      }
+
+      // 2. Reactive Firebase onAuthChange listener
+      function attachAuthListener() {
+        if (window.SanaraFirebase?.onAuthChange) {
+          window.SanaraFirebase.onAuthChange((user, profile) => {
+            renderProfile(user, profile);
+            if (user) loadCandidateApplications();
           });
         } else {
-          skillsContainer.innerHTML = '<span style="font-size:0.85rem; color:var(--text-muted);">لم يتم إضافة مهارات بعد.</span>';
+          setTimeout(attachAuthListener, 150);
         }
+      }
+      attachAuthListener();
 
-        // Load Real Applications from Firestore
-        await loadCandidateApplications();
-      });
+      // Fallback: If after 1200ms nothing resolved and no cached profile, show guest
+      setTimeout(() => {
+        if (!cached && loadingState && loadingState.style.display !== 'none') {
+          loadingState.style.display = 'none';
+          if (guestState) guestState.style.display = 'block';
+        }
+      }, 1200);
 
       async function loadCandidateApplications() {
         const appsContainer = document.getElementById('candidateApplicationsContainer');
         const countBadge = document.getElementById('appsCountBadge');
+        const isEn = window.SanaraI18n?.getCurrentLang() === 'en';
 
         try {
           if (window.SanaraFirebase && window.SanaraFirebase.fetchCandidateApplications) {
             const apps = await window.SanaraFirebase.fetchCandidateApplications();
-            countBadge.textContent = `${apps.length} تقديمات`;
+            if (countBadge) countBadge.textContent = `${apps.length} ${isEn ? 'Applications' : 'تقديمات'}`;
 
-            if (apps.length === 0) {
-              appsContainer.innerHTML = `
-                <div style="padding: 24px; text-align: center; background: var(--bg-subtle); border-radius: var(--radius-md);">
-                  <p style="color: var(--text-muted); margin-bottom: 12px; font-weight: 600;">لم تقدم على أي وظائف بعد.</p>
-                  <a href="jobs.html" class="btn-primary btn-sm">استكشف الوظائف وقدّم الآن</a>
-                </div>
-              `;
+            if (!apps || apps.length === 0) {
+              if (appsContainer) {
+                appsContainer.innerHTML = `
+                  <div style="padding: 24px; text-align: center; background: var(--bg-subtle); border-radius: var(--radius-md);">
+                    <p style="color: var(--text-muted); margin-bottom: 12px; font-weight: 600;">
+                      ${isEn ? 'You have not submitted any applications yet.' : 'لم تقدم على أي وظائف بعد.'}
+                    </p>
+                    <a href="jobs.html" class="btn-primary btn-sm">${isEn ? 'Explore Jobs & Apply Now' : 'استكشف الوظائف وقدّم الآن'}</a>
+                  </div>
+                `;
+              }
               return;
             }
 
-            appsContainer.innerHTML = '';
-            apps.forEach(app => {
-              const div = document.createElement('div');
-              div.style = 'padding: 16px; border-radius: var(--radius-md); background: var(--bg-subtle); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;';
-              
-              let statusText = 'قيد المراجعة';
-              let statusColor = 'var(--brand-blue)';
-              let statusBg = 'var(--brand-blue-light)';
+            if (appsContainer) {
+              appsContainer.innerHTML = '';
+              apps.forEach(app => {
+                const div = document.createElement('div');
+                div.style = 'padding: 16px; border-radius: var(--radius-md); background: var(--bg-subtle); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;';
+                
+                let statusText = isEn ? 'Under Review' : 'قيد المراجعة';
+                let statusColor = 'var(--brand-blue)';
+                let statusBg = 'var(--brand-blue-light)';
 
-              if (app.status === 'interview') {
-                statusText = 'تم تحديد موعد مقابلة 🎉';
-                statusColor = '#059669';
-                statusBg = '#D1FAE5';
-              }
+                if (app.status === 'interview') {
+                  statusText = isEn ? 'Interview Scheduled 🎉' : 'تم تحديد موعد مقابلة 🎉';
+                  statusColor = '#059669';
+                  statusBg = '#D1FAE5';
+                } else if (app.status === 'accepted') {
+                  statusText = isEn ? 'Accepted 🌟' : 'تم القبول 🌟';
+                  statusColor = '#059669';
+                  statusBg = '#D1FAE5';
+                }
 
-              div.innerHTML = `
-                <div>
-                  <strong style="color: var(--text-headline); display: block; font-size: 1rem;">${app.jobTitle || 'وظيفة بدون عنوان'}</strong>
-                  <span style="font-size: 0.82rem; color: var(--text-muted);">تم التقديم بنجاح عبر منصة صنارة</span>
-                </div>
-                <span class="badge-verified" style="background-color: ${statusBg}; color: ${statusColor};">${statusText}</span>
-              `;
-              appsContainer.appendChild(div);
-            });
+                div.innerHTML = `
+                  <div>
+                    <strong style="color: var(--text-headline); display: block; font-size: 1rem;">${app.jobTitle || 'Role'}</strong>
+                    <span style="font-size: 0.82rem; color: var(--text-muted);">${isEn ? 'Submitted via SANARA Platform' : 'تم التقديم بنجاح عبر منصة صنارة'}</span>
+                  </div>
+                  <span class="badge-verified" style="background-color: ${statusBg}; color: ${statusColor};">${statusText}</span>
+                `;
+                appsContainer.appendChild(div);
+              });
+            }
           }
         } catch (e) {
           console.warn("Failed to load applications:", e);
         }
       }
-
-      function checkFallbackProfile() {
-        const cached = localStorage.getItem('sanara_user_profile');
-        if (cached) {
-          loadingState.style.display = 'none';
-          authView.style.display = 'block';
-        } else {
-          loadingState.style.display = 'none';
-          guestState.style.display = 'block';
-        }
-      }
-    });
+    })();
   </script>
 </body>
 </html>
